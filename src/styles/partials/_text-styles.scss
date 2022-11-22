@@ -1,0 +1,85 @@
+/* Mobile text styles */
+@mixin page-header-mobile {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  font-weight: 600;
+}
+
+@mixin subheader-mobile {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+@mixin labels-links-btn-mobile {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
+
+@mixin table-header-mobile {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  font-weight: 600;
+}
+
+@mixin body-large-mobile {
+  font-size: 0.9375rem;
+  line-height: 1.625rem;
+  font-weight: 400;
+}
+
+@mixin body-medium-mobile {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+
+@mixin body-small-mobile {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  font-weight: 400;
+}
+
+/* Desktop text styles */
+@mixin page-header-desktop-tablet {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 600;
+}
+
+@mixin subheader-desktop-tablet {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+}
+
+@mixin labels-links-btn-desktop-tablet {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 400;
+}
+
+@mixin table-header-desktop-tablet {
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  font-weight: 600;
+}
+
+@mixin body-large-desktop-tablet {
+  font-size: 1rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+}
+
+@mixin body-medium-desktop-tablet {
+  font-weight: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 400;
+}
+
+@mixin body-small-desktop-tablet {
+  font-weight: 0.75rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+}
