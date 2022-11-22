@@ -1,4 +1,5 @@
 import {BrowserRouter,Routes,Route} from "react-router-dom"
+import Header from "./components/header/Header"
 
 function App() {
   return (
@@ -6,12 +7,11 @@ function App() {
       <BrowserRouter>
       <Header />
       <Routes>
-        <Route path='' element={}/>
-        <Route path='' element={}/>
+        {/* <Route path='' element={}/>
+        <Route path='' element={}/> */}
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
       </BrowserRouter>
-      <header className="App-header"></header>
     </div>
   );
 }
