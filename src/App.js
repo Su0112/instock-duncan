@@ -1,16 +1,22 @@
-import {BrowserRouter,Routes,Route} from "react-router-dom"
-import Header from "./components/header/Header"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/header/Header";
+import WarehouseList from "./components/warehouseList/WarehouseList";
+import "./app.scss";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <BrowserRouter>
-      <Header />
-      <Routes>
-        {/* <Route path='' element={}/>
+        <Header />
+        <div className="app__container">
+          <WarehouseList />
+        </div>
+
+        <Routes>
+          {/* <Route path='' element={}/>
         <Route path='' element={}/> */}
-      </Routes>
-      {/* <Footer /> */}
+        </Routes>
+        {/* <Footer /> */}
       </BrowserRouter>
     </div>
   );
