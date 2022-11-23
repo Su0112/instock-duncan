@@ -1,0 +1,254 @@
+@use "../../styles/partials/color" as *;
+@use "../../styles/partials/breakpoints" as breakpoints;
+@use "../../styles/partials/text-styles" as text;
+@use "../../styles/partials/resets";
+@use "../../styles/partials/fonts";
+
+.inventory {
+  display: flex;
+  flex-direction: column;
+  &__top-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 2rem;
+  }
+  &__headerText {
+    @include text.page-header-mobile;
+    margin: 0;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+  &__searchBar-wrapper {
+    width: 100%;
+  }
+
+  &__search-input {
+    background: url("../../assets/Icons/search-24px.svg") no-repeat left;
+    background-position: 22rem;
+    background-position: right;
+    border-radius: 20px;
+    border: 1px solid $Slate;
+    width: 100%;
+    height: 36px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 1rem;
+  }
+  &__search-input::placeholder {
+    color: $Slate;
+  }
+  &__addItem-btn {
+    @include text.labels-links-btn-mobile;
+    background-color: $Instock-Indigo;
+    color: $White;
+    border: none;
+    border-radius: 20px;
+    height: 2.25rem;
+    width: 100%;
+  }
+
+  // Inventory card
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+  &__card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    border-top: 2px $Cloud solid;
+  }
+
+  &__actions {
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__actions button {
+    border: none;
+    background: none;
+  }
+
+  &__actions-btns {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__card-wrapper > div {
+    padding-bottom: 1rem;
+    width: 50%;
+  }
+
+  &__card-wrapper div p {
+    margin: 0;
+    @include text.body-small-mobile;
+    color: $Instock-Black;
+  }
+
+  &__card-wrapper div div a {
+    display: flex;
+    align-items: center;
+  }
+  &__sort-header {
+    display: flex;
+  }
+
+  &__sort-headerText {
+    margin: 0;
+    padding-bottom: 0.25rem;
+    @include text.table-header-mobile;
+    color: $Slate;
+  }
+  &__sort-sortIcon {
+    display: none;
+  }
+  &__actions-header {
+    display: none;
+  }
+  //   &__appliance-wrapper a {
+  //     text-decoration: none;
+  //   }   app.scss has text-decoration:none
+  &__applianceText {
+    color: $Instock-Indigo !important;
+  }
+}
+
+@include breakpoints.medium {
+  .inventory {
+    display: flex;
+    flex-direction: column;
+    &__top-wrapper {
+      display: flex;
+      flex-direction: row;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-bottom: 1.5rem;
+    }
+
+    &__headerText {
+      @include text.page-header-desktop-tablet;
+      width: 50%;
+      margin: 0;
+      padding-top: 1.5rem;
+      padding-bottom: 1rem;
+    }
+    &__searchBar-wrapper {
+      width: 25%;
+      padding-top: 1.5rem;
+    }
+
+    &__search-input {
+      background: url("../../assets/Icons/search-24px.svg") no-repeat right;
+      border-radius: 20px;
+      border: 1px solid $Slate;
+      width: 100%;
+      height: 2.25rem;
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+    }
+    &__search-input::placeholder {
+      color: $Slate;
+    }
+
+    &__addItems-wrapper {
+      width: 25%;
+      padding-left: 1rem;
+      padding-top: 1.5rem;
+    }
+    &__addItem-btn {
+      @include text.labels-links-btn-desktop-tablet;
+      background-color: $Instock-Indigo;
+      color: $White;
+      border: none;
+      border-radius: 20px;
+      height: 2.25rem;
+      width: 100%;
+    }
+
+    // Inventory card
+    &__list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__card-wrapper:not(:first-child) &__sort-header {
+      display: none;
+    }
+
+    &__card-wrapper {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      justify-content: flex-end;
+      padding-top: 1rem;
+      border-top: 2px $Cloud solid;
+    }
+
+    &__actions {
+      width: 100% !important;
+      display: block;
+    }
+
+    &__actions-btns {
+      width: 100%;
+      display: block;
+      justify-content: normal;
+    }
+
+    &__actions button {
+      border: none;
+      background: none;
+      padding: 0;
+    }
+    &__card-wrapper > div {
+      padding-bottom: 1rem;
+      width: 100%;
+    }
+
+    &__card-wrapper div:nth-of-type(1) {
+      order: 1;
+    }
+    &__card-wrapper div:nth-of-type(2) {
+      order: 3;
+    }
+    &__card-wrapper div:nth-of-type(3) {
+      order: 2;
+    }
+    &__card-wrapper div:nth-of-type(4) {
+      order: 4;
+    }
+    &__card-wrapper div:nth-of-type(5) {
+      order: 5;
+    }
+    &__card-wrapper div:nth-of-type(6) {
+      order: 6;
+    }
+
+    &__card-wrapper div p {
+      margin: 0;
+      @include text.body-small-desktop-tablet;
+      color: $Instock-Black;
+    }
+
+    &__card-wrapper div div {
+      display: flex;
+    }
+
+    &__sort-headerText {
+      margin: 0;
+      padding-bottom: 4px;
+      @include text.table-header-desktop-tablet;
+      color: $Slate;
+    }
+    &__sort-sortIcon {
+      display: inline;
+      padding-left: 0.25rem;
+    }
+  }
+}
