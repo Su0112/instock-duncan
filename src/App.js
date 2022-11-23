@@ -5,8 +5,8 @@ import AddInventoryItem from "./components/addInventoryItem/AddInventoryItem";
 import InventoryItemDetails from "./components/inventoryItemDetails/InventoryItemDetails";
 
 import WarehouseList from "./components/warehouseList/WarehouseList";
+import WarehouseDetails from "./components/warehouseDetails/WarehouseDetails";
 import "./App.scss";
-
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
               <Route path="/" element={<WarehouseList />} />
               <Route path="/inventory" element={<InventoryList />} />
               <Route path="/addInventoryItem" element={<AddInventoryItem />} />
+              <Route path="/:warehouseId" element={<WarehouseDetails />} />
               {/* add for editInventoryItem */}
               <Route
                 path="/inventoryDetails"
