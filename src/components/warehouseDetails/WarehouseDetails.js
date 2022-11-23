@@ -35,8 +35,16 @@ export default function WarehouseDetails() {
 
   return (
     <>
+      {warehouse && (
+        <div className="main">
+          <div className="warehoseDetail">
+            <h3 className="warehoseDetail__name">{warehouse.warehouse_name}</h3>
+          </div>
+        </div>
+      )}
+
       {
-        console.log(inventories)
+        // console.log(inventories)
         // console.log(inventories)
       }
     </>
