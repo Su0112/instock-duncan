@@ -26,7 +26,7 @@ function InventoryList() {
 
         <div className="inventory__addItems-wrapper">
           <button className="inventory__addItem-btn" type="submit">
-            + Add New Item
+            +Add New Item
           </button>
         </div>
       </div>
@@ -111,68 +111,12 @@ function InventoryList() {
 
             <div className="inventory__actions-btns">
               <button>
-                <img src={deleteIcon} alt="" />
+                <img src={deleteIcon} alt="delete icon" />
               </button>
               <button>
-                <img src={editIcon} alt="" />
+                <img src={editIcon} alt="edit icon" />
               </button>
             </div>
-          </div>
-        </div>
-        <div className="inventory__card-wrapper">
-          {/* INVENTORY ITEM */}
-          <div className="inventory__item-wrapper">
-            <div className="inventory__sort-header">
-              <h5 className="inventory__sort-headerText ">INVENTORY ITEM</h5>
-              <img
-                className="inventory__sort-sortIcon"
-                src={sortIcon}
-                alt="sort icon"
-              />
-            </div>
-            <div className="inventory__appliance-wrapper">
-              <p className="inventory__applianceText">Television</p>
-              <img src={chevronRightIcon} alt="" />{" "}
-            </div>
-          </div>
-
-          {/* INVENTORY STATUS */}
-          <div className="inventory__status-wrapper">
-            <div className="inventory__sort-header">
-              <h5 className="inventory__sort-headerText">STATUS</h5>
-            </div>
-            <p className="inventory__statusText">IN STOCK</p>
-          </div>
-
-          {/* INVENTORY CATEGORY */}
-          <div className="inventory__category-wrapper">
-            <div className="inventory__sort-header">
-              <h5 className="inventory__sort-headerText">CATEGORY</h5>
-            </div>
-            <p className="inventory__categoryText">Electronics</p>
-          </div>
-
-          {/* INVENTORY QTY */}
-          <div className="inventory__qty-wrapper">
-            <div className="inventory__sort-header">
-              <h5 className="inventory__sort-headerText">QTY</h5>
-            </div>
-            <p className="inventory__qtyText">500</p>
-          </div>
-          {/* INVENTORY WAREHOUSE */}
-          <div className="inventory__warehouse-wrapper">
-            <div className="inventory__sort-header">
-              <h5 className="inventory__sort-headerText">WAREHOUSE</h5>
-            </div>
-            <p className="inventory__warehouseText">Manhattan</p>
-          </div>
-          <div className="inventory__actions">
-            <button>
-              <img src={deleteIcon} alt="" />
-            </button>
-            <button>
-              <img src={editIcon} alt="" />
-            </button>
           </div>
         </div>
       </div>
