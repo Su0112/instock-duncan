@@ -1,0 +1,21 @@
+@use "./styles/partials/color" as *;
+@use "./styles/partials/breakpoints" as breakpoints;
+@use "./styles/partials/text-styles" as text;
+@use "./styles/partials/resets";
+@use "./styles/partials/fonts";
+
+
+a {
+  text-decoration: none;
+}
+.app {
+  &__container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -4rem;
+    width: 90vw;
+    background-color: white;
+    border-radius: 0.2rem;
+  }
+}
