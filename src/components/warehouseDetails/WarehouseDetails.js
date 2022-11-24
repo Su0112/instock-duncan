@@ -2,6 +2,8 @@ import "./warehouseDetails.scss";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Edit from "../../assets/Icons/edit-24px.svg";
+import Back from "../../assets/Icons/arrow_back-24px.svg";
 
 const URL = "http://localhost:8080/warehouses/";
 
@@ -38,7 +40,17 @@ export default function WarehouseDetails() {
       {warehouse && (
         <div className="main">
           <div className="warehoseDetail">
+            <img
+              className="warehouseDetail__back"
+              src={Back}
+              alt="pencil"
+            ></img>
             <h3 className="warehoseDetail__name">{warehouse.warehouse_name}</h3>
+            <img
+              className="warehouseDetail__edit"
+              src={Edit}
+              alt="pencil"
+            ></img>
           </div>
         </div>
       )}
