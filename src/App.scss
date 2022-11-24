@@ -4,23 +4,6 @@
 @use "./styles/partials/resets";
 @use "./styles/partials/fonts";
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  font-family: "Titillium";
-  line-height: 1.8rem;
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
 
 a {
   text-decoration: none;
