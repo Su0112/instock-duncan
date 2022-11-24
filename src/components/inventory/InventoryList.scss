@@ -95,6 +95,9 @@
     display: flex;
     align-items: center;
   }
+  &__card-wrapper div div img {
+    height: 1rem;
+  }
   &__sort-header {
     display: flex;
   }
