@@ -16,6 +16,7 @@
       display: flex;
       justify-content: space-evenly;
       align-items: center;
+
       &-bar {
         background: url("../../assets/Icons/search-24px.svg") no-repeat left;
         background-position: 0.625rem;
@@ -30,6 +31,9 @@
         padding-left: 1rem;
       }
     }
+  }
+  &__list-sortIcon {
+    display: none;
   }
   &__header-button {
     display: flex;
@@ -53,34 +57,63 @@
   }
   &__list-container {
     display: flex;
+    justify-content: space-around;
     flex-direction: column;
     padding-top: 1rem;
     border-top: 0.1rem solid $Cloud;
+    padding: 1rem;
     &-wrap {
       display: flex;
       justify-content: space-around;
       font-size: 0.6875rem;
       @include text.table-header-mobile;
       color: $Slate;
+      gap: 2rem;
     }
   }
+  &__actions-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__actions-button {
+    border: none;
+    background: none;
+  }
 }
-.list__actions-container {
-  display: flex;
-  justify-content: space-between;
+
+.list {
+  &__location-infoText {
+    color: $Instock-Indigo;
+    @include text.labels-links-btn-mobile;
+  }
+
+  &__location-title,
+  &__address-title,
+  &__name-title,
+  &__contact-title {
+    display: flex;
+    justify-content: flex-start;
+  }
+  &__location-info-wrapper,
+  &__address-info,
+  &__name-info,
+  &__contact-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    @include text.body-medium-mobile;
+    color: $Instock-Black;
+  }
+  &__location-titleText,
+  &__address-titleText,
+  &__name-titleText,
+  &__contact-titleText {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
-.list__actions-delete {
-  background: url("../../assets/Icons/delete_outline-24px.svg") no-repeat left;
-  background-position: 0.5rem;
-  background-size: 1rem;
-  width: 2rem;
-}
-.list__actions-edit {
-  background: url("../../assets/Icons/edit-24px.svg") no-repeat left;
-  background-position: 0.5rem;
-  background-size: 1rem;
-  width: 2rem;
-}
+
 //Breakpoints for tablet
 @include breakpoints.medium {
   .warehouses {
@@ -93,7 +126,6 @@
         display: flex;
         align-items: flex-end;
         padding-bottom: 1rem;
-
         gap: 1rem;
       }
       &-title {
@@ -121,15 +153,33 @@
       &-wrapper--large {
         display: inline;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         @include text.table-header-desktop-tablet;
         color: $Slate;
         background-color: rgba(247, 248, 249, 0.7);
         border: 1px solid rgba(247, 248, 249, 0.7);
+        gap: 3.75rem;
+        padding-left: 2rem;
       }
     }
     &__list-container {
       border-top: none;
+      display: inline;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      padding-left: 2rem;
+
+      &-wrap {
+        display: inline;
+        display: flex;
+        justify-content: flex-start;
+      }
+    }
+    &__actions-container {
+      display: inline;
+      display: flex;
+      align-content: center;
     }
   }
   .list {
@@ -139,22 +189,30 @@
     &__contact-title {
       display: none;
     }
+
+    &__location-address {
+      display: flex;
+      justify-content: flex-start;
+      width: 40%;
+      gap: 3rem;
+    }
+    &__name-contact {
+      display: flex;
+      justify-content: flex-start;
+      width: 60%;
+      gap: 2rem;
+    }
   }
-  .list__actions-container {
-    display: inline;
-    display: flex;
-    justify-content: space-around;
-  }
-}
-//Breakpoints for desktop
-@include breakpoints.large {
-  .warehouses {
-    &__header {
-      padding: 1.5rem 2rem 0.5rem 2rem;
-      &-search {
-        &-bar {
-          width: 17.125rem;
-          height: 2.375rem;
+  //Breakpoints for desktop
+  @include breakpoints.large {
+    .warehouses {
+      &__header {
+        padding: 1.5rem 2rem 0.5rem 2rem;
+        &-search {
+          &-bar {
+            width: 17.125rem;
+            height: 2.375rem;
+          }
         }
       }
     }
