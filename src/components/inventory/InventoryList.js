@@ -2,6 +2,7 @@ import sortIcon from "../../assets/Icons/sort-24px.svg";
 import chevronRightIcon from "../../assets/Icons/chevron_right-24px.svg";
 import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
+import { Link } from "react-router-dom";
 import "./InventoryList.scss";
 
 function InventoryList() {
@@ -25,9 +26,11 @@ function InventoryList() {
         </div>
 
         <div className="inventory__addItems-wrapper">
-          <button className="inventory__addItem-btn" type="submit">
-            +Add New Item
-          </button>
+          <Link to={"/addInventoryItem"}>
+            <button className="inventory__addItem-btn" type="submit">
+              +Add New Item
+            </button>
+          </Link>
         </div>
       </div>
 
