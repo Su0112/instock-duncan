@@ -7,23 +7,25 @@ import "./InventoryList.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+import DeleteInventoryItem from "../deleteInventoryItem/DeleteInventoryItem";
+
 const InventoryList_API = `${process.env.REACT_APP_BACKEND_URL}/inventories`;
-//console.log(InventoryList_API);
 
 const Warehouse_API = `${process.env.REACT_APP_BACKEND_URL}/warehouses`;
 
 function InventoryList() {
   const [inventories, setInventories] = useState([]);
   const [editInventoryId, setEditInventoryId] = useState(null);
+  const [refreshInventories, setRefreshInventories] = useState(null);
 
   useEffect(() => {
     const fetchInventories = async () => {
       const { data } = await axios.get(InventoryList_API);
-      //console.log(data)
+
       setInventories(data);
     };
     fetchInventories();
-  }, []);
+  }, [refreshInventories]);
 
   // Warehouse API
   const [warehouses, setWarehouses] = useState([]);
@@ -31,7 +33,7 @@ function InventoryList() {
   useEffect(() => {
     const fetchWarehouse = async () => {
       const { data } = await axios.get(Warehouse_API);
-      console.log(data);
+
       setWarehouses(data);
     };
     fetchWarehouse();
@@ -39,16 +41,34 @@ function InventoryList() {
 
   function getWarehouseName(id) {
     let warehouse = warehouses.filter((warehouse) => warehouse.id === id);
-    //console.log(id, warehouse);
+
     return warehouse[0].warehouse_name;
   }
+
+  //added for popup
+  const [openDeleteInventory, setDeleteInventory] = useState(false);
+  const [deleteInventoryData, setDeleteInventoryData] = useState({});
+
+  const handleShow = (inventory) => {
+    setDeleteInventoryData(inventory);
+    setDeleteInventory(true);
+  };
+
+  const handleDelete = (event, inventoryId) => {
+    axios.delete(`${InventoryList_API}/${inventoryId}`).then((response) => {
+      if (response.status == "204") {
+        setDeleteInventory(false);
+        setRefreshInventories(inventoryId);
+      } else {
+        alert("Failed to delete, try again later maybe?");
+      }
+    });
+  };
 
   return (
     <section className="inventory">
       <div className="inventory__top-wrapper">
-        {/* <div className="inventory__header-wrapper"> */}
         <h1 className="inventory__headerText">Inventory</h1>
-        {/* </div> */}
 
         <div className="inventory__searchBar-wrapper">
           <form className="inventory__searchBar">
@@ -72,6 +92,20 @@ function InventoryList() {
       </div>
 
       <div className="inventory__list">
+        {/* between newly added for popup 
+                  also add onClick for delete button */}
+
+        {openDeleteInventory && (
+          <DeleteInventoryItem
+            closeDeleteInventory={setDeleteInventory}
+            deleteInventoryData={deleteInventoryData}
+            handleDelete={handleDelete}
+          />
+        )}
+        {/* Pop up is here */}
+
+        {/*between look above  */}
+
         {inventories.map((inventory) => {
           return (
             <div className="inventory__card-wrapper" key={inventory.id}>
@@ -158,7 +192,11 @@ function InventoryList() {
                 </div>
 
                 <div className="inventory__actions-btns">
-                  <button>
+                  <button
+                    onClick={() => {
+                      handleShow(inventory);
+                    }}
+                  >
                     <img src={deleteIcon} alt="delete icon" />
                   </button>
                   <button>
