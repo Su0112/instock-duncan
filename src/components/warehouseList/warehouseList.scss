@@ -153,12 +153,13 @@
       &-wrapper--large {
         display: inline;
         display: flex;
-        justify-content: flex-start;
+        justify-content: start;
+
         @include text.table-header-desktop-tablet;
         color: $Slate;
         background-color: rgba(247, 248, 249, 0.7);
         border: 1px solid rgba(247, 248, 249, 0.7);
-        gap: 3.75rem;
+
         padding-left: 2rem;
       }
     }
@@ -181,6 +182,20 @@
       display: flex;
       align-content: center;
     }
+    &__list-content {
+      width: 40%;
+      display: flex;
+      @include text.table-header-desktop-tablet;
+    }
+
+    &__list-sortIcon {
+      display: block;
+      padding-left: 0.25rem;
+    }
+    &__list-sortIcon {
+      max-width: 1.2rem;
+      max-height: 1.2rem;
+    }
   }
   .list {
     &__location-title,
@@ -202,17 +217,21 @@
       width: 60%;
       gap: 2rem;
     }
+    &__contact-info {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
-  //Breakpoints for desktop
-  @include breakpoints.large {
-    .warehouses {
-      &__header {
-        padding: 1.5rem 2rem 0.5rem 2rem;
-        &-search {
-          &-bar {
-            width: 17.125rem;
-            height: 2.375rem;
-          }
+}
+//Breakpoints for desktop
+@include breakpoints.large {
+  .warehouses {
+    &__header {
+      padding: 1.5rem 2rem 0.5rem 2rem;
+      &-search {
+        &-bar {
+          width: 17.125rem;
+          height: 2.375rem;
         }
       }
     }

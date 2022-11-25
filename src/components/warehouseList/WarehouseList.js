@@ -15,10 +15,10 @@ const URL = "http://localhost:8080/warehouses/";
 export default function WarehouseList() {
   const [warehouse, setWarehouse] = useState();
   const params = useParams();
-  const warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
+  //const warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
   useEffect(() => {
     axios
-      .get(URL + warehouseId)
+      .get(URL)
       .then((response) => {
         if (response.status === 200) {
           setWarehouse(response.data);
@@ -27,7 +27,7 @@ export default function WarehouseList() {
         }
       })
       .catch((error) => console.log(error));
-    // console.log(warehouse);
+    //console.log(warehouse);
   }, [params]);
   return (
     <section className="warehouses">
@@ -53,13 +53,43 @@ export default function WarehouseList() {
         </div>
         <div className="warehouses__list">
           <div className="warehouses__list-wrapper--large">
-            <div className="warehouses__list-content">WAREHOUSE</div>
-            <div className="warehouses__list-content">ADDRESS</div>
-            <div className="warehouses__list-content">CONTACT NAME</div>
-            <div className="warehouses__list-content">CONTACT INFORMATION</div>
+            <div className="warehouses__list-content">
+              <div className="warehouses__list-contentText">WAREHOUSE</div>
+              <img
+                className="warehouses__list-sortIcon"
+                src={sortIcon}
+                alt="sort icon"
+              />
+            </div>
+            <div className="warehouses__list-content">
+              <div className="warehouses__list-contentText">ADDRESS</div>
+              <img
+                className="warehouses__list-sortIcon"
+                src={sortIcon}
+                alt="sort icon"
+              />
+            </div>
+            <div className="warehouses__list-content">
+              <div className="warehouses__list-contentText">CONTACT NAME</div>
+              <img
+                className="warehouses__list-sortIcon"
+                src={sortIcon}
+                alt="sort icon"
+              />
+            </div>
+            <div className="warehouses__list-content">
+              <div className="warehouses__list-contentText">
+                CONTACT INFORMATION
+              </div>
+              <img
+                className="warehouses__list-sortIcon"
+                src={sortIcon}
+                alt="sort icon"
+              />
+            </div>
             <div className="warehouses__list-content">ACTIONS</div>
           </div>
-          {warehouse.length > 0 ? (
+          {warehouse?.length > 0 ? (
             <section className="warehouses__list-wrapper">
               {warehouse.map((warehouse) => (
                 <div className="warehouses__list-container" key={warehouse.id}>
