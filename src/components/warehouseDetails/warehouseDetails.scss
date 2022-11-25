@@ -14,6 +14,9 @@
         right: 4.27%;
         top: 22%;
         background: white;
+        font-size: 0.8125rem;
+            line-height: 1.25rem;
+            font-weight: 400;
        
 
     @include breakpoints.medium {
@@ -28,6 +31,30 @@
     flex-direction: column;
     margin: 1rem;
 
+
+    &-header {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        border-bottom: 0.0625rem solid $Cloud;
+        position: relative;
+        height: 5.75rem;
+        font-weight: 400;
+        @include text.page-header-mobile;
+        padding: 0 1rem;
+
+        &__back {
+            padding-right: 0.5rem;
+        }
+
+        &__edit {
+            position: absolute;
+            right: 2rem;
+           
+          
+        }
+    }
+
     &__top-wrapper {
         display: flex;
         flex-direction: column;
@@ -39,40 +66,94 @@
     &__headerText {
         @include text.page-header-mobile;
         margin: 0;
-        padding-top: 1.5rem;
-        padding-bottom: 1rem;
+       padding-left: 1rem;
     }
 
-    &__searchBar-wrapper {
+&-contact{
+    padding: 0 2rem;
+    @include text.body-medium-mobile;
+    color: $Slate;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include breakpoints.medium {
+        flex-wrap:nowrap;
+    }
+
+    &__header {
+        text-transform: uppercase;
+        margin: .9375rem 0 0 0;
+        width: 10rem;
+    
+    }
+    &__content {
+        color: $Instock-Black;
+        font-weight: 400;
+        margin: 0;
+    }
+    &__first {
+        display: block;
         width: 100%;
+
+        @include breakpoints.medium {
+            border-right: 0.0625rem solid $Cloud; 
+            margin: 1rem 0;
+            padding-right: 2rem;
+            width: 20rem;
+
+        }
+    }
+    &__second {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        @include breakpoints.medium {
+            padding-left: 3rem;
+        }
     }
 
-    &__search-input {
-        background: url("../../assets/Icons/search-24px.svg") no-repeat left;
-        background-position: 22rem;
-        background-position: right;
-        border-radius: 20px;
-        border: 1px solid $Slate;
-        width: 100%;
-        height: 36px;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        margin-bottom: 1rem;
+    &__third {
+width: 11rem;
+margin: 1rem 0;
     }
 
-    &__search-input::placeholder {
+    @include breakpoints.medium {
+        width: 11rem;
+    }
+}
+
+
+&__headerLarge {
+    display: flex;
+    flex-direction: row;
+    @include text.table-header-mobile;
         color: $Slate;
-    }
+        padding: 0 2rem;
+        justify-content: space-between;
+        height: 2.5rem;
+        background: $Light-Grey;
+&-box {
+    display: flex;
+    flex-direction: row;
+align-items: center;
+    justify-content: center;
+}
 
-    &__addItem-btn {
-        @include text.labels-links-btn-mobile;
-        background-color: $Instock-Indigo;
-        color: $White;
-        border: none;
-        border-radius: 20px;
-        height: 2.25rem;
-        width: 100%;
-    }
+&-icon {
+    margin: 0;
+    display: flex;
+    
+    padding: 0 0.5rem;
+    height: .75rem;
+    
+   
+}
+&-text{
+    @include text.table-header-desktop-tablet;
+}
+} 
 
     // warehouseDetails card
     &__list {
@@ -99,6 +180,7 @@
     &__actions button {
         border: none;
         background: none;
+        margin-right: 1rem;
     }
 
     &__actions-btns {
@@ -112,11 +194,12 @@
         width: 50%;
     }
 
-    &__card-wrapper div p {
-        margin: 0;
-        @include text.body-small-mobile;
-        color: $Instock-Black;
-    }
+    // &__card-wrapper div p {
+    //     margin: 0;
+    //     @include text.body-small-mobile;
+    //     color: $Instock-Black;
+       
+    // }
 
     &__card-wrapper div div a {
         display: flex;
@@ -142,11 +225,10 @@
         display: none;
     }
 
-    //   &__appliance-wrapper a {
-    //     text-decoration: none;
-    //   }   app.scss has text-decoration:none
+   
     &__applianceText {
         color: $Instock-Indigo  !important;
+        font-weight: 600;
     }
 }
 
@@ -171,24 +253,7 @@
             padding-bottom: 1rem;
         }
 
-        &__searchBar-wrapper {
-            width: 25%;
-            padding-top: 1.5rem;
-        }
-
-        &__search-input {
-            background: url("../../assets/Icons/search-24px.svg") no-repeat right;
-            border-radius: 20px;
-            border: 1px solid $Slate;
-            width: 100%;
-            height: 2.25rem;
-            padding-left: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        &__search-input::placeholder {
-            color: $Slate;
-        }
+      
 
         &__addItems-wrapper {
             width: 25%;
@@ -293,4 +358,9 @@
             padding-left: 0.25rem;
         }
     }
+}
+
+
+a:link {
+    text-decoration: none;
 }
