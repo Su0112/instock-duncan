@@ -7,11 +7,13 @@
 .warehouses {
   &__header {
     padding: 1rem;
+
     &-title {
       color: $Instock-Black;
       @include text.page-header-mobile;
       margin-top: 1rem;
     }
+
     &-search {
       display: flex;
       justify-content: space-evenly;
@@ -32,14 +34,17 @@
       }
     }
   }
+
   &__list-sortIcon {
     display: none;
   }
+
   &__header-button {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     margin-top: 1rem;
+
     &-bar {
       background-color: $Instock-Indigo;
       border: 1px solid $Cloud;
@@ -50,11 +55,13 @@
       @include text.labels-links-btn-mobile;
     }
   }
+
   &__list {
     &-wrapper--large {
       display: none;
     }
   }
+
   &__list-container {
     display: flex;
     justify-content: space-around;
@@ -62,6 +69,7 @@
     padding-top: 1rem;
     border-top: 0.1rem solid $Cloud;
     padding: 1rem;
+
     &-wrap {
       display: flex;
       justify-content: space-around;
@@ -71,11 +79,13 @@
       gap: 2rem;
     }
   }
+
   &__actions-buttons {
     width: 100%;
     display: flex;
     justify-content: space-between;
   }
+
   &__actions-button {
     border: none;
     background: none;
@@ -94,7 +104,9 @@
   &__contact-title {
     display: flex;
     justify-content: flex-start;
+    width: 20%;
   }
+
   &__location-info-wrapper,
   &__address-info,
   &__name-info,
@@ -105,6 +117,7 @@
     @include text.body-medium-mobile;
     color: $Instock-Black;
   }
+
   &__location-titleText,
   &__address-titleText,
   &__name-titleText,
@@ -117,6 +130,11 @@
 //Breakpoints for tablet
 @include breakpoints.medium {
   .warehouses {
+    &__list-wraper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
     &__header {
       padding: 1.5rem 2rem 0.5rem 2rem;
       display: flex;
@@ -128,6 +146,7 @@
         padding-bottom: 1rem;
         gap: 1rem;
       }
+
       &-title {
         @include text.page-header-desktop-tablet;
         margin-top: 0;
@@ -141,6 +160,7 @@
           height: 2.375rem;
         }
       }
+
       &-button {
         &-bar {
           width: 10.5rem;
@@ -149,6 +169,7 @@
         }
       }
     }
+
     &__list {
       &-wrapper--large {
         display: inline;
@@ -163,25 +184,31 @@
         padding-left: 2rem;
       }
     }
+
     &__list-container {
       border-top: none;
-      display: inline;
       display: flex;
       flex-direction: row;
-      justify-content: flex-start;
+      justify-content: space-between;
+      align-items: center;
       padding-left: 2rem;
+      box-sizing: border-box;
 
       &-wrap {
         display: inline;
         display: flex;
-        justify-content: flex-start;
+        justify-content: left;
+        align-items: center;
       }
     }
+
     &__actions-container {
-      display: inline;
       display: flex;
       align-content: center;
+      justify-content: space-around;
+      width: 6rem;
     }
+
     &__list-content {
       width: 40%;
       display: flex;
@@ -192,12 +219,22 @@
       display: block;
       padding-left: 0.25rem;
     }
+
     &__list-sortIcon {
       max-width: 1.2rem;
       max-height: 1.2rem;
     }
   }
+
   .list {
+    &__location-info-wrapper {
+      width: 10rem;
+    }
+
+    &__address-container {
+      width: 10rem;
+    }
+
     &__location-title,
     &__address-title,
     &__name-title,
@@ -205,29 +242,55 @@
       display: none;
     }
 
+    // &__location-container,
+    // &__address-container,
+    // &__name-container,
+    // &__contact-container {
+    //     width: 40%;
+    // }
+
     &__location-address {
       display: flex;
-      justify-content: flex-start;
-      width: 40%;
-      gap: 3rem;
+      justify-content: left;
+      //width: 40%;
+      align-items: center;
+      // gap: 9rem;
     }
-    &__name-contact {
+
+    &__name-infoText {
       display: flex;
-      justify-content: flex-start;
-      width: 60%;
-      gap: 2rem;
+      align-items: center;
     }
+
+    &__name {
+      &-container {
+        width: 5rem;
+      }
+
+      &-contact {
+        display: flex;
+        justify-content: flex-start;
+        //width: 60%;
+        gap: 5rem;
+      }
+    }
+
     &__contact-info {
       display: flex;
       flex-wrap: wrap;
     }
+    &__contact-container {
+      width: 7rem;
+    }
   }
 }
+
 //Breakpoints for desktop
 @include breakpoints.large {
   .warehouses {
     &__header {
       padding: 1.5rem 2rem 0.5rem 2rem;
+
       &-search {
         &-bar {
           width: 17.125rem;
