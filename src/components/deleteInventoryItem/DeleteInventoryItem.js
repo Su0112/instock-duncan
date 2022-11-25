@@ -7,8 +7,12 @@ import closeIcon from "../../assets/Icons/close-24px.svg";
 //pass prop closeDeleteInventory;
 //
 
-function DeleteInventoryItem({ closeDeleteInventory, deleteInventoryData }) {
-  //console.log("deleteInventoryData", deleteInventoryData);
+function DeleteInventoryItem({
+  closeDeleteInventory,
+  deleteInventoryData,
+  handleDelete,
+}) {
+
   return (
     <>
       <div className="delete__background">
@@ -38,7 +42,12 @@ function DeleteInventoryItem({ closeDeleteInventory, deleteInventoryData }) {
             >
               Cancel
             </button>
-            <button className="delete__btns-delete">Delete</button>
+            <button
+              className="delete__btns-delete"
+              onClick={(event) => handleDelete(event, deleteInventoryData.id)}
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>
