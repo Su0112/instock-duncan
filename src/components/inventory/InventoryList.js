@@ -7,6 +7,10 @@ import "./InventoryList.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+//between are newly added for popup on Nov24
+import DeleteInventoryItem from "../deleteInventoryItem/DeleteInventoryItem";
+//
+
 const InventoryList_API = `${process.env.REACT_APP_BACKEND_URL}/inventories`;
 //console.log(InventoryList_API);
 
@@ -31,7 +35,7 @@ function InventoryList() {
   useEffect(() => {
     const fetchWarehouse = async () => {
       const { data } = await axios.get(Warehouse_API);
-      console.log(data);
+      //console.log(data);
       setWarehouses(data);
     };
     fetchWarehouse();
@@ -42,6 +46,19 @@ function InventoryList() {
     //console.log(id, warehouse);
     return warehouse[0].warehouse_name;
   }
+
+  //added for popup Nov 24
+  const [openDeleteInventory, setDeleteInventory] = useState(false);
+  const [deleteInventoryData, setDeleteInventoryData] = useState({});
+
+  const handleShow = (inventory) => {
+    //console.log(inventory);
+    //useffect to delete
+    //if success show:
+
+    setDeleteInventoryData(inventory);
+    setDeleteInventory(true);
+  };
 
   return (
     <section className="inventory">
@@ -72,6 +89,19 @@ function InventoryList() {
       </div>
 
       <div className="inventory__list">
+        {/* between newly added for popup Nov 24
+                  also add onClick for delete button */}
+
+        {openDeleteInventory && (
+          <DeleteInventoryItem
+            closeDeleteInventory={setDeleteInventory}
+            deleteInventoryData={deleteInventoryData}
+          />
+        )}
+        {/* Pop up is here */}
+
+        {/*between look above  */}
+
         {inventories.map((inventory) => {
           return (
             <div className="inventory__card-wrapper" key={inventory.id}>
@@ -158,7 +188,11 @@ function InventoryList() {
                 </div>
 
                 <div className="inventory__actions-btns">
-                  <button>
+                  <button
+                    onClick={() => {
+                      handleShow(inventory);
+                    }}
+                  >
                     <img src={deleteIcon} alt="delete icon" />
                   </button>
                   <button>
