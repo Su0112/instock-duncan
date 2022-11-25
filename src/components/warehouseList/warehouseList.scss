@@ -174,13 +174,11 @@
       &-wrapper--large {
         display: inline;
         display: flex;
-        justify-content: start;
-
+        justify-content: flex-start;
         @include text.table-header-desktop-tablet;
         color: $Slate;
         background-color: rgba(247, 248, 249, 0.7);
         border: 1px solid rgba(247, 248, 249, 0.7);
-
         padding-left: 2rem;
       }
     }
