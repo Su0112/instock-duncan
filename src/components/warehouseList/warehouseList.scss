@@ -130,6 +130,8 @@
 //Breakpoints for tablet
 @include breakpoints.medium {
   .warehouses {
+    //margin-right: 1rem;
+
     &__list-wraper {
       display: flex;
       align-items: center;
@@ -226,11 +228,16 @@
 
   .list {
     &__location-info-wrapper {
-      width: 10rem;
+      width: 8.3rem;
     }
 
-    &__address-container {
-      width: 10rem;
+    &__address {
+      &-infoText {
+        width: 6rem;
+      }
+      &-container {
+        width: 6.2rem;
+      }
     }
 
     &__location-title,
@@ -255,21 +262,26 @@
       // gap: 9rem;
     }
 
-    &__name-infoText {
+    &__name {
+      &-info {
+        width: 6rem;
+      }
+    }
+    &-infoText {
       display: flex;
       align-items: center;
     }
 
     &__name {
       &-container {
-        width: 5rem;
+        width: 5.2rem;
       }
 
       &-contact {
         display: flex;
         justify-content: flex-start;
         //width: 60%;
-        gap: 5rem;
+        gap: 3rem;
       }
     }
 
@@ -278,7 +290,7 @@
       flex-wrap: wrap;
     }
     &__contact-container {
-      width: 7rem;
+      width: 4rem;
     }
   }
 }
