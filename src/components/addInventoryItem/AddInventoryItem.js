@@ -6,11 +6,11 @@ import { useRef } from "react";
 import axios from "axios";
 
 const category = [
-  { value: "accessories", label: "Accessories" },
-  { value: "gear", label: "Gear" },
-  { value: "electronics", label: "Electronics" },
-  { value: "health", label: "Health" },
-  { value: "apparel", label: "Apparel" },
+  { value: "Accessories", label: "Accessories" },
+  { value: "Gear", label: "Gear" },
+  { value: "Electronics", label: "Electronics" },
+  { value: "Health", label: "Health" },
+  { value: "Apparel", label: "Apparel" },
 ];
 
 const warehouse = [
@@ -79,6 +79,11 @@ function AddInventoryItem() {
         console.log("An error has occurred", error);
       });
 
+    // let btnStatus = document.querySelector(".status").value;
+    // if (document.querySelector(".status").checked) {
+    //   btnStatus = document.querySelector(".status").value;
+    // }
+
     //Form validation:
   };
   return (
@@ -137,10 +142,11 @@ function AddInventoryItem() {
             <div className="form__radio-btn-wrapper">
               <div className="form__radio-btn">
                 <input
-                  className="form__radio-btn--in"
+                  className="form__radio-btn--in radio-custom"
                   type="radio"
                   id="status"
                   name="status"
+                  value="In stock"
                 ></input>
                 <label className="form__radio-btn-label" htmlFor="status">
                   In stock
@@ -148,10 +154,11 @@ function AddInventoryItem() {
               </div>
               <div className="form__radio-btn">
                 <input
-                  className="form__radio-btn--out"
+                  className="form__radio-btn--out radio-custom"
                   type="radio"
                   id="status"
                   name="status"
+                  value="Out of stock"
                 ></input>
                 <label className="form__radio-btn-label" htmlFor="status">
                   Out of stock

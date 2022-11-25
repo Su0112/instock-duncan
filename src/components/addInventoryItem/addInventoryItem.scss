@@ -35,7 +35,7 @@
     @include text.labels-links-btn-mobile;
     font-weight: 600;
     margin-top: 1rem;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.25rem;
   }
   &__input-name {
     width: 16rem;
@@ -47,7 +47,7 @@
     padding-left: 1rem;
     padding-top: 0.5rem;
     &:focus {
-      outline: 0.125rem solid $Instock-Indigo;
+      outline: 0.0625rem solid $Instock-Indigo;
       box-shadow: 0 0 0.75rem #76a7db;
     }
   }
@@ -59,7 +59,7 @@
     padding: 0.5rem 0 4rem 1rem;
     resize: none;
     &:focus {
-      outline: 0.125rem solid $Instock-Indigo;
+      outline: 0.0625rem solid $Instock-Indigo;
       box-shadow: 0 0 0.75rem #76a7db;
     }
   }
@@ -75,8 +75,18 @@
     display: flex;
   }
   &__radio-btn {
-    color: $Instock-Black;
     width: 100%;
+    &-label {
+      @include text.labels-links-btn-mobile;
+      color: $Slate;
+      margin-left: 0.25rem;
+    }
+    &-label:active {
+      color: $Instock-Black;
+    }
+  }
+  .radio-custom:checked ~ label {
+    color: $Instock-Black;
   }
   &__btn-wrapper {
     display: flex;
@@ -145,7 +155,7 @@
     &__btn {
       &--cancel,
       &--addItem {
-        margin: 0.5rem;
+        margin: 1rem 0.5rem;
       }
     }
   }
