@@ -31,8 +31,9 @@ function DeleteInventoryItem({
           <div className="delete__details-wrapper">
             <p></p>
             <p className="delete__detailsText">
-              Please confirm that you’d like to delete //Television// from the
-              inventory list.You won’t be able to undo this action.
+              Please confirm that you’d like to delete {""}
+              {deleteInventoryData.item_name} from the inventory list.You won’t
+              be able to undo this action.
             </p>
           </div>
           <div className="delete__btns-wrapper">
