@@ -121,6 +121,23 @@
     color: $Instock-Indigo !important;
   }
 }
+.status--inStock {
+  color: $Green !important;
+  background-color: unquote($Green + "12");
+  border-radius: 5px;
+  width: fit-content;
+  padding: 0 8px;
+  text-transform: uppercase;
+}
+
+.status--outOfStock {
+  color: $Red !important;
+  background-color: unquote($Red + "12");
+  border-radius: 5px;
+  width: fit-content;
+  padding: 0 8px;
+  text-transform: uppercase;
+}
 
 @include breakpoints.medium {
   .inventory {
