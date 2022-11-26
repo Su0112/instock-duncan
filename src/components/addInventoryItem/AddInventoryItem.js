@@ -29,12 +29,12 @@ function AddInventoryItem() {
     <>
       <form className="form">
         <header className="form__header">
-          <Link to={'/inventory'} className="form__header-link">
-          <img
-            className="form__header-img"
-            src={ArrowIcon}
-            alt="Back arrow icon"
-          ></img>
+          <Link to={"/inventory"} className="form__header-link">
+            <img
+              className="form__header-img"
+              src={ArrowIcon}
+              alt="Back arrow icon"
+            ></img>
           </Link>
           <h1 className="form__header-title">Add New Inventory Item</h1>
         </header>

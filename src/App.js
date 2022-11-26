@@ -3,7 +3,8 @@ import Header from "./components/header/Header";
 import InventoryList from "./components/inventory/InventoryList";
 import AddInventoryItem from "./components/addInventoryItem/AddInventoryItem";
 import InventoryItemDetails from "./components/inventoryItemDetails/InventoryItemDetails";
-import "./App.scss";
+import "./app.scss";
+
 
 function App() {
   return (

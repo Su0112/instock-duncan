@@ -18,17 +18,8 @@ function InventoryList() {
   const [editInventoryId, setEditInventoryId] = useState(null);
   const [refreshInventories, setRefreshInventories] = useState(null);
 
-  useEffect(() => {
-    const fetchInventories = async () => {
-      const { data } = await axios.get(InventoryList_API);
-
-      setInventories(data);
-    };
-    fetchInventories();
-  }, [refreshInventories]);
-
   // Warehouse API
-  const [warehouses, setWarehouses] = useState([]);
+  const [warehouses, setWarehouses] = useState(null);
 
   useEffect(() => {
     const fetchWarehouse = async () => {
@@ -39,11 +30,29 @@ function InventoryList() {
     fetchWarehouse();
   }, []);
 
+  useEffect(() => {
+    const fetchInventories = async () => {
+      const { data } = await axios.get(InventoryList_API);
+
+      setInventories(data);
+    };
+    fetchInventories();
+  }, [refreshInventories]);
+
   function getWarehouseName(id) {
     let warehouse = warehouses.filter((warehouse) => warehouse.id === id);
-
     return warehouse[0].warehouse_name;
   }
+
+  // function setStockClass() {
+  //   let itm = document.getElementsByClassName("inventory__statusText");
+  //   console.log(itm);
+  //   // if ((itm.value = "")) {
+  //   //   itm.classList.add("status--inStock");
+  //   // } else {
+  //   //   itm.classList.add("status--outOfStock");
+  //   // }
+  // }
 
   //added for popup
   const [openDeleteInventory, setDeleteInventory] = useState(false);
@@ -107,6 +116,11 @@ function InventoryList() {
         {/*between look above  */}
 
         {inventories.map((inventory) => {
+          let inventoryStatusClass =
+            inventory.status == "In Stock"
+              ? "status--inStock"
+              : "status--outOfStock";
+
           return (
             <div className="inventory__card-wrapper" key={inventory.id}>
               {/* INVENTORY ITEM */}
@@ -142,7 +156,13 @@ function InventoryList() {
                     alt="sort icon"
                   />
                 </div>
-                <p className="inventory__statusText">{inventory.status}</p>
+
+                {/* <p className="inventory__statusText " >
+                  {inventory.status}
+                </p> */}
+                <p className={`inventory__statusText ${inventoryStatusClass}`}>
+                  {inventory.status}
+                </p>
               </div>
 
               {/* INVENTORY CATEGORY */}
@@ -181,7 +201,7 @@ function InventoryList() {
                   />
                 </div>
                 <p className="inventory__warehouseText">
-                  {getWarehouseName(inventory.warehouse_id)}
+                  {warehouses && getWarehouseName(inventory.warehouse_id)}
                 </p>
               </div>
 
@@ -199,9 +219,18 @@ function InventoryList() {
                   >
                     <img src={deleteIcon} alt="delete icon" />
                   </button>
-                  <button>
-                    <img src={editIcon} alt="edit icon" />
-                  </button>
+                  {/* to={"/inventoryDetails"} */}
+                  <Link
+                    to="/inventoryDetails"
+                    state={{
+                      data: inventory,
+                      warehouse: getWarehouseName(inventory.warehouse_id),
+                    }}
+                  >
+                    <button>
+                      <img src={editIcon} alt="edit icon" />
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
