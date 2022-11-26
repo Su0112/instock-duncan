@@ -14,6 +14,7 @@ const URL = "http://localhost:8080/warehouses/";
 export default function WarehouseDetails() {
   const [warehouse, setWarehouse] = useState();
   const [inventories, setInventories] = useState([]);
+  const [state, setState] = useState("true");
 
   const params = useParams();
   const warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
@@ -144,7 +145,12 @@ export default function WarehouseDetails() {
                           alt="sort icon"
                         />
                       </div>
-                      <p className="warehouseDetails__statusText">
+                      <p
+                        className="warehouseDetails__statusText"
+                        style={{
+                          color: state === "true" ? "#C94515" : "#158463",
+                        }}
+                      >
                         {inventory.status}
                       </p>
                     </div>
@@ -183,8 +189,6 @@ export default function WarehouseDetails() {
                         {inventory.quantity}
                       </p>
                     </div>
-                    {/* warehouseDetails WAREHOUSE */}
-                    <div className="warehouseDetails__warehouse-wrapper"></div>
 
                     {/* warehouseDetails ACTIONS BUTTONS */}
                     <div className="warehouseDetails__actions">
@@ -305,7 +309,7 @@ export default function WarehouseDetails() {
                 alt="sort icon"
               />
             </div>
-            <div className="warehouseDetails__actions-headerLarge">
+            <div className="warehouseDetails__headerLarge-box last">
               <h5 className="warehouseDetails__headerLarge-text">ACTIONS</h5>
             </div>
           </div>
@@ -314,53 +318,39 @@ export default function WarehouseDetails() {
             <section className="warehouseDetails">
               {inventories.map((inventory) => (
                 <div className="warehouseDetails__list" key={inventory.id}>
-                  <div className="warehouseDetails__card-wrapper">
-                    {/* warehouseDetails ITEM */}
-                    <div className="warehouseDetails__item-wrapper">
-                      <div className="warehouseDetails__appliance-wrapper">
-                        <a href="">
-                          <p className="warehouseDetails__applianceText">
-                            {inventory.item_name}
-                          </p>
-                          <img src={Chevron} alt="right arrow" />
-                        </a>
-                      </div>
-                    </div>
+                  {/* warehouseDetails ITEM */}
 
-                    {/* warehouseDetails STATUS */}
-                    <div className="warehouseDetails__status-wrapper">
-                      <p className="warehouseDetails__statusText">
-                        {inventory.status}
+                  <div>
+                    <a href="" className="warehouseDetails__item">
+                      <p className="warehouseDetails__item-text">
+                        {inventory.item_name}
                       </p>
-                    </div>
+                      <img
+                        src={Chevron}
+                        alt="right arrow"
+                        className="warehouseDetails__item-icon"
+                      />
+                    </a>
+                  </div>
 
-                    {/* warehouseDetails CATEGORY */}
-                    <div className="warehouseDetails__category-wrapper">
-                      <p className="warehouseDetails__categoryText">
-                        {inventory.category}
-                      </p>
-                    </div>
+                  <p className="warehouseDetails__text">{inventory.category}</p>
 
-                    {/* warehouseDetails QTY */}
-                    <div className="warehouseDetails__qty-wrapper">
-                      <p className="warehouseDetails__qtyText">
-                        {" "}
-                        {inventory.quantity}
-                      </p>
-                    </div>
-                    {/* warehouseDetails WAREHOUSE */}
-                    <div className="warehouseDetails__warehouse-wrapper"></div>
+                  <p className="warehouseDetails__text">{inventory.status}</p>
 
-                    {/* warehouseDetails ACTIONS BUTTONS */}
-                    <div className="warehouseDetails__actions">
-                      <div className="warehouseDetails__actions-btns">
-                        <button>
-                          <img src={DeleteIcon} alt="delete icon" />
-                        </button>
-                        <button>
-                          <img src={Edit} alt="edit icon" />
-                        </button>
-                      </div>
+                  <p className="warehouseDetails__text">
+                    {" "}
+                    {inventory.quantity}
+                  </p>
+
+                  {/* warehouseDetails ACTIONS BUTTONS */}
+                  <div className="warehouseDetails__actions">
+                    <div className="warehouseDetails__actions-btns">
+                      <button>
+                        <img src={DeleteIcon} alt="delete icon" />
+                      </button>
+                      <button>
+                        <img src={Edit} alt="edit icon" />
+                      </button>
                     </div>
                   </div>
                 </div>
