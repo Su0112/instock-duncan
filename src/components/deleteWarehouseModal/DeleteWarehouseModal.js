@@ -1,44 +1,49 @@
 //import { Link } from "react-router-dom";
-import "./DeleteInventoryItem.scss";
+import "./deleteWarehouseModal.scss";
 import closeIcon from "../../assets/Icons/close-24px.svg";
 //import React from "react";
 
-//this is a popup for delete inventory
-//pass prop closeDeleteInventory;
-//
-
-function DeleteInventoryItem({ closeDeleteInventory, deleteInventoryData }) {
-  //console.log("deleteInventoryData", deleteInventoryData);
+function DeleteWarehouseModal({
+  closeDeleteWarehouse,
+  deleteWarehouseData,
+  handleDelete,
+}) {
   return (
     <>
-      <div className="delete__background">
-        <div className="delete__inner">
+      <div className="warehouse__delete__background">
+        <div className="warehouse__delete__inner">
           <button
-            className="delete__btn-close"
-            onClick={() => closeDeleteInventory(false)}
+            className="warehouse__delete__btn-close"
+            onClick={() => closeDeleteWarehouse(false)}
           >
             <img src={closeIcon} alt="close" />
           </button>
-          <div className="delete__header-wrapper">
-            <h1 className="delete__headerText">
-              Delete {deleteInventoryData.item_name} inventory item?
+          <div className="warehouse__delete__header-wrapper">
+            <h1 className="warehouse__delete__headerText">
+              Delete {deleteWarehouseData.warehouse_name} warehouse?
             </h1>
           </div>
-          <div className="delete__details-wrapper">
+          <div className="warehouse__delete__details-wrapper">
             <p></p>
-            <p className="delete__detailsText">
-              Please confirm that you’d like to delete //Television// from the
-              inventory list.You won’t be able to undo this action.
+            <p className="warehouse__delete__detailsText">
+              Please confirm that you’d like to delete {""}
+              {deleteWarehouseData.warehouse_name} from the list of warehouses.
+              You won’t be able to undo this action.
             </p>
           </div>
-          <div className="delete__btns-wrapper">
+          <div className="warehouse__delete__btns-wrapper">
             <button
-              className="delete__btns-cancel"
-              onClick={() => closeDeleteInventory(false)}
+              className="warehouse__delete__btns-cancel"
+              onClick={() => closeDeleteWarehouse(false)}
             >
               Cancel
             </button>
-            <button className="delete__btns-delete">Delete</button>
+            <button
+              className="warehouse__delete__btns-delete"
+              onClick={(event) => handleDelete(event, deleteWarehouseData.id)}
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>
@@ -46,4 +51,4 @@ function DeleteInventoryItem({ closeDeleteInventory, deleteInventoryData }) {
   );
 }
 
-export default DeleteInventoryItem;
+export default DeleteWarehouseModal;

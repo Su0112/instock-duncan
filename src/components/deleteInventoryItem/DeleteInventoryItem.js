@@ -12,7 +12,6 @@ function DeleteInventoryItem({
   deleteInventoryData,
   handleDelete,
 }) {
-
   return (
     <>
       <div className="delete__background">
