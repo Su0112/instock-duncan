@@ -89,19 +89,16 @@ export default function EditWarehouse() {
     let position = warehouseContactPosition
       ? warehouseContactPosition
       : warehouse.contact_position;
-    //   // ? warehouseContactName
-    //   // : warehouse.conract_name;
-    // let position = warehouseContactPosition;
-    // ? warehouseContactPosition
-    //   : warehouse.contact_position;
-    // let phone = warehouseContactPhone
-    //   ? warehouseContactPhone
-    //   : warehouse.contact_phone;
-    // let email = warehouseContactEmail
-    //   ? warehouseContactEmail
-    //   : warehouse.contact_email;
+    let phone = warehouseContactPhone
+      ? warehouseContactPhone
+      : warehouse.contact_phone;
+    let email = warehouseContactEmail
+      ? warehouseContactEmail
+      : warehouse.contact_email;
 
-    console.log("Result " + address + city + name + country + contactN);
+    console.log(
+      "Result " + address + city + name + country + contactN + position + email
+    );
 
     // axios
     //   .put(URL + warehouseId, {
