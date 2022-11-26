@@ -8,11 +8,11 @@
 .mainBlock{
     margin: 1rem;
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-        border-radius: 3px;
+     border-radius: 3px;
     position: absolute;
     left: 4.27%;
-        right: 4.27%;
-        top: 22%;
+    right: 4.27%;
+    top: 9%;
         background: white;
         font-size: 0.8125rem;
             line-height: 1.25rem;
@@ -37,7 +37,7 @@
         align-items: center;
         flex-direction: row;
         border-bottom: 0.0625rem solid $Cloud;
-        position: relative;
+     
         height: 5.75rem;
         font-weight: 400;
         @include text.page-header-mobile;
@@ -139,6 +139,9 @@ margin: 1rem 0;
     flex-direction: row;
 align-items: center;
     justify-content: center;
+    @include breakpoints.medium { width: 20rem;
+        justify-content: left;
+    }
 }
 
 &-icon {
@@ -172,7 +175,7 @@ align-items: center;
     }
 
     &__actions {
-        width: 100% !important;
+        width: 100%;
         display: flex;
         justify-content: space-between;
     }
@@ -237,6 +240,11 @@ align-items: center;
         display: flex;
         flex-direction: column;
 
+        &__headerLarge-box{
+            width: 20rem;
+            justify-content: left;
+        }
+
         &__top-wrapper {
             display: flex;
             flex-direction: row;
@@ -271,93 +279,54 @@ align-items: center;
             width: 100%;
         }
 
-        // warehouseDetails card
         &__list {
             display: flex;
-            flex-direction: column;
-        }
-
-        &__card-wrapper:not(:first-child) &__sort-header {
-            display: none;
-        }
-
-        &__card-wrapper {
-            display: flex;
-            flex-wrap: nowrap;
+            align-items: center;
             flex-direction: row;
-            justify-content: flex-end;
-            padding-top: 1rem;
-            border-top: 1px $Cloud solid;
+            // width: 100%;
+            // justify-content: space-between;
+
         }
 
-        &__actions {
-            width: 100% !important;
-            display: block;
-        }
 
-        &__actions-btns {
-            width: 100%;
-            display: block;
-            justify-content: normal;
-        }
+                 &__text {
+                margin: 0 2rem;
+                width: 10rem;
+    
 
-        &__actions button {
-            border: none;
-            background: none;
-            padding: 0;
-        }
+                 }
 
-        &__card-wrapper>div {
-            padding-bottom: 1rem;
-            width: 100%;
-        }
+                 &__item {
+                    display: flex;
+                    flex-direction: row;
+                    width: 10rem;
+    
+                    &-text {
+                        color:$Instock-Indigo;
+                        font-weight: 600;
+                       
+                    }
+                    &-icon {
+                        display: inline;
+                    }
+                 }
 
-        &__card-wrapper div:nth-of-type(1) {
-            order: 1;
-        }
 
-        &__card-wrapper div:nth-of-type(2) {
-            order: 3;
-        }
-
-        &__card-wrapper div:nth-of-type(3) {
-            order: 2;
-        }
-
-        &__card-wrapper div:nth-of-type(4) {
-            order: 4;
-        }
-
-        &__card-wrapper div:nth-of-type(5) {
-            order: 5;
-        }
-
-        &__card-wrapper div:nth-of-type(6) {
-            order: 6;
-        }
-
-        &__card-wrapper div p {
-            margin: 0;
-            @include text.body-small-desktop-tablet;
-            color: $Instock-Black;
-        }
-
-        &__card-wrapper div div {
-            display: flex;
-        }
-
-        &__sort-headerText {
-            margin: 0;
-            padding-bottom: 4px;
-            @include text.table-header-desktop-tablet;
-            color: $Slate;
-        }
-
-        &__sort-sortIcon {
-            display: inline;
-            padding-left: 0.25rem;
-        }
+&__actions {
+    width: 20rem;
+    display: flex;
+    &-btns {
+        justify-content: right;
     }
+}
+
+
+    }
+
+   .last {
+    justify-content: right;
+   }
+       
 }
 
 
