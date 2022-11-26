@@ -9,12 +9,15 @@ import SortIcon from "../../assets/Icons/sort-24px.svg";
 import DeleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import Chevron from "../../assets/Icons/chevron_right-24px.svg";
 import { ReactComponent as Icon } from "../../assets/Icons/edit-white.svg";
+
 const URL = "http://localhost:8080/warehouses/";
 
 export default function WarehouseDetails() {
   const [warehouse, setWarehouse] = useState();
+
   const [inventories, setInventories] = useState([]);
-  const [state, setState] = useState("true");
+
+  const [state, setState] = useState("null");
 
   const params = useParams();
   const warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
@@ -123,14 +126,6 @@ export default function WarehouseDetails() {
                           alt="sort icon"
                         />
                       </div>
-                      <div className="warehouseDetails__appliance-wrapper">
-                        <a href="">
-                          <p className="warehouseDetails__applianceText">
-                            {inventory.item_name}
-                          </p>
-                          <img src={Chevron} alt="right arrow" />
-                        </a>
-                      </div>
                     </div>
 
                     {/* warehouseDetails STATUS */}
@@ -148,7 +143,7 @@ export default function WarehouseDetails() {
                       <p
                         className="warehouseDetails__statusText"
                         style={{
-                          color: state === "true" ? "#C94515" : "#158463",
+                          color: state === "false" ? "#C94515" : "#158463",
                         }}
                       >
                         {inventory.status}
