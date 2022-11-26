@@ -7,21 +7,20 @@
 .form {
   &__header {
     display: flex;
-    padding: 1rem;
     border-bottom: 0.0625rem solid $Cloud;
   }
   &__header-link {
-    display: flex;
-    padding: 1rem;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
   }
   &__header-img {
     padding-right: 0.5rem;
+    height: 2rem;
+    width: 2rem;
   }
   &__header-title {
     @include text.subheader-mobile;
     color: $Instock-Black;
-    font-size: 1.5rem;
-    font-weight: 400;
   }
   &__item-details {
     padding: 1rem;
@@ -36,10 +35,10 @@
     @include text.labels-links-btn-mobile;
     font-weight: 600;
     margin-top: 1rem;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.25rem;
   }
   &__input-name {
-    width: 18.4375rem;
+    width: 16rem;
     height: 2.25rem;
     border: 1px solid #bdc5d5;
     border-radius: 1.25rem;
@@ -48,19 +47,19 @@
     padding-left: 1rem;
     padding-top: 0.5rem;
     &:focus {
-      outline: 0.125rem solid $Instock-Indigo;
+      outline: 0.0625rem solid $Instock-Indigo;
       box-shadow: 0 0 0.75rem #76a7db;
     }
   }
   &__input-description {
-    width: 18.4375rem;
+    width: 16rem;
     border: 1px solid #bdc5d5;
     border-radius: 1.25rem;
     font-family: Titillium;
     padding: 0.5rem 0 4rem 1rem;
     resize: none;
     &:focus {
-      outline: 0.125rem solid $Instock-Indigo;
+      outline: 0.0625rem solid $Instock-Indigo;
       box-shadow: 0 0 0.75rem #76a7db;
     }
   }
@@ -76,8 +75,18 @@
     display: flex;
   }
   &__radio-btn {
-    color: $Instock-Black;
     width: 100%;
+    &-label {
+      @include text.labels-links-btn-mobile;
+      color: $Slate;
+      margin-left: 0.25rem;
+    }
+    &-label:active {
+      color: $Instock-Black;
+    }
+  }
+  .radio-custom:checked ~ label {
+    color: $Instock-Black;
   }
   &__btn-wrapper {
     display: flex;
@@ -122,6 +131,11 @@
       @include text.page-header-desktop-tablet;
       font-weight: 400;
     }
+    &__header-img {
+      margin-top: 0.8rem;
+      height: 2.5rem;
+      width: 2.5rem;
+    }
     &__btn-wrapper {
       justify-content: flex-end;
       margin: 1rem;
@@ -141,8 +155,19 @@
     &__btn {
       &--cancel,
       &--addItem {
-        margin: 0.5rem;
+        margin: 1rem 0.5rem;
       }
+    }
+  }
+}
+
+@include breakpoints.large {
+  .form {
+    &__input-name {
+      width: 30rem;
+    }
+    &__input-description {
+      width: 30rem;
     }
   }
 }
