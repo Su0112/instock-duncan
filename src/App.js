@@ -5,8 +5,7 @@ import AddInventoryItem from "./components/addInventoryItem/AddInventoryItem";
 import InventoryItemDetails from "./components/inventoryItemDetails/InventoryItemDetails";
 
 import WarehouseList from "./components/warehouseList/WarehouseList";
-import "./App.scss";
-
+import "./app.scss";
 
 function App() {
   return (
