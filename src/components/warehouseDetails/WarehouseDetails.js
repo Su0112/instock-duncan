@@ -10,7 +10,7 @@ import DeleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import Chevron from "../../assets/Icons/chevron_right-24px.svg";
 import { ReactComponent as Icon } from "../../assets/Icons/edit-white.svg";
 
-const URL = process.env.REACT_APP_BACKEND_URL;
+const URL = process.env.REACT_APP_BACKEND_URL + "/warehouses/";
 
 export default function WarehouseDetails() {
   const [warehouse, setWarehouse] = useState();
