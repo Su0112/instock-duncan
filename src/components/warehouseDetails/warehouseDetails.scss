@@ -5,19 +5,19 @@
 @use "../../styles/partials/fonts";
 
 
-.mainBlock{
+.mainBlock {
     margin: 1rem;
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-     border-radius: 3px;
+    border-radius: 3px;
     position: absolute;
     left: 4.27%;
     right: 4.27%;
     top: 9%;
-        background: white;
-        font-size: 0.8125rem;
-            line-height: 1.25rem;
-            font-weight: 400;
-       
+    background: white;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+
 
     @include breakpoints.medium {
         margin: 2rem;
@@ -37,7 +37,7 @@
         align-items: center;
         flex-direction: row;
         border-bottom: 0.0625rem solid $Cloud;
-     
+
         height: 5.75rem;
         font-weight: 400;
         @include text.page-header-mobile;
@@ -50,8 +50,8 @@
         &__edit {
             position: absolute;
             right: 2rem;
-           
-          
+
+
         }
     }
 
@@ -66,97 +66,104 @@
     &__headerText {
         @include text.page-header-mobile;
         margin: 0;
-       padding-left: 1rem;
+        padding-left: 1rem;
     }
 
-&-contact{
-    padding: 0 2rem;
-    @include text.body-medium-mobile;
-    color: $Slate;
-    display: flex;
-    flex-wrap: wrap;
-
-    @include breakpoints.medium {
-        flex-wrap:nowrap;
-    }
-
-    &__header {
-        text-transform: uppercase;
-        margin: .9375rem 0 0 0;
-        width: 10rem;
-    
-    }
-    &__content {
-        color: $Instock-Black;
-        font-weight: 400;
-        margin: 0;
-    }
-    &__first {
-        display: block;
-        width: 100%;
+    &-contact {
+        padding: 0 2rem;
+        @include text.body-medium-mobile;
+        color: $Slate;
+        display: flex;
+        flex-wrap: wrap;
 
         @include breakpoints.medium {
-            border-right: 0.0625rem solid $Cloud; 
-            margin: 1rem 0;
-            padding-right: 2rem;
-            width: 20rem;
+            flex-wrap: nowrap;
+        }
+
+        &__header {
+            text-transform: uppercase;
+            margin: .9375rem 0 0 0;
+            width: 10rem;
 
         }
+
+        &__content {
+            color: $Instock-Black;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        &__first {
+            display: block;
+            width: 100%;
+
+            @include breakpoints.medium {
+                border-right: 0.0625rem solid $Cloud;
+                margin: 1rem 0;
+                padding-right: 2rem;
+                width: 20rem;
+
+            }
+        }
+
+        &__second {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            @include breakpoints.medium {
+                padding-left: 3rem;
+            }
+        }
+
+        &__third {
+            width: 11rem;
+            margin: 1rem 0;
+        }
+
+        @include breakpoints.medium {
+            width: 11rem;
+        }
     }
-    &__second {
+
+
+    &__headerLarge {
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        align-items: center;
-
-        @include breakpoints.medium {
-            padding-left: 3rem;
-        }
-    }
-
-    &__third {
-width: 11rem;
-margin: 1rem 0;
-    }
-
-    @include breakpoints.medium {
-        width: 11rem;
-    }
-}
-
-
-&__headerLarge {
-    display: flex;
-    flex-direction: row;
-    @include text.table-header-mobile;
+        @include text.table-header-mobile;
         color: $Slate;
         padding: 0 2rem;
         justify-content: space-between;
         height: 2.5rem;
         background: $Light-Grey;
-&-box {
-    display: flex;
-    flex-direction: row;
-align-items: center;
-    justify-content: center;
-    @include breakpoints.medium { width: 20rem;
-        justify-content: left;
-    }
-}
 
-&-icon {
-    margin: 0;
-    display: flex;
-    
-    padding: 0 0.5rem;
-    height: .75rem;
-    
-   
-}
-&-text{
-    @include text.table-header-desktop-tablet;
-}
-} 
+        &-box {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            @include breakpoints.medium {
+                width: 20rem;
+                justify-content: left;
+            }
+        }
+
+        &-icon {
+            margin: 0;
+            display: flex;
+
+            padding: 0 0.5rem;
+            height: .75rem;
+
+
+        }
+
+        &-text {
+            @include text.table-header-desktop-tablet;
+        }
+    }
 
     // warehouseDetails card
     &__list {
@@ -168,7 +175,6 @@ align-items: center;
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        justify-content: flex-end;
         padding-top: 1rem;
         padding-left: 1rem;
         border-top: 1px $Cloud solid;
@@ -201,7 +207,7 @@ align-items: center;
     //     margin: 0;
     //     @include text.body-small-mobile;
     //     color: $Instock-Black;
-       
+
     // }
 
     &__card-wrapper div div a {
@@ -228,7 +234,7 @@ align-items: center;
         display: none;
     }
 
-   
+
     &__applianceText {
         color: $Instock-Indigo  !important;
         font-weight: 600;
@@ -240,7 +246,7 @@ align-items: center;
         display: flex;
         flex-direction: column;
 
-        &__headerLarge-box{
+        &__headerLarge-box {
             width: 20rem;
             justify-content: left;
         }
@@ -261,7 +267,7 @@ align-items: center;
             padding-bottom: 1rem;
         }
 
-      
+
 
         &__addItems-wrapper {
             width: 25%;
@@ -289,44 +295,46 @@ align-items: center;
         }
 
 
-                 &__text {
-                margin: 0 2rem;
-                width: 10rem;
-    
-
-                 }
-
-                 &__item {
-                    display: flex;
-                    flex-direction: row;
-                    width: 10rem;
-    
-                    &-text {
-                        color:$Instock-Indigo;
-                        font-weight: 600;
-                       
-                    }
-                    &-icon {
-                        display: inline;
-                    }
-                 }
+        &__text {
+            margin: 0 2rem;
+            width: 10rem;
 
 
-&__actions {
-    width: 20rem;
-    display: flex;
-    &-btns {
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: row;
+            width: 10rem;
+
+            &-text {
+                color: $Instock-Indigo;
+                font-weight: 600;
+
+            }
+
+            &-icon {
+                display: inline;
+            }
+        }
+
+
+        &__actions {
+            width: 20rem;
+            display: flex;
+
+            &-btns {
+                justify-content: right;
+            }
+        }
+
+
+    }
+
+    .last {
         justify-content: right;
     }
-}
 
-
-    }
-
-   .last {
-    justify-content: right;
-   }
-       
 }
 
 
