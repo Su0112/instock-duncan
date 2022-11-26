@@ -13,7 +13,7 @@ export default function EditWarehouse() {
   const [warehouse, setWarehouse] = useState();
 
   const params = useParams();
-  const warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
+  const warehouseId = "5af76f4c-f05d-45d2-8e57-1ef8c11631b4";
 
   useEffect(() => {
     axios
@@ -36,6 +36,37 @@ export default function EditWarehouse() {
   const [warehouseContactPhone, setWarehouseContactPhone] = useState("");
   const [warehouseContactEmail, setWarehouseContactEmail] = useState("");
 
+  const handleChangeWarehouseName = (event) => {
+    console.log(event.target.value);
+    setWarehouseName(event.target.value);
+  };
+
+  const handleChangeWarehouseCity = (event) => {
+    setWarehouseCity(event.target.value);
+  };
+  const handleChangeWarehouseAddress = (event) => {
+    setWarehouseAddress(event.target.value);
+  };
+
+  const handleChangeWarehouseCountry = (event) => {
+    setWarehouseCountry(event.target.value);
+  };
+
+  const handleChangeContactName = (event) => {
+    setWarehouseContactName(event.target.value);
+  };
+
+  const handleChangeContactPosition = (event) => {
+    setWarehouseContactPosition(event.current.value);
+  };
+
+  const handleChangeContactPhone = (event) => {
+    setWarehouseContactPhone(event.current.value);
+  };
+  const handleChangeContactEmail = (event) => {
+    setWarehouseContactEmail(event.current.value);
+  };
+
   let navigate = useNavigate();
 
   const updateWarehouse = (warehouseId) => {
@@ -45,24 +76,50 @@ export default function EditWarehouse() {
   const handleSubmit = (event) => {
     console.log("hello");
     event.preventDefault();
-    axios
-      .put(URL + warehouseId, {
-        warehouse_name: warehouseName,
-        address: warehouseAddress,
-        city: warehouseCity,
-        country: warehouseCountry,
-        contact_name: warehouseContactName,
-        contact_position: warehouseContactPosition,
-        contact_phone: warehouseContactPhone,
-        contact_email: warehouseContactEmail,
-      })
-      .then((response) => {
-        console.log(response.data);
-        if (response.status === 200) {
-          updateWarehouse(warehouseId);
-        }
-      })
-      .catch((error) => console.log(error));
+
+    console.log("Test " + warehouseAddress);
+    console.log("Test " + warehouse.address);
+
+    let name = warehouseName ? warehouseName : warehouse.warehouse_name;
+    let address = warehouseAddress ? warehouseAddress : warehouse.address;
+    let city = warehouseCity ? warehouseCity : warehouse.city;
+    let country = warehouseCountry ? warehouseCountry : warehouse.country;
+    let contactN = warehouseContactName
+      ? warehouseContactName
+      : warehouse.conract_name;
+    let contactPos = warehouseContactPosition
+      ? warehouseContactPosition
+      : warehouse.contact_position;
+    let contactPh = warehouseContactPhone
+      ? warehouseContactPhone
+      : warehouse.contact_phone;
+
+    let contactE = warehouseContactEmail
+      ? warehouseContactEmail
+      : warehouse.contact_email;
+
+    console.log(
+      "Result " + address + city + name + country + contactPh + contactN
+    );
+
+    // axios
+    //   .put(URL + warehouseId, {
+    //     warehouse_name: warehouseName,
+    //     address: warehouseAddress,
+    //     city: warehouseCity,
+    //     country: warehouseCountry,
+    //     contact_name: warehouseContactName,
+    //     contact_position: warehouseContactPosition,
+    //     contact_phone: warehouseContactPhone,
+    //     contact_email: warehouseContactEmail,
+    //   })
+    //   .then((response) => {
+    //     console.log(response.data);
+    //     if (response.status === 200) {
+    //       updateWarehouse(warehouseId);
+    //     }
+    //   })
+    //   .catch((error) => console.log(error));
   };
 
   return (
@@ -88,42 +145,38 @@ export default function EditWarehouse() {
                   </h2>
                   <label className="form__input-title">Warehouse Name</label>
                   <input
-                    name="name"
+                    name="warehouseName"
                     className="form__input"
-                    id="name"
+                    id="warehouseName"
                     placeholder=""
                     defaultValue={warehouse.warehouse_name}
-                    // value={}
-                    onChange={(e) => setWarehouseName(e.target.value)}
-                    // onChange={(event) =>
-                    //   // setUpdatedWarehouse(event.target.value)
-                    // }
+                    onChange={handleChangeWarehouseName}
                   ></input>
                   <p className="form__input-title">Street Address</p>
                   <input
-                    name="adress"
+                    name="warehouseAddress"
                     className="form__input"
-                    id="adress"
+                    id="warehouseAddress"
                     placeholder=""
                     defaultValue={warehouse.address}
-                    onChange={(e) => setWarehouseAddress(e.target.value)}
+                    onChange={handleChangeWarehouseAddress}
                   ></input>
 
-                  <p className="form__input-title">City</p>
+                  <label className="form__input-title">City</label>
                   <input
-                    name="adress"
+                    name="warehouseCity"
                     className="form__input"
-                    id="adress"
+                    id="warehouseCity"
                     defaultValue={warehouse.city}
-                    onChange={(e) => setWarehouseCity(e.target.value)}
+                    onChange={handleChangeWarehouseCity}
                   ></input>
-                  <p className="form__input-title">Country</p>
+                  <label className="form__input-title">Country</label>
                   <input
-                    name="adress"
+                    name="warehouseCountry"
                     className="form__input"
-                    id="adress"
+                    id="warehouseCountry"
                     defaultValue={warehouse.country}
-                    onChange={(e) => setWarehouseCountry(e.target.value)}
+                    onChange={handleChangeWarehouseCountry}
                   ></input>
                 </div>
               </section>
@@ -137,36 +190,36 @@ export default function EditWarehouse() {
                     name="contactName"
                     className="form__input"
                     id="contacName"
-                    placeholder=""
-                    defaultValue={warehouse.contact_name}
-                    onChange={(e) => setWarehouseContactName(e.target.value)}
+                    placeholder="Contact Name"
+                    value={warehouseContactName}
+                    onChange={handleChangeContactName}
                   ></input>
                   <p className="form__input-title">Position</p>
                   <input
-                    name="adress"
+                    name="ContactPosition"
                     className="form__input"
-                    id="adress"
-                    placeholder=""
-                    defaultValue={warehouse.contact_position}
-                    onChange={(e) =>
-                      setWarehouseContactPosition(e.target.value)
-                    }
+                    id="ContactPosition"
+                    placeholder="Position"
+                    value={warehouseContactPosition}
+                    onChange={handleChangeContactPosition}
                   ></input>
                   <p className="form__input-title">Phone Number</p>
                   <input
-                    name="phoneNumber"
+                    name="warehouseContactPhone"
                     className="form__input"
-                    id="phoneNumber"
-                    defaultValue={warehouse.contact_phone}
-                    onChange={(e) => setWarehouseContactPhone(e.target.value)}
+                    id="warehouseContactPhone"
+                    placeholder="Phone Number"
+                    value={warehouseContactPhone}
+                    onChange={handleChangeContactPhone}
                   ></input>
                   <p className="form__input-title">Email</p>
                   <input
-                    name="email"
+                    name="warehouseContactEmail"
                     className="form__input"
-                    id="email"
-                    defaultValue={warehouse.contact_email}
-                    onChange={(e) => setWarehouseContactEmail(e.target.value)}
+                    id="warehouseContactEmail"
+                    placeholder="Email"
+                    value={warehouseContactEmail}
+                    onChange={handleChangeContactEmail}
                   ></input>
                 </div>
               </section>
