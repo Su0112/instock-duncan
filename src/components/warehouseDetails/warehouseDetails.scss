@@ -1,0 +1,343 @@
+@use "../../styles/partials/color" as *;
+@use "../../styles/partials/breakpoints" as breakpoints;
+@use "../../styles/partials/text-styles" as text;
+@use "../../styles/partials/resets";
+@use "../../styles/partials/fonts";
+
+
+.mainBlock {
+    margin: 1rem;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    border-radius: 3px;
+    position: absolute;
+    left: 4.27%;
+    right: 4.27%;
+    top: 9%;
+    background: white;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+
+
+    @include breakpoints.medium {
+        margin: 2rem;
+    }
+}
+
+
+
+.warehouseDetails {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+
+
+    &-header {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        border-bottom: 0.0625rem solid $Cloud;
+
+        height: 5.75rem;
+        font-weight: 400;
+        @include text.page-header-mobile;
+        padding: 0 1rem;
+
+        &__back {
+            padding-right: 0.5rem;
+        }
+
+        &__edit {
+            position: absolute;
+            right: 2rem;
+
+
+        }
+    }
+
+    &__top-wrapper {
+        display: flex;
+        flex-direction: column;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    &__headerText {
+        @include text.page-header-mobile;
+        margin: 0;
+        padding-left: 1rem;
+    }
+
+    &-contact {
+        padding: 0 2rem;
+        @include text.body-medium-mobile;
+        color: $Slate;
+        display: flex;
+        flex-wrap: wrap;
+
+        @include breakpoints.medium {
+            flex-wrap: nowrap;
+        }
+
+        &__header {
+            text-transform: uppercase;
+            margin: .9375rem 0 0 0;
+            width: 10rem;
+
+        }
+
+        &__content {
+            color: $Instock-Black;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        &__first {
+            display: block;
+            width: 100%;
+
+            @include breakpoints.medium {
+                border-right: 0.0625rem solid $Cloud;
+                margin: 1rem 0;
+                padding-right: 2rem;
+                width: 20rem;
+
+            }
+        }
+
+        &__second {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            @include breakpoints.medium {
+                padding-left: 3rem;
+            }
+        }
+
+        &__third {
+            width: 11rem;
+            margin: 1rem 0;
+        }
+
+        @include breakpoints.medium {
+            width: 11rem;
+        }
+    }
+
+
+    &__headerLarge {
+        display: flex;
+        flex-direction: row;
+        @include text.table-header-mobile;
+        color: $Slate;
+        padding: 0 2rem;
+        justify-content: space-between;
+        height: 2.5rem;
+        background: $Light-Grey;
+
+        &-box {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            @include breakpoints.medium {
+                width: 20rem;
+                justify-content: left;
+            }
+        }
+
+        &-icon {
+            margin: 0;
+            display: flex;
+
+            padding: 0 0.5rem;
+            height: .75rem;
+
+
+        }
+
+        &-text {
+            @include text.table-header-desktop-tablet;
+        }
+    }
+
+    // warehouseDetails card
+    &__list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__card-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        padding-top: 1rem;
+        padding-left: 1rem;
+        border-top: 1px $Cloud solid;
+    }
+
+    &__actions {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__actions button {
+        border: none;
+        background: none;
+        margin-right: 1rem;
+    }
+
+    &__actions-btns {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__card-wrapper>div {
+        padding-bottom: 1rem;
+        width: 50%;
+    }
+
+    // &__card-wrapper div p {
+    //     margin: 0;
+    //     @include text.body-small-mobile;
+    //     color: $Instock-Black;
+
+    // }
+
+    &__card-wrapper div div a {
+        display: flex;
+        align-items: center;
+    }
+
+    &__sort-header {
+        display: flex;
+    }
+
+    &__sort-headerText {
+        margin: 0;
+        padding-bottom: 0.25rem;
+        @include text.table-header-mobile;
+        color: $Slate;
+    }
+
+    &__sort-sortIcon {
+        display: none;
+    }
+
+    &__actions-header {
+        display: none;
+    }
+
+
+    &__applianceText {
+        color: $Instock-Indigo  !important;
+        font-weight: 600;
+    }
+}
+
+@include breakpoints.medium {
+    .warehouseDetails {
+        display: flex;
+        flex-direction: column;
+
+        &__headerLarge-box {
+            width: 20rem;
+            justify-content: left;
+        }
+
+        &__top-wrapper {
+            display: flex;
+            flex-direction: row;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            padding-bottom: 1.5rem;
+        }
+
+        &__headerText {
+            @include text.page-header-desktop-tablet;
+            width: 50%;
+            margin: 0;
+            padding-top: 1.5rem;
+            padding-bottom: 1rem;
+        }
+
+
+
+        &__addItems-wrapper {
+            width: 25%;
+            padding-left: 1rem;
+            padding-top: 1.5rem;
+        }
+
+        &__addItem-btn {
+            @include text.labels-links-btn-desktop-tablet;
+            background-color: $Instock-Indigo;
+            color: $White;
+            border: none;
+            border-radius: 20px;
+            height: 2.25rem;
+            width: 100%;
+        }
+
+        &__list {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            // width: 100%;
+            // justify-content: space-between;
+
+        }
+
+
+        &__text {
+            margin: 0 2rem;
+            width: 10rem;
+
+
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: row;
+            width: 10rem;
+
+            &-text {
+                color: $Instock-Indigo;
+                font-weight: 600;
+
+            }
+
+            &-icon {
+                display: inline;
+            }
+        }
+
+
+        &__actions {
+            width: 20rem;
+            display: flex;
+
+            &-btns {
+                justify-content: right;
+            }
+        }
+
+
+    }
+
+    .last {
+        justify-content: right;
+    }
+
+}
+
+
+a:link {
+    text-decoration: none;
+}

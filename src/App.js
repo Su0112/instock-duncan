@@ -3,10 +3,10 @@ import Header from "./components/header/Header";
 import InventoryList from "./components/inventory/InventoryList";
 import AddInventoryItem from "./components/addInventoryItem/AddInventoryItem";
 import InventoryItemDetails from "./components/inventoryItemDetails/InventoryItemDetails";
-
 import WarehouseList from "./components/warehouseList/WarehouseList";
-import "./App.scss";
+import WarehouseDetails from "./components/warehouseDetails/WarehouseDetails";
 
+import "./app.scss";
 
 function App() {
   return (
@@ -16,10 +16,14 @@ function App() {
           <Header />
           <div className="app__container">
             <Routes>
-              <Route path="/" element={<WarehouseList />} />
+              <Route path="/" element={<WarehouseList />} />{" "}
+              <Route path="/warehouses" element={<WarehouseList />} />
+              <Route
+                path="/warehouses/:warehouseId"
+                element={<WarehouseDetails />}
+              />
               <Route path="/inventory" element={<InventoryList />} />
               <Route path="/addInventoryItem" element={<AddInventoryItem />} />
-              {/* add for editInventoryItem */}
               <Route
                 path="/inventoryDetails"
                 element={<InventoryItemDetails />}
@@ -32,5 +36,4 @@ function App() {
     </>
   );
 }
-
 export default App;
