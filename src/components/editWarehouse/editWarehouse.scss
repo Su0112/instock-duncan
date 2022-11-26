@@ -1,0 +1,171 @@
+@use "../../styles/partials/color" as *;
+@use "../../styles/partials/breakpoints" as breakpoints;
+@use "../../styles/partials/text-styles" as text;
+@use "../../styles/partials/resets";
+@use "../../styles/partials/fonts";
+
+
+
+
+
+
+.form {
+
+    &__main {
+        margin: 1rem 0;
+    }
+    padding: 1.5rem;
+    &__header {
+        display: flex;
+        padding: 1rem;
+        border-bottom: 0.0625rem solid $Cloud;
+    }
+
+    &__header-img {
+        padding-right: 0.5rem;
+    }
+
+    &__header-title {
+        @include text.subheader-mobile;
+        color: $Instock-Black;
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+
+   
+
+  &__warehouse-details {
+   
+
+    
+    &-title {
+        @include text.subheader-mobile;
+        font-weight: 400;
+        margin: 0;
+    }
+    }
+
+  &__warehouse-detailsFirst,
+  &__warehouse-detailsSecond {
+
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+  }
+
+  &__warehouse-detailsSecond {
+    border-top: 0.0625rem solid $Cloud;
+      
+  }
+    &__input-title {
+        @include text.labels-links-btn-mobile;
+        font-weight: 600;
+        margin-top: 1rem;
+        margin-bottom: 0.2rem;
+        display: inline-block;
+    }
+
+    &__input {
+        width: 18.4375rem;
+        height: 2.25rem;
+        border: 1px solid #bdc5d5;
+        border-radius: 1.25rem;
+        font-family: Titillium;
+        resize: none;
+        padding-left: 1rem;
+        line-height: 1.25rem;
+        text-align: left;
+        display: flex;
+        align-items: center;
+
+
+        &:focus {
+            outline: 0.125rem solid $Instock-Indigo;
+            box-shadow: 0 0 0.75rem #76a7db;
+        }
+    }
+
+
+    &__btn-wrapper {
+        display: flex;
+        justify-content: space-around;
+        background: $Light-Grey;
+        border-top: 1px solid #bdc5d5;
+    }
+
+    &__btn {
+        &--cancel {
+            height: 2.25rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding: 0.5rem 2.5rem;
+            border: 1px solid #bdc5d5;
+            border-radius: 1.25rem;
+            font-family: Titillium;
+            color: $Slate;
+            background-color: $White;
+        }
+
+        &--addItem {
+            height: 2.25rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding: 0.5rem 2.5rem;
+            border: 1px solid #bdc5d5;
+            border-radius: 1.25rem;
+            font-family: Titillium;
+            color: $White;
+            background-color: $Instock-Indigo;
+        }
+    }
+}
+
+
+@include breakpoints.medium {
+    .form {
+
+        &__main {
+            display: flex;
+            justify-content: center;
+
+
+
+        }
+        &__header-title {
+            @include text.page-header-desktop-tablet;
+            font-weight: 400;
+        }
+
+        &__btn-wrapper {
+            justify-content: flex-end;
+            align-items: center;
+            margin: 0;
+            height: 4.375rem;
+            padding: 1rem 0;
+           
+        }
+
+        &__content-main {
+            display: flex;
+            justify-content: space-evenly;
+            padding-top: 1rem;
+        }
+
+   
+
+ &__warehouse-detailsSecond {
+
+    border-top: none;
+    border-left:0.0625rem solid $Cloud; ;
+ }
+   
+
+        &__btn {
+
+            &--cancel,
+            &--addItem {
+                margin: 0.5rem;
+            }
+        }
+    }
+}
