@@ -42,9 +42,9 @@ export default function EditWarehouse() {
         <main className="main">
           <form>
             <section className="form__main">
-              <section className="form__item-details">
+              <section className="form__warehouse-detailsFirst">
                 <div className="form__input-wrapper">
-                  <h2 className="form__item-details-title">
+                  <h2 className="form__warehouse-details-title">
                     Warehouse Details
                   </h2>
                   <label className="form__input-title">Warehouse Name</label>
@@ -80,9 +80,11 @@ export default function EditWarehouse() {
                   ></input>
                 </div>
               </section>
-              <section className="form__item-details">
+              <section className="form__warehouse-detailsSecond">
                 <div className="form__input-wrapper">
-                  <h2 className="form__item-details-title">Contact Details</h2>
+                  <h2 className="form__warehouse-details-title">
+                    Contact Details
+                  </h2>
                   <label className="form__input-title">Contact Name</label>
                   <input
                     name="contactName"
