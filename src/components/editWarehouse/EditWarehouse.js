@@ -15,6 +15,15 @@ export default function EditWarehouse() {
   const params = useParams();
   const warehouseId = "5af76f4c-f05d-45d2-8e57-1ef8c11631b4";
 
+  const [warehouseName, setWarehouseName] = useState("");
+  const [warehouseAddress, setWarehouseAddress] = useState("");
+  const [warehouseCity, setWarehouseCity] = useState("");
+  const [warehouseCountry, setWarehouseCountry] = useState("");
+  const [warehouseContactName, setWarehouseContactName] = useState("");
+  const [warehouseContactPosition, setWarehouseContactPosition] = useState("");
+  const [warehouseContactPhone, setWarehouseContactPhone] = useState("");
+  const [warehouseContactEmail, setWarehouseContactEmail] = useState("");
+
   useEffect(() => {
     axios
       .get(URL + warehouseId)
@@ -26,15 +35,6 @@ export default function EditWarehouse() {
       .catch((error) => console.log(error));
     // console.log(warehouse);
   }, [params]);
-
-  const [warehouseName, setWarehouseName] = useState("");
-  const [warehouseAddress, setWarehouseAddress] = useState("");
-  const [warehouseCity, setWarehouseCity] = useState("");
-  const [warehouseCountry, setWarehouseCountry] = useState("");
-  const [warehouseContactName, setWarehouseContactName] = useState("");
-  const [warehouseContactPosition, setWarehouseContactPosition] = useState("");
-  const [warehouseContactPhone, setWarehouseContactPhone] = useState("");
-  const [warehouseContactEmail, setWarehouseContactEmail] = useState("");
 
   const handleChangeWarehouseName = (event) => {
     console.log(event.target.value);
@@ -57,14 +57,14 @@ export default function EditWarehouse() {
   };
 
   const handleChangeContactPosition = (event) => {
-    setWarehouseContactPosition(event.current.value);
+    setWarehouseContactPosition(event.target.value);
   };
 
   const handleChangeContactPhone = (event) => {
-    setWarehouseContactPhone(event.current.value);
+    setWarehouseContactPhone(event.target.value);
   };
   const handleChangeContactEmail = (event) => {
-    setWarehouseContactEmail(event.current.value);
+    setWarehouseContactEmail(event.target.value);
   };
 
   let navigate = useNavigate();
@@ -75,6 +75,7 @@ export default function EditWarehouse() {
 
   const handleSubmit = (event) => {
     console.log("hello");
+    console.log(warehouseContactPosition);
     event.preventDefault();
 
     console.log("Test " + warehouseAddress);
@@ -84,23 +85,23 @@ export default function EditWarehouse() {
     let address = warehouseAddress ? warehouseAddress : warehouse.address;
     let city = warehouseCity ? warehouseCity : warehouse.city;
     let country = warehouseCountry ? warehouseCountry : warehouse.country;
-    let contactN = warehouseContactName
-      ? warehouseContactName
-      : warehouse.conract_name;
-    let contactPos = warehouseContactPosition
+    let contactN = warehouseContactName;
+    let position = warehouseContactPosition
       ? warehouseContactPosition
       : warehouse.contact_position;
-    let contactPh = warehouseContactPhone
-      ? warehouseContactPhone
-      : warehouse.contact_phone;
+    //   // ? warehouseContactName
+    //   // : warehouse.conract_name;
+    // let position = warehouseContactPosition;
+    // ? warehouseContactPosition
+    //   : warehouse.contact_position;
+    // let phone = warehouseContactPhone
+    //   ? warehouseContactPhone
+    //   : warehouse.contact_phone;
+    // let email = warehouseContactEmail
+    //   ? warehouseContactEmail
+    //   : warehouse.contact_email;
 
-    let contactE = warehouseContactEmail
-      ? warehouseContactEmail
-      : warehouse.contact_email;
-
-    console.log(
-      "Result " + address + city + name + country + contactPh + contactN
-    );
+    console.log("Result " + address + city + name + country + contactN);
 
     // axios
     //   .put(URL + warehouseId, {
@@ -148,7 +149,6 @@ export default function EditWarehouse() {
                     name="warehouseName"
                     className="form__input"
                     id="warehouseName"
-                    placeholder=""
                     defaultValue={warehouse.warehouse_name}
                     onChange={handleChangeWarehouseName}
                   ></input>
@@ -157,7 +157,6 @@ export default function EditWarehouse() {
                     name="warehouseAddress"
                     className="form__input"
                     id="warehouseAddress"
-                    placeholder=""
                     defaultValue={warehouse.address}
                     onChange={handleChangeWarehouseAddress}
                   ></input>
@@ -194,7 +193,7 @@ export default function EditWarehouse() {
                     value={warehouseContactName}
                     onChange={handleChangeContactName}
                   ></input>
-                  <p className="form__input-title">Position</p>
+                  <label className="form__input-title">Position</label>
                   <input
                     name="ContactPosition"
                     className="form__input"
