@@ -10,14 +10,11 @@ import DeleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import Chevron from "../../assets/Icons/chevron_right-24px.svg";
 import { ReactComponent as Icon } from "../../assets/Icons/edit-white.svg";
 
-const URL = process.env.REACT_APP_BACKEND_URL + "/warehouses/";
+const URL = process.env.REACT_APP_BACKEND_URL;
 
 export default function WarehouseDetails() {
   const [warehouse, setWarehouse] = useState();
-
   const [inventories, setInventories] = useState([]);
-
-  const [state, setState] = useState("null");
 
   const params = useParams();
   const warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
@@ -29,7 +26,7 @@ export default function WarehouseDetails() {
         if (response.status === 200) {
           setWarehouse(response.data);
           axios
-            .get(URL + warehouseId + "/inventories")
+            .get(URL + "/warehouses/" + warehouseId + "/inventories")
             .then((response) => {
               setInventories(response.data);
             })
@@ -126,6 +123,9 @@ export default function WarehouseDetails() {
                           alt="sort icon"
                         />
                       </div>
+                      <p className="warehouseDetails__statusText">
+                        {inventory.item_name}
+                      </p>
                     </div>
 
                     {/* warehouseDetails STATUS */}
@@ -140,12 +140,7 @@ export default function WarehouseDetails() {
                           alt="sort icon"
                         />
                       </div>
-                      <p
-                        className="warehouseDetails__statusText"
-                        style={{
-                          color: state === "false" ? "#C94515" : "#158463",
-                        }}
-                      >
+                      <p className="warehouseDetails__statusText">
                         {inventory.status}
                       </p>
                     </div>
