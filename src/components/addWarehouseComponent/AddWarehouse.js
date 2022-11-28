@@ -1,6 +1,5 @@
 import "./addWarehouse.scss";
 import ArrowIcon from "../../assets/Icons/arrow_back-24px.svg";
-//import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 import { useRef } from "react";
@@ -80,29 +79,11 @@ function AddWarehouse() {
         console.log("An error has occurred", error);
       });
 
-    // let btnStatus = document.querySelector(".status").value;
-    // if (document.querySelector(".status").checked) {
-    //   btnStatus = document.querySelector(".status").value;
-    // }
-
-    //Form validation:
+    let btnStatus = document.querySelector(".status").value;
+    if (document.querySelector(".status").checked) {
+      btnStatus = document.querySelector(".status").value;
+    }
   };
-
-  // const [warehouse, setWarehouse] = useState();
-  // const params = useParams();
-  // const warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
-
-  // useEffect(() => {
-  //   axios
-  //     .get(URL + warehouseId)
-  //     .then((response) => {
-  //       if (response.status === 200) {
-  //         setWarehouse(response.data);
-  //       }
-  //     })
-  //     .catch((error) => console.log(error));
-  //   // console.log(warehouse);
-  // }, [params]);
 
   return (
     <>

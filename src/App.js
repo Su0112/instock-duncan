@@ -6,7 +6,7 @@ import InventoryItemDetails from "./components/inventoryItemDetails/InventoryIte
 import WarehouseList from "./components/warehouseList/WarehouseList";
 import WarehouseDetails from "./components/warehouseDetails/WarehouseDetails";
 import EditWarehouse from "./components/editWarehouse/EditWarehouse";
-import AddWarehouse from "./components/addWarehouse/AddWarehouse";
+import AddWarehouse from "./components/addWarehouseComponent/AddWarehouse";
 
 import "./app.scss";
 

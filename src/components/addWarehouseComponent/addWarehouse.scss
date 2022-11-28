@@ -6,12 +6,14 @@
 
 .add {
   &__form {
+    padding: 1.5rem;
     &__main {
       margin: 1rem 0;
     }
-    padding: 1.5rem;
+
     &__header {
       display: flex;
+      align-items: center;
       padding: 1rem;
       border-bottom: 0.0625rem solid $Cloud;
     }

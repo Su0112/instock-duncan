@@ -2,7 +2,7 @@
 import "./warehouseList.scss";
 //in-built imports
 import React from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -43,11 +43,11 @@ export default function WarehouseList() {
               />
             </div>
             <div className="warehouses__header-button">
-              {/* <Link to={"/"}> */}
-              <button className="warehouses__header-button-bar">
-                +Add New Warehouse
-              </button>
-              {/* </Link> */}
+              <Link to={"/addWarehouse"}>
+                <button className="warehouses__header-button-bar">
+                  +Add New Warehouse
+                </button>
+              </Link>
             </div>
           </div>
         </div>
