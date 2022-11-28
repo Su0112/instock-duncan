@@ -1,6 +1,6 @@
 import "./InventoryItemDetails.scss";
 import arrowIcon from "../../assets/Icons/arrow_back-24px.svg";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, NavLink } from "react-router-dom";
 import EditIcon from "../../assets/Icons/edit-24px.svg";
 
 // import { useRef } from "react";
@@ -20,7 +20,7 @@ function InventoryItemDetails() {
     <>
       <section className="details">
         <header className="details__header-wrapper">
-          <Link to={"/inventory"} className="form__header-link">
+          <Link to={"/inventories"} className="form__header-link">
             <img
               className="details__header-img"
               src={arrowIcon}
@@ -30,12 +30,16 @@ function InventoryItemDetails() {
 
           <h1 className="details__header-title">{inventory.item_name}</h1>
 
-          {/* <Link to={"/"} className="form__header-link"> */}
-          <button className="details__edit-btn">
-            <img className="details__edit-img" src={EditIcon} alt="Edit icon" />
-            <p className="details__edit-btn-text">Edit</p>
-          </button>
-          {/* </Link> */}
+          <Link to={"/inventories/:inventoryId"} className="form__header-link">
+            <button className="details__edit-btn">
+              <img
+                className="details__edit-img"
+                src={EditIcon}
+                alt="Edit icon"
+              />
+              <p className="details__edit-btn-text">Edit</p>
+            </button>
+          </Link>
         </header>
 
         <main className="details__main">

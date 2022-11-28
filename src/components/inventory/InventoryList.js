@@ -2,7 +2,7 @@ import sortIcon from "../../assets/Icons/sort-24px.svg";
 import chevronRightIcon from "../../assets/Icons/chevron_right-24px.svg";
 import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./InventoryList.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -92,11 +92,11 @@ function InventoryList() {
         </div>
 
         <div className="inventory__addItems-wrapper">
-          <Link to={"/addInventoryItem"}>
+          <NavLink to={"/inventories/addInventoryItem"}>
             <button className="inventory__addItem-btn" type="submit">
               +Add New Item
             </button>
-          </Link>
+          </NavLink>
         </div>
       </div>
 
@@ -220,8 +220,8 @@ function InventoryList() {
                     <img src={deleteIcon} alt="delete icon" />
                   </button>
                   {/* to={"/inventoryDetails"} */}
-                  <Link
-                    to="/inventoryDetails"
+                  <NavLink
+                    to="/inventories/inventoryDetails"
                     state={{
                       data: inventory,
                       warehouse: getWarehouseName(inventory.warehouse_id),
@@ -230,7 +230,7 @@ function InventoryList() {
                     <button>
                       <img src={editIcon} alt="edit icon" />
                     </button>
-                  </Link>
+                  </NavLink>
                 </div>
               </div>
             </div>
