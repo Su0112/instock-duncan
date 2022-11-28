@@ -7,10 +7,31 @@ import WarehouseList from "./components/warehouseList/WarehouseList";
 import WarehouseDetails from "./components/warehouseDetails/WarehouseDetails";
 import EditWarehouse from "./components/editWarehouse/EditWarehouse";
 import AddWarehouse from "./components/addWarehouseComponent/AddWarehouse";
+import DeleteWarehouse from "./components/deleteWarehouseModal/DeleteWarehouseModal";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 import "./app.scss";
 
 function App() {
+  const [warehouseList, setWarehouseList] = useState([]);
+  useEffect(() => {
+    const fetchAllwarehouses = async () => {
+      try {
+        const { data } = await axios.get(`http://localhost:8080/warehouses`);
+        setWarehouseList(data);
+      } catch (error) {
+        console.log("Error", error);
+      }
+    };
+
+    fetchAllwarehouses();
+  }, []);
+  function handleDelete(warehouseId) {
+    setWarehouseList(
+      warehouseList.filter((warehouse) => warehouse.id !== warehouseId)
+    );
+  }
   return (
     <>
       <div className="app">
@@ -18,8 +39,21 @@ function App() {
           <Header />
           <div className="app__container">
             <Routes>
-              <Route path="/" element={<WarehouseList />} />{" "}
-              <Route path="/warehouses" element={<WarehouseList />} />
+              <Route path="/" element={<WarehouseList />} />
+              <Route
+                path="/warehouses"
+                element={<WarehouseList warehouseList={warehouseList} />}
+              >
+                <Route
+                  path="deleteWarehouse/:warehouseId"
+                  element={
+                    <DeleteWarehouse
+                      warehouseList={warehouseList}
+                      handleDelete={handleDelete}
+                    />
+                  }
+                />
+              </Route>
               <Route
                 path="/warehouses/:warehouseId"
                 element={<WarehouseDetails />}

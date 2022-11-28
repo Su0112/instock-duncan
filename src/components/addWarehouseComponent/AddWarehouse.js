@@ -10,41 +10,41 @@ import { useState } from "react";
 const URL = "http://localhost:8080/warehouses/";
 const warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
 
-const warehouse = [
-  {
-    value: "150a36cf-f38e-4f59-8e31-39974207372d",
-    label: "Boston",
-  },
-  {
-    value: "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    label: "Manhattan",
-  },
-  {
-    value: "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
-    label: "Washington",
-  },
-  {
-    value: "89898957-04ba-4bd0-9f5c-a7aea7447963",
-    label: "Santa Monica",
-  },
-  {
-    value: "90ac3319-70d1-4a51-b91d-ba6c2464408c",
-    label: "Jersey",
-  },
-  {
-    value: "ade0a47b-cee6-4693-b4cd-a7e6cb25f4b7",
-    label: "Seattle",
-  },
-  {
-    value: "bb1491eb-30e6-4728-a5fa-72f89feaf622",
-    label: "Miami",
-  },
-  {
-    value: "sf",
-    label: "San Francisco",
-    id: "bfc9bea7-66f1-44e9-879b-4d363a888eb4",
-  },
-];
+// const warehouse = [
+//   {
+//     value: "150a36cf-f38e-4f59-8e31-39974207372d",
+//     label: "Boston",
+//   },
+//   {
+//     value: "2922c286-16cd-4d43-ab98-c79f698aeab0",
+//     label: "Manhattan",
+//   },
+//   {
+//     value: "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
+//     label: "Washington",
+//   },
+//   {
+//     value: "89898957-04ba-4bd0-9f5c-a7aea7447963",
+//     label: "Santa Monica",
+//   },
+//   {
+//     value: "90ac3319-70d1-4a51-b91d-ba6c2464408c",
+//     label: "Jersey",
+//   },
+//   {
+//     value: "ade0a47b-cee6-4693-b4cd-a7e6cb25f4b7",
+//     label: "Seattle",
+//   },
+//   {
+//     value: "bb1491eb-30e6-4728-a5fa-72f89feaf622",
+//     label: "Miami",
+//   },
+//   {
+//     value: "sf",
+//     label: "San Francisco",
+//     id: "bfc9bea7-66f1-44e9-879b-4d363a888eb4",
+//   },
+// ];
 
 function AddWarehouse() {
   const formRef = useRef();
