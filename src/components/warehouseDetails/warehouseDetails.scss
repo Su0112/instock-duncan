@@ -152,17 +152,19 @@
         height: 2.5rem;
         background: $Light-Grey;
         font-size: .875rem;
+        padding: 0 1rem;
 
         &-box {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
+            width: 20%;
 
-            @include breakpoints.medium {
-                width: 15%;
-                justify-content: left;
-            }
+            // @include breakpoints.medium {
+            //     width: 15%;
+            //     justify-content: left;
+            // }
         }
 
         &-icon {
@@ -177,8 +179,21 @@
 
         &-text {
             @include text.table-header-desktop-tablet;
+            text-transform: uppercase;
         }
+
+      &-last {
+        display: flex;
+align-items: center;
+justify-content: right;
+width: 20%;
+margin: 0;
+padding-right: 3rem;
+    }  
     }
+    
+    
+
 
     // warehouseDetails card
     &__list {
@@ -254,9 +269,13 @@
     .warehouseDetails {
         display: flex;
         flex-direction: column;
+  
 
+        &-large {
+            padding: 0 1rem;
+        }
         &__headerLarge-box {
-            width: 15%;
+            width: 20%;
             justify-content: left;
         }
 
@@ -277,7 +296,7 @@
         }
 
         &__inventory {
-            width: 15%;
+            width: 20%;
         }
 
         &__addItems-wrapper {
@@ -306,9 +325,8 @@
         }
 
 
-        &__text {
-            margin: 0 2rem;
-            width: 10rem;
+        &__text, &__status {
+            width: 20%;
 
 
         }
@@ -331,7 +349,7 @@
 
 
         &__actions {
-            width: 20rem;
+            width: 20%;
             display: flex;
 
             &-btns {
