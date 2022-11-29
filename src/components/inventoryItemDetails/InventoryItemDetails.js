@@ -31,7 +31,7 @@ function InventoryItemDetails() {
           <h1 className="details__header-title">{inventory.item_name}</h1>
 
           <NavLink
-            to={`/inventories/${inventory.id}`} 
+            to={`/inventories/${inventory.id}`}
             className="form__header-link"
           >
             <button className="details__edit-btn">
