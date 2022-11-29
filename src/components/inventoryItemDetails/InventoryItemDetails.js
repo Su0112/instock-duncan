@@ -11,7 +11,7 @@ function InventoryItemDetails() {
   let inventory = location.state.data;
   let warehouse = location.state.warehouse;
 
-  console.log(warehouse, inventory);
+  //console.log(warehouse, inventory);
 
   let inventoryStatusClass =
     inventory.status == "In Stock" ? "status--inStock" : "status--outOfStock";
@@ -30,7 +30,10 @@ function InventoryItemDetails() {
 
           <h1 className="details__header-title">{inventory.item_name}</h1>
 
-          <Link to={"/inventories/:inventoryId"} className="form__header-link">
+          <NavLink
+            to={`/inventories/${inventory.id}`} 
+            className="form__header-link"
+          >
             <button className="details__edit-btn">
               <img
                 className="details__edit-img"
@@ -39,7 +42,7 @@ function InventoryItemDetails() {
               />
               <p className="details__edit-btn-text">Edit</p>
             </button>
-          </Link>
+          </NavLink>
         </header>
 
         <main className="details__main">
