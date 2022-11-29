@@ -292,7 +292,7 @@
 
     &__card-wrapper div p {
       margin: 0;
-      @include text.body-small-desktop-tablet;
+      @include text.body-medium-desktop-tablet;
       color: $Instock-Black;
     }
 
