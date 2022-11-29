@@ -9,7 +9,6 @@ import EditWarehouse from "./components/editWarehouse/EditWarehouse";
 import EditInventoryItemDetails from "./components/editInventoryItemDetails/EditInventoryItemDetails";
 
 import "./app.scss";
-// import DeleteInventoryItem from "./components/deleteInventoryItem/DeleteInventoryItem";
 
 function App() {
   return (
@@ -29,20 +28,22 @@ function App() {
                 path="/warehouses/editWarehouse"
                 element={<EditWarehouse />}
               />
+              <Route
+                path="/inventories/inventoryDetails"
+                element={<InventoryItemDetails />}
+              />
               <Route path="/inventories" element={<InventoryList />} />
               <Route
                 path="/inventories/addInventoryItem"
                 element={<AddInventoryItem />}
               />
-              <Route
-                path="/inventories/inventoryDetails"
-                element={<InventoryItemDetails />}
-              />
+              <Route path="/addWarehouse" element={<AddWarehouse />} />
+              <Route path="/inventory" element={<InventoryList />} />
+              <Route path="/addInventoryItem" element={<AddInventoryItem />} />
               <Route
                 path="/inventories/:inventoryId"
                 element={<EditInventoryItemDetails />}
               />
-              {/* <Route path="/delete" element={<DeleteInventoryItem />} /> */}
             </Routes>
           </div>
         </BrowserRouter>
