@@ -18,8 +18,13 @@ function App() {
           <Header />
           <div className="app__container">
             <Routes>
-              <Route path="/" element={<WarehouseList />} />{" "}
-              <Route path="/warehouses" element={<WarehouseList />} />
+              <Route path="/" element={<WarehouseList />} />
+              <Route path="/warehouses" element={<WarehouseList />}>
+                <Route
+                  path="deleteWarehouse/:warehouseId"
+                  element={<DeleteWarehouse />}
+                />
+              </Route>
               <Route
                 path="/warehouses/:warehouseId"
                 element={<WarehouseDetails />}
@@ -28,18 +33,13 @@ function App() {
                 path="/warehouses/editWarehouse"
                 element={<EditWarehouse />}
               />
+              <Route path="/addWarehouse" element={<AddWarehouse />} />
+              <Route path="/inventory" element={<InventoryList />} />
+              <Route path="/addInventoryItem" element={<AddInventoryItem />} />
               <Route
                 path="/inventories/inventoryDetails"
                 element={<InventoryItemDetails />}
               />
-              <Route path="/inventories" element={<InventoryList />} />
-              <Route
-                path="/inventories/addInventoryItem"
-                element={<AddInventoryItem />}
-              />
-              <Route path="/addWarehouse" element={<AddWarehouse />} />
-              <Route path="/inventory" element={<InventoryList />} />
-              <Route path="/addInventoryItem" element={<AddInventoryItem />} />
               <Route
                 path="/inventories/:inventoryId"
                 element={<EditInventoryItemDetails />}
