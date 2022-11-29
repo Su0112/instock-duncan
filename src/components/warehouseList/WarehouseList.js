@@ -231,7 +231,7 @@ export default function WarehouseList() {
                         <img src={deleteIcon} alt="delete icon" />
                       </button>
 
-                      <NavLink to="/warehouses/editWarehouse">
+                      <NavLink to={`/warehouses/${warehouse.id}/editWarehouse`}>
                         <button className="warehouses__actions-button">
                           <img src={editIcon} alt="edit icon" />
                         </button>
