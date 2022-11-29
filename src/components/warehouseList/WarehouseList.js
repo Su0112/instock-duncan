@@ -144,17 +144,19 @@ export default function WarehouseList() {
                             alt="sort icon"
                           />
                         </div>
-                        <div className="list__location-info-wrapper">
-                          <div className="list__location-info">
-                            <p className="list__location-infoText">
-                              {warehouse.warehouse_name}
-                            </p>
-                          </div>
+                        <NavLink to="/warehouses/:warehouseId">
+                          <div className="list__location-info-wrapper">
+                            <div className="list__location-info">
+                              <p className="list__location-infoText">
+                                {warehouse.warehouse_name}
+                              </p>
+                            </div>
 
-                          <div className="list__location-info">
-                            <img src={chevronRightIcon} alt="right Icon" />
+                            <div className="list__location-info">
+                              <img src={chevronRightIcon} alt="right Icon" />
+                            </div>
                           </div>
-                        </div>
+                        </NavLink>
                       </div>
                       <div className="list__address-container">
                         <div className="list__address-title">
