@@ -15,6 +15,7 @@ import DeleteWarehouseModal from "../deleteWarehouseModal/DeleteWarehouseModal";
 const URL = "http://localhost:8080/warehouses/";
 export default function WarehouseList() {
   const [warehouse, setWarehouse] = useState(null);
+  const [refreshWarehouses, setRefreshWarehouses] = useState(null);
 
   const params = useParams();
   const warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
@@ -30,8 +31,16 @@ export default function WarehouseList() {
         }
       })
       .catch((error) => console.log(error));
-    //console.log(warehouse);
   }, [params]);
+
+  useEffect(() => {
+    const fetchWarehouse = async () => {
+      const { data } = await axios.get(URL);
+
+      setWarehouse(data);
+    };
+    fetchWarehouse();
+  }, [refreshWarehouses]);
 
   // function getWarehouseName(id) {
   //   let warehouse = warehouse.filter((warehouse) => warehouse.id === id);
@@ -53,7 +62,7 @@ export default function WarehouseList() {
         let newWarehouses = warehouse.filter((el) => el.id !== warehouse.id);
         setWarehouse(newWarehouses);
         setDeleteWarehouse(false);
-        console.log(warehouse);
+        setRefreshWarehouses(warehouseId);
       } else {
         alert("Failed to delete, try again later maybe?");
       }
