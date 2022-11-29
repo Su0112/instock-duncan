@@ -144,7 +144,7 @@ export default function WarehouseList() {
                             alt="sort icon"
                           />
                         </div>
-                        <NavLink to="/warehouses/:warehouseId">
+                        <NavLink to={`/warehouses/${warehouse.id}`}>
                           <div className="list__location-info-wrapper">
                             <div className="list__location-info">
                               <p className="list__location-infoText">
