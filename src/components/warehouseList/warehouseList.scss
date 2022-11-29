@@ -307,5 +307,47 @@
         }
       }
     }
+    &__list-container {
+      display: inline;
+      border-top: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 5.5rem;
+      box-sizing: border-box;
+      gap: 8.5rem;
+    }
+  }
+  .list__location-address {
+    display: inline;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 4.75rem;
+  }
+  .warehouses__list-wrapper--large {
+    display: inline;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .warehouses__list-content {
+    display: inline;
+    display: flex;
+    justify-content: flex-start;
+    width: 10rem;
+  }
+  .warehouses__list-container-wrap {
+    display: inline;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 7.4rem;
+  }
+  .list__name-contact {
+    display: inline;
+    display: flex;
+    justify-content: flex-start;
+    gap: 8rem;
   }
 }
