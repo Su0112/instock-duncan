@@ -17,7 +17,7 @@ export default function WarehouseList() {
   const [warehouse, setWarehouse] = useState(null);
 
   const params = useParams();
-  //const warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
+  const warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
 
   useEffect(() => {
     axios
@@ -48,9 +48,12 @@ export default function WarehouseList() {
   };
 
   const handleDelete = (event, warehouseId) => {
-    axios.delete(`${URL}/${URL}`).then((response) => {
+    axios.delete(`${URL}/${warehouseId}`).then((response) => {
       if (response.status == "204") {
+        let newWarehouses = warehouse.filter((el) => el.id !== warehouse.id);
+        setWarehouse(newWarehouses);
         setDeleteWarehouse(false);
+        console.log(warehouse);
       } else {
         alert("Failed to delete, try again later maybe?");
       }

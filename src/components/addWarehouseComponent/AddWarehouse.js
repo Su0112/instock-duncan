@@ -10,55 +10,56 @@ import { useState } from "react";
 const URL = "http://localhost:8080/warehouses/";
 const warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
 
-// const warehouse = [
-//   {
-//     value: "150a36cf-f38e-4f59-8e31-39974207372d",
-//     label: "Boston",
-//   },
-//   {
-//     value: "2922c286-16cd-4d43-ab98-c79f698aeab0",
-//     label: "Manhattan",
-//   },
-//   {
-//     value: "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
-//     label: "Washington",
-//   },
-//   {
-//     value: "89898957-04ba-4bd0-9f5c-a7aea7447963",
-//     label: "Santa Monica",
-//   },
-//   {
-//     value: "90ac3319-70d1-4a51-b91d-ba6c2464408c",
-//     label: "Jersey",
-//   },
-//   {
-//     value: "ade0a47b-cee6-4693-b4cd-a7e6cb25f4b7",
-//     label: "Seattle",
-//   },
-//   {
-//     value: "bb1491eb-30e6-4728-a5fa-72f89feaf622",
-//     label: "Miami",
-//   },
-//   {
-//     value: "sf",
-//     label: "San Francisco",
-//     id: "bfc9bea7-66f1-44e9-879b-4d363a888eb4",
-//   },
-// ];
+const warehouse = [
+  {
+    value: "150a36cf-f38e-4f59-8e31-39974207372d",
+    label: "Boston",
+  },
+  {
+    value: "2922c286-16cd-4d43-ab98-c79f698aeab0",
+    label: "Manhattan",
+  },
+  {
+    value: "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
+    label: "Washington",
+  },
+  {
+    value: "89898957-04ba-4bd0-9f5c-a7aea7447963",
+    label: "Santa Monica",
+  },
+  {
+    value: "90ac3319-70d1-4a51-b91d-ba6c2464408c",
+    label: "Jersey",
+  },
+  {
+    value: "ade0a47b-cee6-4693-b4cd-a7e6cb25f4b7",
+    label: "Seattle",
+  },
+  {
+    value: "bb1491eb-30e6-4728-a5fa-72f89feaf622",
+    label: "Miami",
+  },
+  {
+    value: "sf",
+    label: "San Francisco",
+    id: "bfc9bea7-66f1-44e9-879b-4d363a888eb4",
+  },
+];
 
 function AddWarehouse() {
   const formRef = useRef();
   const navigate = useNavigate();
 
   const [warehouseName, setwarehouseName] = useState("default");
-  const [address, setAddress] = useState("default");
-  const [city, setCity] = useState("default");
-  const [country, setCountry] = useState("default");
-  const [contactName, setContactName] = useState("default");
-  const [position, setPosition] = useState("default");
-  const [email, setEmail] = useState("default");
-  const [phoneNumber, setPhoneNumber] = useState("default");
+  const [newAddress, setNewAddress] = useState("default");
+  const [newCity, setNewCity] = useState("default");
+  const [newCountry, setNewCountry] = useState("default");
+  const [newContactName, setNewContactName] = useState("default");
+  const [newPosition, setNewPosition] = useState("default");
+  const [newEmail, setNewEmail] = useState("default");
+  const [newPhoneNumber, setNewPhoneNumber] = useState("default");
   const [isFormValid, setIsFormValid] = useState(true);
+  const [submit, setSubmit] = useState(false);
 
   const isWarehouseNameValid = () => {
     if (warehouseName === "") {
@@ -68,49 +69,49 @@ function AddWarehouse() {
   };
 
   const isAddressValid = () => {
-    if (address === "") {
+    if (newAddress === "") {
       return false;
     }
     return true;
   };
 
   const isCityValid = () => {
-    if (city === "") {
+    if (newCity === "") {
       return false;
     }
     return true;
   };
 
   const isCountryValid = () => {
-    if (country === "") {
+    if (newCountry === "") {
       return false;
     }
     return true;
   };
 
   const isContactNameValid = () => {
-    if (contactName === "") {
+    if (newContactName === "") {
       return false;
     }
     return true;
   };
 
   const isPositionValid = () => {
-    if (position === "") {
+    if (newPosition === "") {
       return false;
     }
     return true;
   };
 
   const isPhoneNumberValid = () => {
-    if (phoneNumber === "" && phoneNumber.length < 11) {
+    if (newPhoneNumber === "" && newPhoneNumber.length < 11) {
       return false;
     }
     return true;
   };
 
   const isEmailValid = () => {
-    if (email === "" && !email.includes("@")) {
+    if (newEmail === "" && !newEmail.includes("@")) {
       return false;
     }
     return true;
@@ -118,8 +119,9 @@ function AddWarehouse() {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setSubmit(true);
 
-    const warehouse_id = formRef.current.warehouse_id.value;
+    //const warehouse_id = formRef.current.warehouse_id.value;
     const warehouse_name = formRef.current.warehouse_name.value;
     const address = formRef.current.address.value;
     const city = formRef.current.city.value;
@@ -129,14 +131,18 @@ function AddWarehouse() {
     const contact_phone = formRef.current.contact_phone.value;
     const contact_email = formRef.current.contact_email.value;
 
+    //console.log(contact_email);
+
     setwarehouseName(warehouse_name);
-    setAddress(address);
-    setCity(city);
-    setCountry(country);
-    setContactName(contact_name);
-    setPosition(contact_position);
-    setPhoneNumber(contact_phone);
-    setEmail(contact_email);
+    setNewAddress(address);
+    setNewCity(city);
+    setNewCountry(country);
+    setNewContactName(contact_name);
+    setNewPosition(contact_position);
+    setNewPhoneNumber(contact_phone);
+    setNewEmail(contact_email);
+    //console.log(warehouseName);
+    //console.log(newEmail, "ewquxcvbnm");
 
     if (
       warehouse_name &&
@@ -148,18 +154,20 @@ function AddWarehouse() {
       contact_phone &&
       contact_email
     ) {
+      const addWarehouse = {
+        //warehouse_id: warehouse_id,
+        warehouse_name: warehouse_name,
+        address: address,
+        city: city,
+        country: country,
+        contact_name: contact_name,
+        contact_position: contact_position,
+        contact_phone: contact_phone,
+        contact_email: contact_email,
+      };
+      //console.log(addWarehouse);
       axios
-        .post(URL + warehouseId, {
-          warehouse_id: warehouse_id,
-          warehouse_name: warehouse_name,
-          address: address,
-          city: city,
-          country: country,
-          contact_name: contact_name,
-          contact_position: contact_position,
-          contact_phone: contact_phone,
-          contact_email: contact_email,
-        })
+        .post(URL, addWarehouse)
         .then(navigate("/warehouses"))
         .catch((error) => {
           console.log(error.response);
@@ -203,7 +211,9 @@ function AddWarehouse() {
                 <input
                   name="warehouse_name"
                   className={`add__form__input ${
-                    isWarehouseNameValid() ? "" : "add__form__input--invalid"
+                    !submit && isWarehouseNameValid()
+                      ? ""
+                      : "add__form__input--invalid"
                   }`}
                   id="warehouse_name"
                   placeholder="Warehouse Name"
@@ -218,7 +228,9 @@ function AddWarehouse() {
                 <input
                   name="address"
                   className={`add__form__input ${
-                    isAddressValid() ? "" : "add__form__input--invalid"
+                    !submit && isAddressValid()
+                      ? ""
+                      : "add__form__input--invalid"
                   }`}
                   id="address"
                   placeholder="Street Address"
@@ -232,11 +244,11 @@ function AddWarehouse() {
 
                 <label className="add__form__input-title">City</label>
                 <input
-                  name="address"
+                  name="city"
                   className={`add__form__input ${
-                    isCityValid() ? "" : "add__form__input--invalid"
+                    !submit && isCityValid() ? "" : "add__form__input--invalid"
                   }`}
-                  id="address"
+                  id="city"
                   placeholder="City"
                 ></input>
                 {!isFormValid && (
@@ -247,11 +259,13 @@ function AddWarehouse() {
                 )}
                 <label className="add__form__input-title">Country</label>
                 <input
-                  name="address"
+                  name="country"
                   className={`add__form__input ${
-                    isCountryValid() ? "" : "add__form__input--invalid"
+                    !submit && isCountryValid()
+                      ? ""
+                      : "add__form__input--invalid"
                   }`}
-                  id="address"
+                  id="country"
                   placeholder="Country"
                 ></input>
                 {!isFormValid && (
@@ -271,7 +285,9 @@ function AddWarehouse() {
                 <input
                   name="contact_name"
                   className={`add__form__input ${
-                    isContactNameValid() ? "" : "add__form__input--invalid"
+                    !submit && isContactNameValid()
+                      ? ""
+                      : "add__form__input--invalid"
                   }`}
                   id="contact_name"
                   placeholder="Contact Name"
