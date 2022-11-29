@@ -221,7 +221,7 @@ export default function WarehouseDetails() {
                       </button>
 
                       <NavLink
-                        to={`/inventories/${inventory.id}`}
+                        to={`/iinventories/inventoryDetails/${inventory.id}`}
                         className="form__header-link"
                       >
                         <button>
@@ -357,7 +357,7 @@ export default function WarehouseDetails() {
 
                   <div className="warehouseDetails__inventory">
                     <NavLink
-                      to={`/inventories/inventoryDetails/${inventory.id}`}
+                      to={`/iinventories/inventoryDetails/${inventory.id}`}
                       className="warehouseDetails__item"
                     >
                       <p className="warehouseDetails__item-text">
