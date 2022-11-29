@@ -2,7 +2,7 @@ import sortIcon from "../../assets/Icons/sort-24px.svg";
 import chevronRightIcon from "../../assets/Icons/chevron_right-24px.svg";
 import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import "./InventoryList.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -43,16 +43,6 @@ function InventoryList() {
     let warehouse = warehouses.filter((warehouse) => warehouse.id === id);
     return warehouse[0].warehouse_name;
   }
-
-  // function setStockClass() {
-  //   let itm = document.getElementsByClassName("inventory__statusText");
-  //   console.log(itm);
-  //   // if ((itm.value = "")) {
-  //   //   itm.classList.add("status--inStock");
-  //   // } else {
-  //   //   itm.classList.add("status--outOfStock");
-  //   // }
-  // }
 
   //added for popup
   const [openDeleteInventory, setDeleteInventory] = useState(false);
@@ -104,6 +94,59 @@ function InventoryList() {
         {/* between newly added for popup 
                   also add onClick for delete button */}
 
+        {/* tablet and desktop top headder*/}
+        <div className="hidden__inventory-top-box">
+          <div className="hidden__inventoryField-box">
+            <p className="hidden__inventoryField-text">INVENTORY ITEM</p>
+            <img
+              className="hidden__inventoryField-icon"
+              src={sortIcon}
+              alt="sort icon"
+            />
+          </div>
+
+          <div className="hidden__inventoryField-box">
+            <p className="hidden__inventoryField-text">CATEGORY</p>
+            <img
+              className="hidden__inventoryField-icon"
+              src={sortIcon}
+              alt="sort icon"
+            />
+          </div>
+
+          <div className="hidden__inventoryField-box">
+            <p className="hidden__inventoryField-text">STATUS</p>
+            <img
+              className="hidden__inventoryField-icon"
+              src={sortIcon}
+              alt="sort icon"
+            />
+          </div>
+
+          <div className="hidden__inventoryField-box">
+            <p className="hidden__inventoryField-text">QTY</p>
+            <img
+              className="hidden__inventoryField-icon"
+              src={sortIcon}
+              alt="sort icon"
+            />
+          </div>
+
+          <div className="hidden__inventoryField-box">
+            <p className="hidden__inventoryField-text">WAREHOUSE</p>
+            <img
+              className="hidden__inventoryField-icon"
+              src={sortIcon}
+              alt="sort icon"
+            />
+          </div>
+
+          <div className="hidden__inventoryField-box">
+            <p className="hidden__inventoryField-text">ACTIONS</p>
+          </div>
+        </div>
+        {/* tablet and desktop top headder*/}
+
         {openDeleteInventory && (
           <DeleteInventoryItem
             closeDeleteInventory={setDeleteInventory}
@@ -136,13 +179,19 @@ function InventoryList() {
                   />
                 </div>
                 <div className="inventory__appliance-wrapper">
-                  <a href="">
+                  <NavLink
+                    to={`/inventories/inventoryDetails/${inventory.id}`}
+                    state={{
+                      data: inventory,
+                      warehouse: getWarehouseName(inventory.warehouse_id),
+                    }}
+                  >
                     <p className="inventory__applianceText">
                       {inventory.item_name}
                     </p>
 
                     <img src={chevronRightIcon} alt="right Icon" />
-                  </a>
+                  </NavLink>
                 </div>
               </div>
 
@@ -219,9 +268,10 @@ function InventoryList() {
                   >
                     <img src={deleteIcon} alt="delete icon" />
                   </button>
+
                   {/* to={"/inventoryDetails"} */}
                   <NavLink
-                    to="/inventories/inventoryDetails"
+                    to={`/inventories/${inventory.id}`}
                     state={{
                       data: inventory,
                       warehouse: getWarehouseName(inventory.warehouse_id),

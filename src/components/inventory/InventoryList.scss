@@ -64,6 +64,10 @@
     border-top: 2px $Cloud solid;
   }
 
+  &__card-wrapper:hover {
+    background-color: $Light-Grey;
+  }
+
   &__actions {
     width: 100% !important;
     display: flex;
@@ -139,7 +143,38 @@
   text-transform: uppercase;
 }
 
+.hidden {
+  &__inventory-top-box {
+    display: none;
+  }
+}
+
 @include breakpoints.medium {
+  .hidden {
+    &__inventory-top-box {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      background: $Light-Grey;
+      padding-left: 1rem;
+    }
+
+    &__inventoryField-box {
+      display: flex;
+      width: 100%;
+    }
+
+    &__inventoryField-text {
+      display: flex;
+      @include text.table-header-desktop-tablet;
+      white-space: nowrap;
+    }
+
+    &__inventoryField-icon {
+      vertical-align: bottom;
+    }
+  }
+
   .inventory {
     display: flex;
     flex-direction: column;
@@ -153,7 +188,7 @@
 
     &__headerText {
       @include text.page-header-desktop-tablet;
-      width: 50%;
+      width: 80%;
       margin: 0;
       padding-top: 1.5rem;
       padding-bottom: 1rem;
@@ -161,6 +196,7 @@
     &__searchBar-wrapper {
       width: 25%;
       padding-top: 1.5rem;
+      width: 15.625rem;
     }
 
     &__search-input {
@@ -177,9 +213,10 @@
     }
 
     &__addItems-wrapper {
-      width: 25%;
       padding-left: 1rem;
       padding-top: 1.5rem;
+      width: 9.375rem;
+      white-space: nowrap;
     }
     &__addItem-btn {
       @include text.labels-links-btn-desktop-tablet;
@@ -189,6 +226,8 @@
       border-radius: 20px;
       height: 2.25rem;
       width: 100%;
+      padding-right: 1rem;
+      padding-left: 1rem;
     }
 
     // Inventory card
@@ -225,6 +264,7 @@
       border: none;
       background: none;
       padding: 0;
+      padding-right: 16px;
     }
     &__card-wrapper > div {
       padding-bottom: 1rem;
@@ -262,9 +302,11 @@
 
     &__sort-headerText {
       margin: 0;
-      padding-bottom: 4px;
+      padding-bottom: 1rem;
       @include text.table-header-desktop-tablet;
       color: $Slate;
+      color: red;
+      background-color: yellow;
     }
     &__sort-sortIcon {
       display: inline;
