@@ -131,8 +131,6 @@ function AddWarehouse() {
     const contact_phone = formRef.current.contact_phone.value;
     const contact_email = formRef.current.contact_email.value;
 
-    //console.log(contact_email);
-
     setwarehouseName(warehouse_name);
     setNewAddress(address);
     setNewCity(city);
@@ -141,8 +139,6 @@ function AddWarehouse() {
     setNewPosition(contact_position);
     setNewPhoneNumber(contact_phone);
     setNewEmail(contact_email);
-    //console.log(warehouseName);
-    //console.log(newEmail, "ewquxcvbnm");
 
     if (
       warehouse_name &&
@@ -165,7 +161,7 @@ function AddWarehouse() {
         contact_phone: contact_phone,
         contact_email: contact_email,
       };
-      //console.log(addWarehouse);
+
       axios
         .post(URL, addWarehouse)
         .then(navigate("/warehouses"))

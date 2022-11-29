@@ -10,30 +10,10 @@ import EditInventoryItemDetails from "./components/editInventoryItemDetails/Edit
 
 import AddWarehouse from "./components/addWarehouseComponent/AddWarehouse";
 import DeleteWarehouse from "./components/deleteWarehouseModal/DeleteWarehouseModal";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
 import "./app.scss";
 
 function App() {
-  // const [warehouseList, setWarehouseList] = useState([]);
-  // useEffect(() => {
-  //   const fetchAllwarehouses = async () => {
-  //     try {
-  //       const { data } = await axios.get(`http://localhost:8080/warehouses`);
-  //       setWarehouseList(data);
-  //     } catch (error) {
-  //       console.log("Error", error);
-  //     }
-  //   };
-
-  //   fetchAllwarehouses();
-  // }, []);
-  // function handleDelete(warehouseId) {
-  //   setWarehouseList(
-  //     warehouseList.filter((warehouse) => warehouse.id !== warehouseId)
-  //   );
-  // }
   return (
     <>
       <div className="app">

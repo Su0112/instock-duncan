@@ -167,7 +167,8 @@ export default function WarehouseList() {
                         </div>
                         <div className="list__address-info">
                           <p className="list__address-infoText">
-                            {warehouse.address}
+                            {warehouse.address} {warehouse.city}{" "}
+                            {warehouse.country}
                           </p>
                         </div>
                       </div>
