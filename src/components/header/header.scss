@@ -1,0 +1,71 @@
+@use "../../styles/partials/color" as *;
+@use "../../styles/partials/breakpoints" as breakpoints;
+@use "../../styles/partials/text-styles" as text;
+@use "../../styles/partials/resets";
+@use "../../styles/partials/fonts";
+
+.header {
+  background-color: $Graphite;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 11.625rem;
+  &--active {
+    padding: 0.5rem 1.5rem;
+    background-color: $Instock-Black;
+    border: 1px solid $Instock-Black;
+    border-radius: 1.25rem;
+    font-weight: 600;
+    color: $White;
+  }
+  &__logo-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  &__logo {
+    height: 2rem;
+    width: 9rem;
+  }
+  &__nav-list {
+    padding-left: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  &__nav-item {
+    list-style: none;
+  }
+  &__nav-link {
+    @include text.labels-links-btn-mobile;
+    text-decoration: none;
+    color: $Cloud;
+    border-radius: 1.25rem;
+    width: 10.1875rem;
+    height: 2.25rem;
+    &:hover {
+      text-decoration: underline $Cloud;
+      color: $White;
+    }
+  }
+}
+
+@include breakpoints.medium {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__logo-wrapper {
+      padding: 1rem;
+    }
+    &__nav-wrapper {
+      width: 30%;
+    }
+  }
+}
+
+@include breakpoints.large {
+  .header {
+    &__nav-list {
+      justify-content: space-evenly;
+    }
+  }
+}

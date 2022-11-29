@@ -1,0 +1,372 @@
+@use "../../styles/partials/color" as *;
+@use "../../styles/partials/breakpoints" as breakpoints;
+@use "../../styles/partials/text-styles" as text;
+@use "../../styles/partials/resets";
+@use "../../styles/partials/fonts";
+
+
+.mainBlock {
+    margin: 0;
+}
+
+
+
+.warehouseDetails {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+
+    &__categoryText {
+        font-size: 0.8125rem;
+        line-height: 1.25rem;
+        font-weight: 600;
+        color: $Instock-Indigo;
+    }
+
+
+    &__status--inStock {
+        color: $Green  !important;
+        background-color: unquote($Green + "12");
+        border-radius: 5px;
+        width: fit-content;
+        padding: 0 8px;
+        text-transform: uppercase;
+
+    }
+
+    &__status--outOfStock {
+        color: $Red  !important;
+        background-color: unquote($Red + "12");
+        border-radius: 5px;
+        width: fit-content;
+        padding: 0 8px;
+        text-transform: uppercase;
+
+    }
+
+
+    &-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        border-bottom: 0.0625rem solid $Cloud;
+        height: 5.75rem;
+        font-weight: 400;
+        @include text.page-header-mobile;
+        padding: 0 1rem;
+
+        &__back {
+            padding-right: 0.5rem;
+        }
+
+        // &__edit {
+        //     position: absolute;
+        //     right: em;
+
+
+        // }
+    }
+
+    &__top-wrapper {
+        display: flex;
+        flex-direction: column;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    &__headerText {
+        @include text.page-header-mobile;
+        margin: 0;
+        padding-left: 1rem;
+        width: 90%;
+    }
+
+    &-contact {
+        padding: 0 1rem;
+        @include text.body-medium-mobile;
+        color: $Slate;
+        display: flex;
+        flex-wrap: wrap;
+
+        @include breakpoints.medium {
+            flex-wrap: nowrap;
+        }
+
+        &__header {
+            text-transform: uppercase;
+            margin: .9375rem 0 0 0;
+            width: 10rem;
+
+        }
+
+        &__content {
+            color: $Instock-Black;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        &__first {
+            display: block;
+            width: 100%;
+
+            @include breakpoints.medium {
+                border-right: 0.0625rem solid $Cloud;
+                margin: 1rem 0;
+                padding-right: 2rem;
+                width: 20rem;
+
+            }
+        }
+
+        &__second {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            @include breakpoints.medium {
+                padding-left: 3rem;
+            }
+        }
+
+        &__third {
+            width: 9rem;
+            margin: 1rem 0;
+        }
+
+        @include breakpoints.medium {
+            width: 11rem;
+        }
+    }
+
+
+
+    &__headerLarge {
+        display: flex;
+        flex-direction: row;
+        @include text.table-header-mobile;
+        color: $Slate;
+        justify-content: flex-start;
+        height: 2.5rem;
+        background: $Light-Grey;
+        font-size: .875rem;
+        padding: 0 1rem;
+
+        &-box {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 20%;
+
+            // @include breakpoints.medium {
+            //     width: 15%;
+            //     justify-content: left;
+            // }
+        }
+
+        &-icon {
+            margin: 0;
+            display: flex;
+
+            padding: 0 0.5rem;
+            height: .75rem;
+
+
+        }
+
+        &-text {
+            @include text.table-header-desktop-tablet;
+            text-transform: uppercase;
+        }
+
+      &-last {
+        display: flex;
+align-items: center;
+justify-content: right;
+width: 20%;
+margin: 0;
+padding-right: 3rem;
+    }  
+    }
+    
+    
+
+
+    // warehouseDetails card
+    &__list {
+        display: flex;
+        flex-direction: column;
+        font-size: .875rem;
+    }
+
+    &__card-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        padding-top: 1rem;
+        border-top: 1px $Cloud solid;
+    }
+
+    &__actions {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__actions button {
+        border: none;
+        background: none;
+        margin-right: 1rem;
+    }
+
+    &__actions-btns {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    &__card-wrapper>div {
+        padding-bottom: 1rem;
+        width: 50%;
+    }
+
+
+
+    &__card-wrapper div div a {
+        display: flex;
+        align-items: center;
+    }
+
+
+
+    &__sort-headerText {
+        margin: 0;
+        padding-bottom: 0.25rem;
+        @include text.table-header-mobile;
+        color: $Slate;
+    }
+
+    &__sort-sortIcon {
+        display: none;
+    }
+
+    &__actions-header {
+        display: none;
+    }
+
+
+    &__applianceText {
+        color: $Instock-Indigo  !important;
+        font-weight: 600;
+    }
+}
+
+@include breakpoints.medium {
+    .warehouseDetails {
+        display: flex;
+        flex-direction: column;
+  
+
+        &-large {
+            padding: 0 1rem;
+        }
+        &__headerLarge-box {
+            width: 20%;
+            justify-content: left;
+        }
+
+        &__top-wrapper {
+            display: flex;
+            flex-direction: row;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            padding-bottom: 1.5rem;
+        }
+
+        &__headerText {
+            @include text.page-header-desktop-tablet;
+            width: 90%;
+            margin: 0;
+            padding-top: 1.5rem;
+            padding-bottom: 1rem;
+        }
+
+        &__inventory {
+            width: 20%;
+        }
+
+        &__addItems-wrapper {
+            width: 25%;
+            padding-left: 1rem;
+            padding-top: 1.5rem;
+        }
+
+        &__addItem-btn {
+            @include text.labels-links-btn-desktop-tablet;
+            background-color: $Instock-Indigo;
+            color: $White;
+            border: none;
+            border-radius: 20px;
+            height: 2.25rem;
+            width: 100%;
+        }
+
+        &__list {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: flex-start;
+
+
+        }
+
+
+        &__text, &__status {
+            width: 20%;
+
+
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: row;
+            width: 10rem;
+
+            &-text {
+                color: $Instock-Indigo;
+                font-weight: 600;
+
+            }
+
+            &-icon {
+                display: inline;
+            }
+        }
+
+
+        &__actions {
+            width: 20%;
+            display: flex;
+
+            &-btns {
+                justify-content: right;
+            }
+        }
+
+
+    }
+
+    .last {
+        justify-content: right;
+    }
+
+}
+
+
+a:link {
+    text-decoration: none;
+}

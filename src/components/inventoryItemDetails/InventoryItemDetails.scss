@@ -1,0 +1,182 @@
+@use "../../styles/partials/color" as *;
+@use "../../styles/partials/breakpoints" as breakpoints;
+@use "../../styles/partials/text-styles" as text;
+@use "../../styles/partials/resets";
+@use "../../styles/partials/fonts";
+
+.details {
+  &__header-wrapper {
+    display: flex;
+    padding: 0.5rem;
+    border-bottom: 0.0625rem solid $Cloud;
+    position: relative;
+  }
+  &__header-link {
+    display: flex;
+    padding: 0.5rem;
+  }
+  &__header-img {
+    padding-right: 0.5rem;
+    padding-top: 0.6rem;
+  }
+  &__header-title {
+    @include text.subheader-mobile;
+    color: $Instock-Black;
+    margin: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  &__edit-btn {
+    border: none;
+    background: $Instock-Indigo;
+    border-radius: 50%;
+    position: absolute;
+    right: 5.5rem;
+    top: 1.5rem;
+  }
+  &__edit-img {
+    filter: brightness(0) invert(1);
+    border-radius: 50%;
+  }
+  &__edit-btn-text {
+    display: none;
+  }
+  &__main {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+  }
+  &__main h4 {
+    margin: auto;
+    padding-bottom: 0.25rem;
+    @include text.table-header-mobile;
+    color: $Slate;
+  }
+  &__main p {
+    margin: 0;
+    padding-bottom: 1rem;
+    @include text.body-large-mobile;
+    color: $Instock-Black;
+  }
+  &__status-text {
+    padding-bottom: 0 !important;
+    border-radius: 1.25rem !important;
+  }
+  &____StatusQTYWarehouse-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  &__statusQty-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  &__status-wrapper {
+    width: 70%;
+  }
+  &__qty-wrapper {
+    width: 30%;
+  }
+}
+
+@include breakpoints.medium {
+  .details {
+    &__header-wrapper {
+      display: flex;
+      padding: 0.5rem;
+      border-bottom: 0.0625rem solid $Cloud;
+      position: relative;
+    }
+    &__header-link {
+      display: flex;
+      padding: 0.5rem;
+    }
+    &__header-img {
+      padding-right: 0.5rem;
+      padding-top: 1rem;
+    }
+    &__header-title {
+      @include text.page-header-desktop-tablet;
+      color: $Instock-Black;
+      margin: 0;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    &__edit-btn {
+      border: none;
+      background: $Instock-Indigo;
+      border-radius: 1.25rem;
+      position: absolute;
+      right: 5.5rem;
+      top: 1.5rem;
+      padding: 0.5rem 1rem;
+    }
+    &__edit-img {
+      filter: brightness(0) invert(1);
+      border-radius: 50%;
+      vertical-align: middle;
+    }
+    &__edit-btn-text {
+      display: unset;
+      vertical-align: bottom;
+    }
+    &__edit-btn-text {
+      color: $White;
+      @include text.labels-links-btn-desktop-tablet;
+    }
+    &__main {
+      display: flex;
+      flex-direction: row;
+      padding: 1rem 1.5rem;
+      width: 100%;
+    }
+    &__main h4 {
+      margin: auto;
+      padding-bottom: 0.25rem;
+      @include text.table-header-desktop-tablet;
+      color: $Slate;
+    }
+    &__main p {
+      margin: 0;
+      padding-bottom: 1rem;
+      @include text.body-medium-desktop-tablet;
+      color: $Instock-Black;
+    }
+    &__status-text {
+      padding-bottom: 0 !important;
+      border-radius: 1.25rem !important;
+    }
+    &__descriptionCategory-wrap {
+      width: 50%;
+      padding-right: 1rem;
+      border-right: 1px solid $Cloud;
+    }
+    &__category-wrapper {
+      padding-top: 0.25rem;
+    }
+    &__warehouse-wrapper {
+      padding-top: 1rem;
+    }
+
+    &__StatusQTYWarehouse-wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      padding-left: 1rem;
+    }
+    &__statusQty-wrapper {
+      display: flex;
+      flex-direction: row;
+      width: 50%;
+    }
+    &__status-wrapper {
+      width: 70%;
+    }
+    &__qty-wrapper {
+      width: 30%;
+    }
+  }
+}

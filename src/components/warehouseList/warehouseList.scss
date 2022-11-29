@@ -1,0 +1,353 @@
+@use "../../styles/partials/color" as *;
+@use "../../styles/partials/breakpoints" as breakpoints;
+@use "../../styles/partials/text-styles" as text;
+@use "../../styles/partials/resets";
+@use "../../styles/partials/fonts";
+
+.warehouses {
+  &__header {
+    padding: 1rem;
+
+    &-title {
+      color: $Instock-Black;
+      @include text.page-header-mobile;
+      margin-top: 1rem;
+    }
+
+    &-search {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      &-bar {
+        background: url("../../assets/Icons/search-24px.svg") no-repeat left;
+        background-position: 0.625rem;
+        background-color: $White;
+        border: 1px solid $Cloud;
+        background-size: 1rem;
+        background-position: right;
+        border-radius: 1.25rem;
+        width: 16rem;
+        height: 2.25rem;
+        max-width: 90vw;
+        padding-left: 1rem;
+      }
+    }
+  }
+
+  &__list-sortIcon {
+    display: none;
+  }
+
+  &__header-button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem;
+
+    &-bar {
+      background-color: $Instock-Indigo;
+      border: 1px solid $Cloud;
+      width: 16rem;
+      height: 2.25rem;
+      border-radius: 1.25rem;
+      color: $White;
+      @include text.labels-links-btn-mobile;
+    }
+  }
+
+  &__list {
+    &-wrapper--large {
+      display: none;
+    }
+  }
+
+  &__list-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding-top: 1rem;
+    border-top: 0.1rem solid $Cloud;
+    padding: 1rem;
+
+    &-wrap {
+      display: flex;
+      justify-content: space-around;
+      font-size: 0.6875rem;
+      @include text.table-header-mobile;
+      color: $Slate;
+      gap: 2rem;
+    }
+  }
+
+  &__actions-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__actions-button {
+    border: none;
+    background: none;
+  }
+}
+
+.list {
+  &__location-infoText {
+    color: $Instock-Indigo;
+    @include text.labels-links-btn-mobile;
+  }
+
+  &__location-title,
+  &__address-title,
+  &__name-title,
+  &__contact-title {
+    display: flex;
+    justify-content: flex-start;
+    width: 20%;
+  }
+
+  &__location-info-wrapper,
+  &__address-info,
+  &__name-info,
+  &__contact-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    @include text.body-medium-mobile;
+    color: $Instock-Black;
+  }
+
+  &__location-titleText,
+  &__address-titleText,
+  &__name-titleText,
+  &__contact-titleText {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+//Breakpoints for tablet
+@include breakpoints.medium {
+  .warehouses {
+    //margin-right: 1rem;
+
+    &__list-wraper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    &__header {
+      padding: 1.5rem 2rem 0.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+
+      &-wrapper {
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 1rem;
+        gap: 1rem;
+      }
+
+      &-title {
+        @include text.page-header-desktop-tablet;
+        margin-top: 0;
+        padding-top: 1rem;
+        margin-bottom: 0;
+      }
+
+      &-search {
+        &-bar {
+          width: 11.5625rem;
+          height: 2.375rem;
+        }
+      }
+
+      &-button {
+        &-bar {
+          width: 10.5rem;
+          height: 2.375rem;
+          @include text.labels-links-btn-desktop-tablet;
+        }
+      }
+    }
+
+    &__list {
+      &-wrapper--large {
+        display: inline;
+        display: flex;
+        justify-content: flex-start;
+        @include text.table-header-desktop-tablet;
+        color: $Slate;
+        background-color: rgba(247, 248, 249, 0.7);
+        border: 1px solid rgba(247, 248, 249, 0.7);
+        padding-left: 2rem;
+      }
+    }
+
+    &__list-container {
+      border-top: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 2rem;
+      box-sizing: border-box;
+
+      &-wrap {
+        display: inline;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+      }
+    }
+
+    &__actions-container {
+      display: flex;
+      align-content: center;
+      justify-content: space-around;
+      width: 6rem;
+    }
+
+    &__list-content {
+      width: 40%;
+      display: flex;
+      @include text.table-header-desktop-tablet;
+    }
+
+    &__list-sortIcon {
+      display: block;
+      padding-left: 0.25rem;
+    }
+
+    &__list-sortIcon {
+      max-width: 1.2rem;
+      max-height: 1.2rem;
+    }
+  }
+
+  .list {
+    &__location-info-wrapper {
+      width: 8.3rem;
+    }
+
+    &__address {
+      &-infoText {
+        width: 6rem;
+      }
+      &-container {
+        width: 6.2rem;
+      }
+    }
+
+    &__location-title,
+    &__address-title,
+    &__name-title,
+    &__contact-title {
+      display: none;
+    }
+
+    // &__location-container,
+    // &__address-container,
+    // &__name-container,
+    // &__contact-container {
+    //     width: 40%;
+    // }
+
+    &__location-address {
+      display: flex;
+      justify-content: left;
+
+      align-items: center;
+    }
+
+    &__name {
+      &-info {
+        width: 6rem;
+      }
+    }
+    &-infoText {
+      display: flex;
+      align-items: center;
+    }
+
+    &__name {
+      &-container {
+        width: 5.2rem;
+      }
+
+      &-contact {
+        display: flex;
+        justify-content: flex-start;
+        //width: 60%;
+        gap: 3rem;
+      }
+    }
+
+    &__contact-info {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &__contact-container {
+      width: 4rem;
+    }
+  }
+}
+
+//Breakpoints for desktop
+@include breakpoints.large {
+  .warehouses {
+    &__header {
+      padding: 1.5rem 2rem 0.5rem 2rem;
+
+      &-search {
+        &-bar {
+          width: 17.125rem;
+          height: 2.375rem;
+        }
+      }
+    }
+    &__list-container {
+      display: inline;
+      border-top: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 5.5rem;
+      box-sizing: border-box;
+      gap: 8.5rem;
+    }
+  }
+  .list__location-address {
+    display: inline;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 4.75rem;
+  }
+  .warehouses__list-wrapper--large {
+    display: inline;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .warehouses__list-content {
+    display: inline;
+    display: flex;
+    justify-content: flex-start;
+    width: 10rem;
+  }
+  .warehouses__list-container-wrap {
+    display: inline;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 7.4rem;
+  }
+  .list__name-contact {
+    display: inline;
+    display: flex;
+    justify-content: flex-start;
+    gap: 8rem;
+  }
+}

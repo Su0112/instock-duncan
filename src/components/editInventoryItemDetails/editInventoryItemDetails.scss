@@ -1,0 +1,197 @@
+@use "../../styles/partials/color" as *;
+@use "../../styles/partials/breakpoints" as breakpoints;
+@use "../../styles/partials/text-styles" as text;
+@use "../../styles/partials/resets";
+@use "../../styles/partials/fonts";
+
+.form {
+  &__header {
+    display: flex;
+    border-bottom: 0.0625rem solid $Cloud;
+  }
+  &__header-link {
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  &__header-img {
+    padding-right: 0.5rem;
+    height: 2rem;
+    width: 2rem;
+  }
+  &__header-title {
+    @include text.subheader-mobile;
+    color: $Instock-Black;
+  }
+  &__item-details {
+    padding: 1rem;
+    border-bottom: 1px solid $Cloud;
+  }
+  &__item-details-title {
+    @include text.subheader-mobile;
+    font-weight: 400;
+    margin: 0;
+  }
+  &__input-title {
+    @include text.labels-links-btn-mobile;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+  }
+  &__input-name {
+    width: 16rem;
+    height: 2.25rem;
+    border: 1px solid #bdc5d5;
+    border-radius: 1.25rem;
+    font-family: Titillium;
+    resize: none;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    &:focus {
+      outline: 0.0625rem solid $Instock-Indigo;
+      box-shadow: 0 0 0.75rem #76a7db;
+    }
+  }
+  &__input-description {
+    width: 16rem;
+    border: 1px solid #bdc5d5;
+    border-radius: 1.25rem;
+    font-family: Titillium;
+    padding: 0.5rem 0 4rem 1rem;
+    resize: none;
+    &:focus {
+      outline: 0.0625rem solid $Instock-Indigo;
+      box-shadow: 0 0 0.75rem #76a7db;
+    }
+  }
+  &__select-categories-container {
+    margin-top: 0.5rem;
+  }
+  &__select-categories {
+    border-radius: 1.25rem;
+    border: 1px solid $Cloud;
+    padding: 0.5rem;
+    width: 100%;
+    background-image: url(../../assets/Icons/arrow_drop_down-24px.svg);
+    background-position: 90% 50%;
+    background-repeat: no-repeat;
+    appearance: none;
+    padding-left: 1rem;
+  }
+  &__item-avail {
+    padding: 1rem;
+  }
+  &__item-avail-title {
+    @include text.subheader-mobile;
+    font-weight: 400;
+    margin: 0;
+  }
+  &__radio-btn-wrapper {
+    display: flex;
+  }
+  &__radio-btn {
+    width: 100%;
+    &-label {
+      @include text.labels-links-btn-mobile;
+      color: $Slate;
+      margin-left: 0.25rem;
+    }
+    &-label:active {
+      color: $Instock-Black;
+    }
+  }
+  .radio-custom:checked ~ label {
+    color: $Instock-Black;
+  }
+  &__btn-wrapper {
+    display: flex;
+    justify-content: space-around;
+  }
+  &__btn {
+    &--cancel {
+      height: 2.25rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      padding: 0.5rem 2.5rem;
+      border: 1px solid #bdc5d5;
+      border-radius: 1.25rem;
+      font-family: Titillium;
+      color: $Slate;
+      background-color: $White;
+    }
+    &--addItem {
+      height: 2.25rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      padding: 0.5rem 2.5rem;
+      border: 1px solid #bdc5d5;
+      border-radius: 1.25rem;
+      font-family: Titillium;
+      color: $White;
+      background-color: $Instock-Indigo;
+    }
+  }
+}
+
+.react-select {
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  border-radius: 1.25rem;
+  border: 1px solid #bdc5d5;
+}
+
+@include breakpoints.medium {
+  .form {
+    &__header-title {
+      @include text.page-header-desktop-tablet;
+      font-weight: 400;
+    }
+    &__header-img {
+      margin-top: 0.8rem;
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+    &__btn-wrapper {
+      justify-content: flex-end;
+      margin: 1rem;
+    }
+    &__content-main {
+      display: flex;
+      justify-content: space-evenly;
+      padding-top: 1rem;
+    }
+    &__item-details {
+      border: none;
+    }
+    &__select-categories {
+      width: 100%;
+    }
+    &__item-avail {
+      border-left: 1px solid #bdc5d5;
+      padding-left: 2rem;
+      width: 35vw;
+    }
+    &__btn {
+      &--cancel,
+      &--addItem {
+        margin: 1rem 0.5rem;
+      }
+    }
+  }
+}
+
+@include breakpoints.large {
+  .form {
+    &__input-name {
+      width: 30rem;
+    }
+    &__input-description {
+      width: 30rem;
+    }
+    &__select-categories {
+      width: 90%;
+    }
+    &__item-avail {
+      width: 45vw;
+    }
+  }
+}
