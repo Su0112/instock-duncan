@@ -8,6 +8,9 @@ import WarehouseDetails from "./components/warehouseDetails/WarehouseDetails";
 import EditWarehouse from "./components/editWarehouse/EditWarehouse";
 import EditInventoryItemDetails from "./components/editInventoryItemDetails/EditInventoryItemDetails";
 
+import AddWarehouse from "./components/addWarehouseComponent/AddWarehouse";
+import DeleteWarehouse from "./components/deleteWarehouseModal/DeleteWarehouseModal";
+
 import "./app.scss";
 
 function App() {
@@ -18,8 +21,13 @@ function App() {
           <Header />
           <div className="app__container">
             <Routes>
-              <Route path="/" element={<WarehouseList />} />{" "}
-              <Route path="/warehouses" element={<WarehouseList />} />
+              <Route path="/" element={<WarehouseList />} />
+              <Route path="/warehouses" element={<WarehouseList />}>
+                <Route
+                  path="deleteWarehouse/:warehouseId"
+                  element={<DeleteWarehouse />}
+                />
+              </Route>
               <Route
                 path="/warehouses/:warehouseId"
                 element={<WarehouseDetails />}
@@ -28,8 +36,9 @@ function App() {
                 path="/warehouses/editWarehouse"
                 element={<EditWarehouse />}
               />
-              <Route path="/inventories" element={<InventoryList />} />
-              <Route path="/inventories/addInventoryItem" element={<AddInventoryItem />} />
+              <Route path="/addWarehouse" element={<AddWarehouse />} />
+              <Route path="/inventory" element={<InventoryList />} />
+              <Route path="/addInventoryItem" element={<AddInventoryItem />} />
               <Route
                 path="/inventories/inventoryDetails"
                 element={<InventoryItemDetails />}

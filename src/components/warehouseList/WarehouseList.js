@@ -2,7 +2,7 @@
 import "./warehouseList.scss";
 //in-built imports
 import React from "react";
-//import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -10,12 +10,15 @@ import sortIcon from "../../assets/Icons/sort-24px.svg";
 import chevronRightIcon from "../../assets/Icons/chevron_right-24px.svg";
 import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
+import DeleteWarehouseModal from "../deleteWarehouseModal/DeleteWarehouseModal";
 
 const URL = "http://localhost:8080/warehouses/";
 export default function WarehouseList() {
-  const [warehouse, setWarehouse] = useState();
+  const [warehouse, setWarehouse] = useState(null);
+
   const params = useParams();
-  //const warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
+  const warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
+
   useEffect(() => {
     axios
       .get(URL)
@@ -29,6 +32,34 @@ export default function WarehouseList() {
       .catch((error) => console.log(error));
     //console.log(warehouse);
   }, [params]);
+
+  // function getWarehouseName(id) {
+  //   let warehouse = warehouse.filter((warehouse) => warehouse.id === id);
+  //   return warehouse[0].warehouse_name;
+  // }
+
+  //added for popup
+  const [openDeleteWarehouse, setDeleteWarehouse] = useState(false);
+  const [deleteWarehouseData, setDeleteWarehouseData] = useState({});
+
+  const handleShow = (warehouse) => {
+    setDeleteWarehouseData(warehouse);
+    setDeleteWarehouse(true);
+  };
+
+  const handleDelete = (event, warehouseId) => {
+    axios.delete(`${URL}/${warehouseId}`).then((response) => {
+      if (response.status == "204") {
+        let newWarehouses = warehouse.filter((el) => el.id !== warehouse.id);
+        setWarehouse(newWarehouses);
+        setDeleteWarehouse(false);
+        console.log(warehouse);
+      } else {
+        alert("Failed to delete, try again later maybe?");
+      }
+    });
+  };
+
   return (
     <section className="warehouses">
       <div className="warehouses__container">
@@ -43,11 +74,11 @@ export default function WarehouseList() {
               />
             </div>
             <div className="warehouses__header-button">
-              {/* <Link to={"/"}> */}
-              <button className="warehouses__header-button-bar">
-                +Add New Warehouse
-              </button>
-              {/* </Link> */}
+              <Link to={"/addWarehouse"}>
+                <button className="warehouses__header-button-bar">
+                  +Add New Warehouse
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -89,6 +120,15 @@ export default function WarehouseList() {
             </div>
             <div className="warehouses__list-content">ACTIONS</div>
           </div>
+
+          {openDeleteWarehouse && (
+            <DeleteWarehouseModal
+              closeDeleteWarehouse={setDeleteWarehouse}
+              deleteWarehouseData={deleteWarehouseData}
+              handleDelete={handleDelete}
+            />
+          )}
+
           {warehouse?.length > 0 ? (
             <section className="warehouses__list-wrapper">
               {warehouse.map((warehouse) => (
@@ -127,7 +167,8 @@ export default function WarehouseList() {
                         </div>
                         <div className="list__address-info">
                           <p className="list__address-infoText">
-                            {warehouse.address}
+                            {warehouse.address} {warehouse.city}{" "}
+                            {warehouse.country}
                           </p>
                         </div>
                       </div>
@@ -170,12 +211,20 @@ export default function WarehouseList() {
 
                   <div className="warehouses__actions-container">
                     <div className="warehouses__actions-buttons">
-                      <button className="warehouses__actions-button">
+                      <button
+                        onClick={() => {
+                          handleShow(warehouse);
+                        }}
+                        className="warehouses__actions-button"
+                      >
                         <img src={deleteIcon} alt="delete icon" />
                       </button>
-                      <button className="warehouses__actions-button">
-                        <img src={editIcon} alt="edit icon" />
-                      </button>
+
+                      <NavLink to="/warehouses/editWarehouse">
+                        <button className="warehouses__actions-button">
+                          <img src={editIcon} alt="edit icon" />
+                        </button>
+                      </NavLink>
                     </div>
                   </div>
                 </div>
