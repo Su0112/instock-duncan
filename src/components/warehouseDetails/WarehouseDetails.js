@@ -13,7 +13,8 @@ import DeleteInventoryItem from "../deleteInventoryItem/DeleteInventoryItem";
 
 const URL = `${process.env.REACT_APP_BACKEND_URL}` + "/warehouses/";
 
-const InventoryList_API = "http://localhost:8080/inventories/";
+const InventoryList_API =
+  `${process.env.REACT_APP_BACKEND_URL}` + "/inventories/";
 
 export default function WarehouseDetails() {
   const [warehouse, setWarehouse] = useState();
@@ -34,7 +35,6 @@ export default function WarehouseDetails() {
   };
 
   useEffect(() => {
-    console.log("Init: " + params.warehouseId);
     axios
       .get(URL + warehouseId)
       .then((response) => {
@@ -42,7 +42,7 @@ export default function WarehouseDetails() {
           setWarehouse(response.data);
           getWarehouseInventories(warehouseId);
         } else {
-          // todo redirect to warehouses
+          alert(`There is now such Warehouse ID ${warehouseId}`);
         }
       })
       .catch((error) => console.log(error));
@@ -79,13 +79,12 @@ export default function WarehouseDetails() {
               src={Back}
               alt="pencil"
             ></img>
+
             <h3 className="warehouseDetails__headerText">
               {warehouse.warehouse_name}
             </h3>
-            <NavLink
-              to="/warehouses/editWarehouse"
-              className="warehouseDetails-header__edit"
-            >
+
+            <NavLink to={`/warehouses/${warehouse.id}/editWarehouse`}>
               <Icon fill="white"></Icon>
             </NavLink>
           </div>
@@ -138,7 +137,6 @@ export default function WarehouseDetails() {
               {inventories.map((inventory) => (
                 <div className="warehouseDetails__list" key={inventory.id}>
                   <div className="warehouseDetails__card-wrapper">
-                    {/* warehouseDetails ITEM */}
                     <div className="warehouseDetails__item-wrapper">
                       <div className="warehouseDetails__sort-header">
                         <h5 className="warehouseDetails__sort-headerText ">
@@ -146,7 +144,10 @@ export default function WarehouseDetails() {
                         </h5>
 
                         <div>
-                          <a href="" className="warehouseDetails__item">
+                          <NavLink
+                            to={`/inventories/${inventory.id}`}
+                            className="warehouseDetails__item"
+                          >
                             <p className="warehouseDetails__categoryText">
                               {inventory.item_name}
                             </p>
@@ -155,7 +156,7 @@ export default function WarehouseDetails() {
                               alt="right arrow"
                               className="warehouseDetails__item-icon"
                             />
-                          </a>
+                          </NavLink>
                         </div>
                       </div>
                     </div>
@@ -243,19 +244,25 @@ export default function WarehouseDetails() {
       {warehouse && (
         <section className="mainBlock">
           <div className="warehouseDetails-header">
-            <img
-              className="warehouseDetails-header__back"
-              src={Back}
-              alt="pencil"
-            ></img>
+            <NavLink to={"/warehouses"}>
+              {" "}
+              <img
+                className="warehouseDetails-header__back"
+                src={Back}
+                alt="pencil"
+              ></img>
+            </NavLink>
+
             <h3 className="warehouseDetails__headerText">
               {warehouse.warehouse_name}
             </h3>
-            <Icon
-              className="warehouseDetails-header__edit"
-              src={Edit}
-              alt="pencil"
-            ></Icon>
+            <NavLink to={`/warehouses/${warehouse.id}/editWarehouse`}>
+              <Icon
+                className="warehouseDetails-header__edit"
+                src={Edit}
+                alt="pencil"
+              ></Icon>
+            </NavLink>
           </div>
           <div className="warehouseDetails-contact">
             <div className="warehouseDetails-contact__first">
@@ -335,12 +342,22 @@ export default function WarehouseDetails() {
 
           {inventories.length > 0 ? (
             <section className="warehouseDetails-large">
+              {isDeleteInventory && (
+                <DeleteInventoryItem
+                  closeDeleteInventory={setIsDeleteInventory}
+                  deleteInventoryData={inventory}
+                  handleDelete={handleDeleteInventory}
+                />
+              )}
               {inventories.map((inventory) => (
                 <div className="warehouseDetails__list" key={inventory.id}>
                   {/* warehouseDetails ITEM */}
 
-                  <div>
-                    <a href="" className="warehouseDetails__item">
+                  <div className="warehouseDetails__inventory">
+                    <NavLink
+                      to={`/inventories/inventoryDetails/${inventory.id}`}
+                      className="warehouseDetails__item"
+                    >
                       <p className="warehouseDetails__item-text">
                         {inventory.item_name}
                       </p>
@@ -349,7 +366,7 @@ export default function WarehouseDetails() {
                         alt="right arrow"
                         className="warehouseDetails__item-icon"
                       />
-                    </a>
+                    </NavLink>
                   </div>
 
                   <p className="warehouseDetails__text">{inventory.category}</p>
@@ -372,11 +389,16 @@ export default function WarehouseDetails() {
                   {/* warehouseDetails ACTIONS BUTTONS */}
                   <div className="warehouseDetails__actions">
                     <div className="warehouseDetails__actions-btns">
-                      <button>
+                      <button
+                        onClick={() => {
+                          setInventory(inventory);
+                          setIsDeleteInventory(true);
+                        }}
+                      >
                         <img src={DeleteIcon} alt="delete icon" />
                       </button>
 
-                      <NavLink to="/inventories/:inventoryId">
+                      <NavLink to={`/inventories/${inventory.id}`}>
                         {" "}
                         <button>
                           <img src={Edit} alt="edit icon" />

@@ -6,21 +6,7 @@
 
 
 .mainBlock {
-    
-    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-    border-radius: 3px;
-    left: 4.27%;
-    right: 4.27%;
-    top: 9%;
-    background: white;
-    font-size: 0.8125rem;
-    line-height: 1.25rem;
-    font-weight: 400;
-
-
-    @include breakpoints.medium {
-        margin: 2rem;
-    }
+    margin: 0;
 }
 
 
@@ -32,36 +18,37 @@
 
     &__categoryText {
         font-size: 0.8125rem;
-            line-height: 1.25rem;
-            font-weight: 600;
-           color: $Instock-Indigo;
-        }
+        line-height: 1.25rem;
+        font-weight: 600;
+        color: $Instock-Indigo;
+    }
 
 
     &__status--inStock {
-            color: $Green  !important;
-            background-color: unquote($Green + "12");
-            border-radius: 5px;
-            width: fit-content;
-            padding: 0 8px;
-            text-transform: uppercase;
-            width: 7rem;
-        }
-    
+        color: $Green  !important;
+        background-color: unquote($Green + "12");
+        border-radius: 5px;
+        width: fit-content;
+        padding: 0 8px;
+        text-transform: uppercase;
+
+    }
+
     &__status--outOfStock {
-            color: $Red  !important;
-            background-color: unquote($Red + "12");
-            border-radius: 5px;
-            width: fit-content;
-            padding: 0 8px;
-            text-transform: uppercase;
-            width: 7rem;
-        }
+        color: $Red  !important;
+        background-color: unquote($Red + "12");
+        border-radius: 5px;
+        width: fit-content;
+        padding: 0 8px;
+        text-transform: uppercase;
+
+    }
 
 
     &-header {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         flex-direction: row;
         border-bottom: 0.0625rem solid $Cloud;
         height: 5.75rem;
@@ -73,12 +60,12 @@
             padding-right: 0.5rem;
         }
 
-        &__edit {
-            position: absolute;
-            right: 2rem;
+        // &__edit {
+        //     position: absolute;
+        //     right: em;
 
 
-        }
+        // }
     }
 
     &__top-wrapper {
@@ -93,6 +80,7 @@
         @include text.page-header-mobile;
         margin: 0;
         padding-left: 1rem;
+        width: 90%;
     }
 
     &-contact {
@@ -160,10 +148,10 @@
         flex-direction: row;
         @include text.table-header-mobile;
         color: $Slate;
-        padding: 0 2rem;
-        justify-content: space-between;
+        justify-content: flex-start;
         height: 2.5rem;
         background: $Light-Grey;
+        font-size: .875rem;
 
         &-box {
             display: flex;
@@ -172,7 +160,7 @@
             justify-content: center;
 
             @include breakpoints.medium {
-                width: 20rem;
+                width: 15%;
                 justify-content: left;
             }
         }
@@ -196,6 +184,7 @@
     &__list {
         display: flex;
         flex-direction: column;
+        font-size: .875rem;
     }
 
     &__card-wrapper {
@@ -230,14 +219,14 @@
         width: 50%;
     }
 
-   
+
 
     &__card-wrapper div div a {
         display: flex;
         align-items: center;
     }
 
-   
+
 
     &__sort-headerText {
         margin: 0;
@@ -267,7 +256,7 @@
         flex-direction: column;
 
         &__headerLarge-box {
-            width: 20rem;
+            width: 15%;
             justify-content: left;
         }
 
@@ -281,13 +270,15 @@
 
         &__headerText {
             @include text.page-header-desktop-tablet;
-            width: 50%;
+            width: 90%;
             margin: 0;
             padding-top: 1.5rem;
             padding-bottom: 1rem;
         }
 
-
+        &__inventory {
+            width: 15%;
+        }
 
         &__addItems-wrapper {
             width: 25%;
@@ -309,8 +300,8 @@
             display: flex;
             align-items: center;
             flex-direction: row;
-            // width: 100%;
-            // justify-content: space-between;
+            justify-content: flex-start;
+
 
         }
 
