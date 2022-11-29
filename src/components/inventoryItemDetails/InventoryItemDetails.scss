@@ -17,6 +17,7 @@
   }
   &__header-img {
     padding-right: 0.5rem;
+    padding-top: 0.6rem;
   }
   &__header-title {
     @include text.subheader-mobile;
@@ -94,6 +95,7 @@
     }
     &__header-img {
       padding-right: 0.5rem;
+      padding-top: 1rem;
     }
     &__header-title {
       @include text.page-header-desktop-tablet;
