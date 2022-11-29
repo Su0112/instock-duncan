@@ -1,7 +1,7 @@
 import "./warehouseDetails.scss";
 import { useState, useEffect } from "react";
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import axios from "axios";
 import Edit from "../../assets/Icons/edit-24px.svg";
 import Back from "../../assets/Icons/arrow_back-24px.svg";
@@ -9,31 +9,38 @@ import SortIcon from "../../assets/Icons/sort-24px.svg";
 import DeleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import Chevron from "../../assets/Icons/chevron_right-24px.svg";
 import { ReactComponent as Icon } from "../../assets/Icons/edit-white.svg";
+import DeleteInventoryItem from "../deleteInventoryItem/DeleteInventoryItem";
 
-const URL = process.env.REACT_APP_BACKEND_URL + "/warehouses/";
+const URL = `${process.env.REACT_APP_BACKEND_URL}` + "/warehouses/";
+
+const InventoryList_API = "http://localhost:8080/inventories/";
 
 export default function WarehouseDetails() {
   const [warehouse, setWarehouse] = useState();
-
   const [inventories, setInventories] = useState([]);
-
-  const [state, setState] = useState("null");
+  const [isDeleteInventory, setIsDeleteInventory] = useState(false);
+  const [inventory, setInventory] = useState();
 
   const params = useParams();
-  const warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9";
+  const warehouseId = params.warehouseId;
+
+  const getWarehouseInventories = (warehouseId) => {
+    axios
+      .get(URL + warehouseId + "/inventories")
+      .then((response) => {
+        setInventories(response.data);
+      })
+      .catch((error) => console.log(error));
+  };
 
   useEffect(() => {
+    console.log("Init: " + params.warehouseId);
     axios
       .get(URL + warehouseId)
       .then((response) => {
         if (response.status === 200) {
           setWarehouse(response.data);
-          axios
-            .get(URL + warehouseId + "/inventories")
-            .then((response) => {
-              setInventories(response.data);
-            })
-            .catch((error) => console.log(error));
+          getWarehouseInventories(warehouseId);
         } else {
           // todo redirect to warehouses
         }
@@ -48,9 +55,19 @@ export default function WarehouseDetails() {
     const handleWindowResize = () => setWidth(window.innerWidth);
     window.addEventListener("resize", handleWindowResize);
 
-    // Return a function from the effect that removes the event listener
     return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
+
+  const handleDeleteInventory = (event, inventoryId) => {
+    axios.delete(InventoryList_API + inventoryId).then((response) => {
+      if (response.status == "204") {
+        setIsDeleteInventory(false);
+        getWarehouseInventories(warehouseId);
+      } else {
+        alert("Failed to delete, try again later maybe?");
+      }
+    });
+  };
 
   return width < breakpoint ? (
     <>
@@ -65,12 +82,12 @@ export default function WarehouseDetails() {
             <h3 className="warehouseDetails__headerText">
               {warehouse.warehouse_name}
             </h3>
-            <Icon
+            <NavLink
+              to="/warehouses/editWarehouse"
               className="warehouseDetails-header__edit"
-              //   src={Edit}
-              //   alt="pencil"
-              fill="white"
-            ></Icon>
+            >
+              <Icon fill="white"></Icon>
+            </NavLink>
           </div>
           <div className="warehouseDetails-contact">
             <div className="warehouseDetails-contact__first">
@@ -111,6 +128,13 @@ export default function WarehouseDetails() {
 
           {inventories.length > 0 ? (
             <section className="warehouseDetails">
+              {isDeleteInventory && (
+                <DeleteInventoryItem
+                  closeDeleteInventory={setIsDeleteInventory}
+                  deleteInventoryData={inventory}
+                  handleDelete={handleDeleteInventory}
+                />
+              )}
               {inventories.map((inventory) => (
                 <div className="warehouseDetails__list" key={inventory.id}>
                   <div className="warehouseDetails__card-wrapper">
@@ -120,11 +144,19 @@ export default function WarehouseDetails() {
                         <h5 className="warehouseDetails__sort-headerText ">
                           Inventory ITEM
                         </h5>
-                        <img
-                          className="warehouseDetails__sort-sortIcon"
-                          src={SortIcon}
-                          alt="sort icon"
-                        />
+
+                        <div>
+                          <a href="" className="warehouseDetails__item">
+                            <p className="warehouseDetails__categoryText">
+                              {inventory.item_name}
+                            </p>
+                            <img
+                              src={Chevron}
+                              alt="right arrow"
+                              className="warehouseDetails__item-icon"
+                            />
+                          </a>
+                        </div>
                       </div>
                     </div>
 
@@ -134,40 +166,29 @@ export default function WarehouseDetails() {
                         <h5 className="warehouseDetails__sort-headerText">
                           STATUS
                         </h5>
-                        <img
-                          className="warehouseDetails__sort-sortIcon"
-                          src={SortIcon}
-                          alt="sort icon"
-                        />
                       </div>
                       <p
-                        className="warehouseDetails__statusText"
-                        style={{
-                          color: state === "false" ? "#C94515" : "#158463",
-                        }}
+                        className={`warehouseDetails__status ${
+                          inventory.status == "In Stock"
+                            ? "status--inStock"
+                            : "status--outOfStock"
+                        }`}
                       >
                         {inventory.status}
                       </p>
                     </div>
 
-                    {/* warehouseDetails CATEGORY */}
                     <div className="warehouseDetails__category-wrapper">
                       <div className="warehouseDetails__sort-header">
                         <h5 className="warehouseDetails__sort-headerText">
                           CATEGORY
                         </h5>
-                        <img
-                          className="warehouseDetails__sort-sortIcon"
-                          src={SortIcon}
-                          alt="sort icon"
-                        />
                       </div>
-                      <p className="warehouseDetails__categoryText">
+                      <p className="warehouseDetails__qtyText">
                         {inventory.category}
                       </p>
                     </div>
 
-                    {/* warehouseDetails QTY */}
                     <div className="warehouseDetails__qty-wrapper">
                       <div className="warehouseDetails__sort-header">
                         <h5 className="warehouseDetails__sort-headerText">
@@ -184,23 +205,26 @@ export default function WarehouseDetails() {
                         {inventory.quantity}
                       </p>
                     </div>
+                  </div>
+                  <div className="warehouseDetails__actions">
+                    <div className="warehouseDetails__actions-btns">
+                      <button
+                        onClick={() => {
+                          setInventory(inventory);
+                          setIsDeleteInventory(true);
+                        }}
+                      >
+                        <img src={DeleteIcon} alt="delete icon" />
+                      </button>
 
-                    {/* warehouseDetails ACTIONS BUTTONS */}
-                    <div className="warehouseDetails__actions">
-                      <div className="warehouseDetails__actions-header">
-                        <h5 className="warehouseDetails__sort-headerText">
-                          ACTIONS
-                        </h5>
-                      </div>
-
-                      <div className="warehouseDetails__actions-btns">
-                        <button>
-                          <img src={DeleteIcon} alt="delete icon" />
-                        </button>
+                      <NavLink
+                        to={"/inventories/:inventoryId"}
+                        className="form__header-link"
+                      >
                         <button>
                           <img src={Edit} alt="edit icon" />
                         </button>
-                      </div>
+                      </NavLink>
                     </div>
                   </div>
                 </div>
@@ -310,7 +334,7 @@ export default function WarehouseDetails() {
           </div>
 
           {inventories.length > 0 ? (
-            <section className="warehouseDetails">
+            <section className="warehouseDetails-large">
               {inventories.map((inventory) => (
                 <div className="warehouseDetails__list" key={inventory.id}>
                   {/* warehouseDetails ITEM */}
@@ -330,7 +354,15 @@ export default function WarehouseDetails() {
 
                   <p className="warehouseDetails__text">{inventory.category}</p>
 
-                  <p className="warehouseDetails__text">{inventory.status}</p>
+                  <p
+                    className={`warehouseDetails__status ${
+                      inventory.status == "In Stock"
+                        ? "status--inStock"
+                        : "status--outOfStock"
+                    }`}
+                  >
+                    {inventory.status}
+                  </p>
 
                   <p className="warehouseDetails__text">
                     {" "}
@@ -343,9 +375,13 @@ export default function WarehouseDetails() {
                       <button>
                         <img src={DeleteIcon} alt="delete icon" />
                       </button>
-                      <button>
-                        <img src={Edit} alt="edit icon" />
-                      </button>
+
+                      <NavLink to="/inventories/:inventoryId">
+                        {" "}
+                        <button>
+                          <img src={Edit} alt="edit icon" />
+                        </button>
+                      </NavLink>
                     </div>
                   </div>
                 </div>

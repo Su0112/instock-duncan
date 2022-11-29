@@ -9,6 +9,7 @@ import EditWarehouse from "./components/editWarehouse/EditWarehouse";
 import EditInventoryItemDetails from "./components/editInventoryItemDetails/EditInventoryItemDetails";
 
 import "./app.scss";
+// import DeleteInventoryItem from "./components/deleteInventoryItem/DeleteInventoryItem";
 
 function App() {
   return (
@@ -29,7 +30,10 @@ function App() {
                 element={<EditWarehouse />}
               />
               <Route path="/inventories" element={<InventoryList />} />
-              <Route path="/inventories/addInventoryItem" element={<AddInventoryItem />} />
+              <Route
+                path="/inventories/addInventoryItem"
+                element={<AddInventoryItem />}
+              />
               <Route
                 path="/inventories/inventoryDetails"
                 element={<InventoryItemDetails />}
@@ -38,6 +42,7 @@ function App() {
                 path="/inventories/:inventoryId"
                 element={<EditInventoryItemDetails />}
               />
+              {/* <Route path="/delete" element={<DeleteInventoryItem />} /> */}
             </Routes>
           </div>
         </BrowserRouter>

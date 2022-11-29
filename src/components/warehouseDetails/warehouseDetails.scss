@@ -6,10 +6,9 @@
 
 
 .mainBlock {
-    margin: 1rem;
+    
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
     border-radius: 3px;
-    position: absolute;
     left: 4.27%;
     right: 4.27%;
     top: 9%;
@@ -31,13 +30,40 @@
     flex-direction: column;
     margin: 1rem;
 
+    &__categoryText {
+        font-size: 0.8125rem;
+            line-height: 1.25rem;
+            font-weight: 600;
+           color: $Instock-Indigo;
+        }
+
+
+    &__status--inStock {
+            color: $Green  !important;
+            background-color: unquote($Green + "12");
+            border-radius: 5px;
+            width: fit-content;
+            padding: 0 8px;
+            text-transform: uppercase;
+            width: 7rem;
+        }
+    
+    &__status--outOfStock {
+            color: $Red  !important;
+            background-color: unquote($Red + "12");
+            border-radius: 5px;
+            width: fit-content;
+            padding: 0 8px;
+            text-transform: uppercase;
+            width: 7rem;
+        }
+
 
     &-header {
         display: flex;
         align-items: center;
         flex-direction: row;
         border-bottom: 0.0625rem solid $Cloud;
-
         height: 5.75rem;
         font-weight: 400;
         @include text.page-header-mobile;
@@ -70,7 +96,7 @@
     }
 
     &-contact {
-        padding: 0 2rem;
+        padding: 0 1rem;
         @include text.body-medium-mobile;
         color: $Slate;
         display: flex;
@@ -118,7 +144,7 @@
         }
 
         &__third {
-            width: 11rem;
+            width: 9rem;
             margin: 1rem 0;
         }
 
@@ -128,6 +154,17 @@
     }
 
 
+
+//     &-large{
+// display: flex;
+// flex-direction: row;
+// justify-content: flex-start;
+//     }
+
+//     &-column {
+//         display: flex;
+//         flex-direction: row;
+//     }
     &__headerLarge {
         display: flex;
         flex-direction: row;
@@ -176,7 +213,6 @@
         flex-wrap: wrap;
         flex-direction: row;
         padding-top: 1rem;
-        padding-left: 1rem;
         border-top: 1px $Cloud solid;
     }
 
@@ -196,6 +232,7 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
+        padding: 1rem;
     }
 
     &__card-wrapper>div {
@@ -203,21 +240,14 @@
         width: 50%;
     }
 
-    // &__card-wrapper div p {
-    //     margin: 0;
-    //     @include text.body-small-mobile;
-    //     color: $Instock-Black;
-
-    // }
+   
 
     &__card-wrapper div div a {
         display: flex;
         align-items: center;
     }
 
-    &__sort-header {
-        display: flex;
-    }
+   
 
     &__sort-headerText {
         margin: 0;

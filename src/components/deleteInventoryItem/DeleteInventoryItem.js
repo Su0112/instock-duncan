@@ -12,6 +12,7 @@ function DeleteInventoryItem({
   deleteInventoryData,
   handleDelete,
 }) {
+  // console.log("del " + deleteInventoryData);
   return (
     <>
       <div className="delete__background">
