@@ -2,17 +2,18 @@ import "./editWarehouse.scss";
 import ArrowIcon from "../../assets/Icons/arrow_back-24px.svg";
 import { useState, useEffect } from "react";
 import React from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 // import { useForm } from "react-hook-form";
 
-const URL = "http://localhost:8080/warehouses/";
+const URL = `${process.env.REACT_APP_BACKEND_URL}` + "/warehouses/";
 
 export default function EditWarehouse() {
   const [warehouse, setWarehouse] = useState();
 
   const params = useParams();
+
   const warehouseId = "5af76f4c-f05d-45d2-8e57-1ef8c11631b4";
 
   const [warehouseName, setWarehouseName] = useState("");
@@ -33,7 +34,6 @@ export default function EditWarehouse() {
         }
       })
       .catch((error) => console.log(error));
-    // console.log(warehouse);
   }, [params]);
 
   const handleChangeWarehouseName = (event) => {
@@ -76,9 +76,6 @@ export default function EditWarehouse() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log("Test " + warehouseAddress);
-    console.log("Test " + warehouse.address);
-
     let name = warehouseName ? warehouseName : warehouse.warehouse_name;
     let address = warehouseAddress ? warehouseAddress : warehouse.address;
     let city = warehouseCity ? warehouseCity : warehouse.city;
@@ -93,10 +90,6 @@ export default function EditWarehouse() {
     let email = warehouseContactEmail
       ? warehouseContactEmail
       : warehouse.contact_email;
-
-    // console.log(
-    //   "Result " + address + city + name + country + contactN + position + email
-    // );
 
     axios
       .put(URL + warehouseId, {
@@ -121,22 +114,24 @@ export default function EditWarehouse() {
   return (
     <>
       <header className="formWarehouse">
-        <img
-          className="formWarehouse-img"
-          src={ArrowIcon}
-          alt="Back arrow icon"
-        ></img>
+        <NavLink to={"/warehouses"}>
+          <img
+            className="formWarehouse-img"
+            src={ArrowIcon}
+            alt="Back arrow icon"
+          ></img>
+        </NavLink>
 
         <h1 className="formWarehouse-title">Edit Warehouse</h1>
       </header>
 
       {warehouse && (
-        <main className="main">
+        <main className="mainEdit">
           <form>
             <section className="formWarehouse__main">
               <section className="formWarehouse__warehouse-detailsFirst">
                 <div className="formWarehouse__input-wrapper">
-                  <h2 className="formWarehouse_warehouse-details-title">
+                  <h2 className="formWarehouse__warehouse-details-title">
                     Warehouse Details
                   </h2>
                   <label className="formWarehouse__input-title">
@@ -224,7 +219,9 @@ export default function EditWarehouse() {
             </section>
             <div className="formWarehouse__btn-wrapper">
               <div className="formWarehouse__btn-item">
-                <button className="formWarehouse__btn--cancel">Cancel</button>
+                <NavLink to={"/warehouses"}>
+                  <button className="formWarehouse__btn--cancel">Cancel</button>
+                </NavLink>
               </div>
               <div className="formWarehouse__btn-item">
                 <button

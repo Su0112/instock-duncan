@@ -23,6 +23,7 @@ export default function WarehouseDetails() {
 
   const params = useParams();
   const warehouseId = params.warehouseId;
+  const inventoryId = params.inventoryId;
 
   const getWarehouseInventories = (warehouseId) => {
     axios
@@ -79,11 +80,13 @@ export default function WarehouseDetails() {
               src={Back}
               alt="pencil"
             ></img>
+
             <h3 className="warehouseDetails__headerText">
               {warehouse.warehouse_name}
             </h3>
+
             <NavLink
-              to="/warehouses/editWarehouse"
+              to={"/warehouses/editWarehouse"}
               className="warehouseDetails-header__edit"
             >
               <Icon fill="white"></Icon>
