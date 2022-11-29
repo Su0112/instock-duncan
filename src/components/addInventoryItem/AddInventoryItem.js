@@ -55,6 +55,7 @@ function AddInventoryItem() {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
     const item_name = formRef.current.item_name.value;
     const description = formRef.current.description.value;
     const category = formRef.current.category.value;
