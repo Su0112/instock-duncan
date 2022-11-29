@@ -1,0 +1,19 @@
+@use "../../styles/partials/color" as *;
+@use "../../styles/partials/breakpoints" as breakpoints;
+@use "../../styles/partials/text-styles" as text;
+@use "../../styles/partials/resets";
+@use "../../styles/partials/fonts";
+
+footer {
+@include text.body-small-mobile;
+  margin: 0;
+  padding: 2rem;
+  color: $Slate;
+  width: 100%;
+  text-align: center;
+}
+@include breakpoints.large {
+    footer {
+    padding: 3rem;
+    }
+}
