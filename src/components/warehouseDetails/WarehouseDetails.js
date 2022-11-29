@@ -170,15 +170,17 @@ export default function WarehouseDetails() {
                           STATUS
                         </h5>
                       </div>
-                      <p
-                        className={`warehouseDetails__status ${
-                          inventory.status == "In Stock"
-                            ? "status--inStock"
-                            : "status--outOfStock"
-                        }`}
-                      >
-                        {inventory.status}
-                      </p>
+                      <div className="warehouseDetails__status">
+                        <p
+                          className={` ${
+                            inventory.status == "In Stock"
+                              ? "status--inStock"
+                              : "status--outOfStock"
+                          }`}
+                        >
+                          {inventory.status}
+                        </p>{" "}
+                      </div>
                     </div>
 
                     <div className="warehouseDetails__category-wrapper">
@@ -221,8 +223,9 @@ export default function WarehouseDetails() {
                       </button>
 
                       <NavLink
-                        to={`/inventories/inventoryDetails/${inventory.id}`}
-                        className="form__header-link"
+                        // to={`/inventories/inventoryDetails/${inventory.id}`}
+                        to={`/inventories/`}
+                        className="warehouseDetails__item"
                       >
                         <button>
                           <img src={Edit} alt="edit icon" />
@@ -337,7 +340,7 @@ export default function WarehouseDetails() {
                 alt="sort icon"
               />
             </div>
-            <div className="warehouseDetails__headerLarge-box last">
+            <div className="warehouseDetails__headerLarge-last">
               <h5 className="warehouseDetails__headerLarge-text">ACTIONS</h5>
             </div>
           </div>
@@ -357,7 +360,8 @@ export default function WarehouseDetails() {
 
                   <div className="warehouseDetails__inventory">
                     <NavLink
-                      to={`/iinventories/inventoryDetails/${inventory.id}`}
+                      // to={`/inventories/inventoryDetails/${inventory.id}`}
+                      to={`/inventories/`}
                       className="warehouseDetails__item"
                     >
                       <p className="warehouseDetails__item-text">
@@ -372,16 +376,17 @@ export default function WarehouseDetails() {
                   </div>
 
                   <p className="warehouseDetails__text">{inventory.category}</p>
-
-                  <p
-                    className={`warehouseDetails__status ${
-                      inventory.status == "In Stock"
-                        ? "status--inStock"
-                        : "status--outOfStock"
-                    }`}
-                  >
-                    {inventory.status}
-                  </p>
+                  <div className="warehouseDetails__status">
+                    <p
+                      className={`${
+                        inventory.status == "In Stock"
+                          ? "status--inStock"
+                          : "status--outOfStock"
+                      }`}
+                    >
+                      {inventory.status}
+                    </p>
+                  </div>
 
                   <p className="warehouseDetails__text">
                     {" "}
