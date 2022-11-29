@@ -74,11 +74,13 @@ export default function WarehouseDetails() {
       {warehouse && (
         <section className="mainBlock">
           <div className="warehouseDetails-header">
-            <img
-              className="warehouseDetails-header__back"
-              src={Back}
-              alt="pencil"
-            ></img>
+            <NavLink to={"/warehouses"}>
+              <img
+                className="warehouseDetails-header__back"
+                src={Back}
+                alt="back arrow"
+              ></img>
+            </NavLink>
 
             <h3 className="warehouseDetails__headerText">
               {warehouse.warehouse_name}
@@ -219,7 +221,7 @@ export default function WarehouseDetails() {
                       </button>
 
                       <NavLink
-                        to={"/inventories/:inventoryId"}
+                        to={`/inventories/${inventory.id}`}
                         className="form__header-link"
                       >
                         <button>
@@ -399,7 +401,6 @@ export default function WarehouseDetails() {
                       </button>
 
                       <NavLink to={`/inventories/${inventory.id}`}>
-                        {" "}
                         <button>
                           <img src={Edit} alt="edit icon" />
                         </button>
