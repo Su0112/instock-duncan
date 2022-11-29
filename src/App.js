@@ -10,6 +10,7 @@ import EditInventoryItemDetails from "./components/editInventoryItemDetails/Edit
 
 import AddWarehouse from "./components/addWarehouseComponent/AddWarehouse";
 import DeleteWarehouse from "./components/deleteWarehouseModal/DeleteWarehouseModal";
+import Footer from "./components/footer/Footer";
 
 import "./app.scss";
 
@@ -55,6 +56,7 @@ function App() {
               />
             </Routes>
           </div>
+          <Footer />
         </BrowserRouter>
       </div>
     </>
