@@ -1,0 +1,200 @@
+/* Media query for mobile */
+/* Media query for tablet */
+/* Media query for high pixel density devices */
+/* Mobile text styles */
+/* Desktop text styles */
+html,
+body {
+  margin: 0;
+  font-family: "Titillium", sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@font-face {
+  font-family: "Titillium";
+  src: url(../../assets/Font/TitilliumWeb-Bold.ttf);
+  format: "opentype";
+  font-weight: 600;
+  font-style: bold;
+}
+@font-face {
+  font-family: "Titillium";
+  src: url(../../assets/Font/TitilliumWeb-Regular.ttf);
+  format: "opentype";
+  font-weight: 400;
+  font-style: normal;
+}
+.form__header {
+  display: flex;
+  border-bottom: 0.0625rem solid #bdc5d5;
+}
+.form__header-link {
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+}
+.form__header-img {
+  padding-right: 0.5rem;
+  height: 2rem;
+  width: 2rem;
+}
+.form__header-title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  color: #13182c;
+}
+.form__item-details {
+  padding: 1rem;
+  border-bottom: 1px solid #bdc5d5;
+}
+.form__item-details-title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  font-weight: 400;
+  margin: 0;
+}
+.form__input-title {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+.form__input-name {
+  width: 16rem;
+  height: 2.25rem;
+  border: 1px solid #bdc5d5;
+  border-radius: 1.25rem;
+  font-family: Titillium;
+  resize: none;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+}
+.form__input-name:focus {
+  outline: 0.0625rem solid #2e66e5;
+  box-shadow: 0 0 0.75rem #76a7db;
+}
+.form__input-description {
+  width: 16rem;
+  border: 1px solid #bdc5d5;
+  border-radius: 1.25rem;
+  font-family: Titillium;
+  padding: 0.5rem 0 4rem 1rem;
+  resize: none;
+}
+.form__input-description:focus {
+  outline: 0.0625rem solid #2e66e5;
+  box-shadow: 0 0 0.75rem #76a7db;
+}
+.form__item-avail {
+  padding: 1rem;
+}
+.form__item-avail-title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  font-weight: 400;
+  margin: 0;
+}
+.form__radio-btn-wrapper {
+  display: flex;
+}
+.form__radio-btn {
+  width: 100%;
+}
+.form__radio-btn-label {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  color: #5c667e;
+  margin-left: 0.25rem;
+}
+.form__radio-btn-label:active {
+  color: #13182c;
+}
+.form .radio-custom:checked ~ label {
+  color: #13182c;
+}
+.form__btn-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+.form__btn--cancel {
+  height: 2.25rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 2.5rem;
+  border: 1px solid #bdc5d5;
+  border-radius: 1.25rem;
+  font-family: Titillium;
+  color: #5c667e;
+  background-color: #ffffff;
+}
+.form__btn--addItem {
+  height: 2.25rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 2.5rem;
+  border: 1px solid #bdc5d5;
+  border-radius: 1.25rem;
+  font-family: Titillium;
+  color: #ffffff;
+  background-color: #2e66e5;
+}
+
+.react-select {
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  border-radius: 1.25rem;
+  border: 1px solid #bdc5d5;
+}
+
+@media only screen and (min-width: 768px) {
+  .form__header-title {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+    font-weight: 400;
+  }
+  .form__header-img {
+    margin-top: 0.8rem;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+  .form__btn-wrapper {
+    justify-content: flex-end;
+    margin: 1rem;
+  }
+  .form__content-main {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 1rem;
+  }
+  .form__item-details {
+    border: none;
+  }
+  .form__item-avail {
+    border-left: 1px solid #bdc5d5;
+    padding-left: 2rem;
+  }
+  .form__btn--cancel, .form__btn--addItem {
+    margin: 1rem 0.5rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .form__input-name {
+    width: 30rem;
+  }
+  .form__input-description {
+    width: 30rem;
+  }
+}/*# sourceMappingURL=addInventoryItem.css.map */

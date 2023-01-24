@@ -1,0 +1,312 @@
+/* Media query for mobile */
+/* Media query for tablet */
+/* Media query for high pixel density devices */
+/* Mobile text styles */
+/* Desktop text styles */
+html,
+body {
+  margin: 0;
+  font-family: "Titillium", sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@font-face {
+  font-family: "Titillium";
+  src: url(../../assets/Font/TitilliumWeb-Bold.ttf);
+  format: "opentype";
+  font-weight: 600;
+  font-style: bold;
+}
+@font-face {
+  font-family: "Titillium";
+  src: url(../../assets/Font/TitilliumWeb-Regular.ttf);
+  format: "opentype";
+  font-weight: 400;
+  font-style: normal;
+}
+.warehouses__header {
+  padding: 1rem;
+}
+.warehouses__header-title {
+  color: #13182c;
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+.warehouses__header-search {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.warehouses__header-search-bar {
+  background: url("../../assets/Icons/search-24px.svg") no-repeat left;
+  background-position: 0.625rem;
+  background-color: #ffffff;
+  border: 1px solid #bdc5d5;
+  background-size: 1rem;
+  background-position: right;
+  border-radius: 1.25rem;
+  width: 16rem;
+  height: 2.25rem;
+  max-width: 90vw;
+  padding-left: 1rem;
+}
+.warehouses__list-sortIcon {
+  display: none;
+}
+.warehouses__header-button {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+}
+.warehouses__header-button-bar {
+  background-color: #2e66e5;
+  border: 1px solid #bdc5d5;
+  width: 16rem;
+  height: 2.25rem;
+  border-radius: 1.25rem;
+  color: #ffffff;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+.warehouses__list-wrapper--large {
+  display: none;
+}
+.warehouses__list-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  padding-top: 1rem;
+  border-top: 0.1rem solid #bdc5d5;
+  padding: 1rem;
+}
+.warehouses__list-container-wrap {
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.6875rem;
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  font-weight: 600;
+  color: #5c667e;
+  gap: 2rem;
+}
+.warehouses__actions-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.warehouses__actions-button {
+  border: none;
+  background: none;
+}
+
+.list__location-infoText {
+  color: #2e66e5;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+.list__location-title, .list__address-title, .list__name-title, .list__contact-title {
+  display: flex;
+  justify-content: flex-start;
+  width: 20%;
+}
+.list__location-info-wrapper, .list__address-info, .list__name-info, .list__contact-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  color: #13182c;
+}
+.list__location-titleText, .list__address-titleText, .list__name-titleText, .list__contact-titleText {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .warehouses__list-wraper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .warehouses__header {
+    padding: 1.5rem 2rem 0.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .warehouses__header-wrapper {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 1rem;
+    gap: 1rem;
+  }
+  .warehouses__header-title {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+    margin-top: 0;
+    padding-top: 1rem;
+    margin-bottom: 0;
+  }
+  .warehouses__header-search-bar {
+    width: 11.5625rem;
+    height: 2.375rem;
+  }
+  .warehouses__header-button-bar {
+    width: 10.5rem;
+    height: 2.375rem;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+  }
+  .warehouses__list-wrapper--large {
+    display: inline;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    font-weight: 600;
+    color: #5c667e;
+    background-color: rgba(247, 248, 249, 0.7);
+    border: 1px solid rgba(247, 248, 249, 0.7);
+    padding-left: 2rem;
+  }
+  .warehouses__list-container {
+    border-top: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+    box-sizing: border-box;
+  }
+  .warehouses__list-container-wrap {
+    display: inline;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+  .warehouses__actions-container {
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    width: 6rem;
+  }
+  .warehouses__list-content {
+    width: 40%;
+    display: flex;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    font-weight: 600;
+  }
+  .warehouses__list-sortIcon {
+    display: block;
+    padding-left: 0.25rem;
+  }
+  .warehouses__list-sortIcon {
+    max-width: 1.2rem;
+    max-height: 1.2rem;
+  }
+  .list__location-info-wrapper {
+    width: 8.3rem;
+  }
+  .list__address-infoText {
+    width: 6rem;
+  }
+  .list__address-container {
+    width: 6.2rem;
+  }
+  .list__location-title, .list__address-title, .list__name-title, .list__contact-title {
+    display: none;
+  }
+  .list__location-address {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+  .list__name-info {
+    width: 6rem;
+  }
+  .list-infoText {
+    display: flex;
+    align-items: center;
+  }
+  .list__name-container {
+    width: 5.2rem;
+  }
+  .list__name-contact {
+    display: flex;
+    justify-content: flex-start;
+    gap: 3rem;
+  }
+  .list__contact-info {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .list__contact-container {
+    width: 4rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .warehouses__header {
+    padding: 1.5rem 2rem 0.5rem 2rem;
+  }
+  .warehouses__header-search-bar {
+    width: 17.125rem;
+    height: 2.375rem;
+  }
+  .warehouses__list-container {
+    display: inline;
+    border-top: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 5.5rem;
+    box-sizing: border-box;
+    gap: 8.5rem;
+  }
+  .list__location-address {
+    display: inline;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 4.75rem;
+  }
+  .warehouses__list-wrapper--large {
+    display: inline;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .warehouses__list-content {
+    display: inline;
+    display: flex;
+    justify-content: flex-start;
+    width: 10rem;
+  }
+  .warehouses__list-container-wrap {
+    display: inline;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 7.4rem;
+  }
+  .list__name-contact {
+    display: inline;
+    display: flex;
+    justify-content: flex-start;
+    gap: 8rem;
+  }
+}/*# sourceMappingURL=warehouseList.css.map */

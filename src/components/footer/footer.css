@@ -1,0 +1,49 @@
+/* Media query for mobile */
+/* Media query for tablet */
+/* Media query for high pixel density devices */
+/* Mobile text styles */
+/* Desktop text styles */
+html,
+body {
+  margin: 0;
+  font-family: "Titillium", sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@font-face {
+  font-family: "Titillium";
+  src: url(../../assets/Font/TitilliumWeb-Bold.ttf);
+  format: "opentype";
+  font-weight: 600;
+  font-style: bold;
+}
+@font-face {
+  font-family: "Titillium";
+  src: url(../../assets/Font/TitilliumWeb-Regular.ttf);
+  format: "opentype";
+  font-weight: 400;
+  font-style: normal;
+}
+footer {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 2rem;
+  color: #5c667e;
+  width: 100%;
+  text-align: center;
+}
+
+@media only screen and (min-width: 1280px) {
+  footer {
+    padding: 3rem;
+  }
+}/*# sourceMappingURL=footer.css.map */

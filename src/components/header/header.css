@@ -1,0 +1,97 @@
+/* Media query for mobile */
+/* Media query for tablet */
+/* Media query for high pixel density devices */
+/* Mobile text styles */
+/* Desktop text styles */
+html,
+body {
+  margin: 0;
+  font-family: "Titillium", sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@font-face {
+  font-family: "Titillium";
+  src: url(../../assets/Font/TitilliumWeb-Bold.ttf);
+  format: "opentype";
+  font-weight: 600;
+  font-style: bold;
+}
+@font-face {
+  font-family: "Titillium";
+  src: url(../../assets/Font/TitilliumWeb-Regular.ttf);
+  format: "opentype";
+  font-weight: 400;
+  font-style: normal;
+}
+.header {
+  background-color: #232940;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 11.625rem;
+}
+.header--active {
+  padding: 0.5rem 1.5rem;
+  background-color: #13182c;
+  border: 1px solid #13182c;
+  border-radius: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+.header__logo-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.header__logo {
+  height: 2rem;
+  width: 9rem;
+}
+.header__nav-list {
+  padding-left: 0;
+  display: flex;
+  justify-content: space-around;
+}
+.header__nav-item {
+  list-style: none;
+}
+.header__nav-link {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  text-decoration: none;
+  color: #bdc5d5;
+  border-radius: 1.25rem;
+  width: 10.1875rem;
+  height: 2.25rem;
+}
+.header__nav-link:hover {
+  -webkit-text-decoration: underline #bdc5d5;
+          text-decoration: underline #bdc5d5;
+  color: #ffffff;
+}
+
+@media only screen and (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .header__logo-wrapper {
+    padding: 1rem;
+  }
+  .header__nav-wrapper {
+    width: 30%;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .header__nav-list {
+    justify-content: space-evenly;
+  }
+}/*# sourceMappingURL=header.css.map */

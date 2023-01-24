@@ -1,0 +1,216 @@
+/* Media query for mobile */
+/* Media query for tablet */
+/* Media query for high pixel density devices */
+/* Mobile text styles */
+/* Desktop text styles */
+html,
+body {
+  margin: 0;
+  font-family: "Titillium", sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@font-face {
+  font-family: "Titillium";
+  src: url(../../assets/Font/TitilliumWeb-Bold.ttf);
+  format: "opentype";
+  font-weight: 600;
+  font-style: bold;
+}
+@font-face {
+  font-family: "Titillium";
+  src: url(../../assets/Font/TitilliumWeb-Regular.ttf);
+  format: "opentype";
+  font-weight: 400;
+  font-style: normal;
+}
+.details__header-wrapper {
+  display: flex;
+  padding: 0.5rem;
+  border-bottom: 0.0625rem solid #bdc5d5;
+  position: relative;
+}
+.details__header-link {
+  display: flex;
+  padding: 0.5rem;
+}
+.details__header-img {
+  padding-right: 0.5rem;
+  padding-top: 0.6rem;
+}
+.details__header-title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  color: #13182c;
+  margin: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.details__edit-btn {
+  border: none;
+  background: #2e66e5;
+  border-radius: 50%;
+  position: absolute;
+  right: 5.5rem;
+  top: 1.5rem;
+}
+.details__edit-img {
+  filter: brightness(0) invert(1);
+  border-radius: 50%;
+}
+.details__edit-btn-text {
+  display: none;
+}
+.details__main {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.5rem;
+}
+.details__main h4 {
+  margin: auto;
+  padding-bottom: 0.25rem;
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  font-weight: 600;
+  color: #5c667e;
+}
+.details__main p {
+  margin: 0;
+  padding-bottom: 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.625rem;
+  font-weight: 400;
+  color: #13182c;
+}
+.details__status-text {
+  padding-bottom: 0 !important;
+  border-radius: 1.25rem !important;
+}
+.details____StatusQTYWarehouse-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.details__statusQty-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.details__status-wrapper {
+  width: 70%;
+}
+.details__qty-wrapper {
+  width: 30%;
+}
+
+@media only screen and (min-width: 768px) {
+  .details__header-wrapper {
+    display: flex;
+    padding: 0.5rem;
+    border-bottom: 0.0625rem solid #bdc5d5;
+    position: relative;
+  }
+  .details__header-link {
+    display: flex;
+    padding: 0.5rem;
+  }
+  .details__header-img {
+    padding-right: 0.5rem;
+    padding-top: 1rem;
+  }
+  .details__header-title {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+    color: #13182c;
+    margin: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .details__edit-btn {
+    border: none;
+    background: #2e66e5;
+    border-radius: 1.25rem;
+    position: absolute;
+    right: 5.5rem;
+    top: 1.5rem;
+    padding: 0.5rem 1rem;
+  }
+  .details__edit-img {
+    filter: brightness(0) invert(1);
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+  .details__edit-btn-text {
+    display: unset;
+    vertical-align: bottom;
+  }
+  .details__edit-btn-text {
+    color: #ffffff;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+  }
+  .details__main {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 1.5rem;
+    width: 100%;
+  }
+  .details__main h4 {
+    margin: auto;
+    padding-bottom: 0.25rem;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    font-weight: 600;
+    color: #5c667e;
+  }
+  .details__main p {
+    margin: 0;
+    padding-bottom: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+    color: #13182c;
+  }
+  .details__status-text {
+    padding-bottom: 0 !important;
+    border-radius: 1.25rem !important;
+  }
+  .details__descriptionCategory-wrap {
+    width: 50%;
+    padding-right: 1rem;
+    border-right: 1px solid #bdc5d5;
+  }
+  .details__category-wrapper {
+    padding-top: 0.25rem;
+  }
+  .details__warehouse-wrapper {
+    padding-top: 1rem;
+  }
+  .details__StatusQTYWarehouse-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding-left: 1rem;
+  }
+  .details__statusQty-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+  }
+  .details__status-wrapper {
+    width: 70%;
+  }
+  .details__qty-wrapper {
+    width: 30%;
+  }
+}/*# sourceMappingURL=InventoryItemDetails.css.map */

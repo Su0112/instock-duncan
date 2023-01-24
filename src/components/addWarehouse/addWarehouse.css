@@ -1,0 +1,156 @@
+/* Media query for mobile */
+/* Media query for tablet */
+/* Media query for high pixel density devices */
+/* Mobile text styles */
+/* Desktop text styles */
+html,
+body {
+  margin: 0;
+  font-family: "Titillium", sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@font-face {
+  font-family: "Titillium";
+  src: url(../../assets/Font/TitilliumWeb-Bold.ttf);
+  format: "opentype";
+  font-weight: 600;
+  font-style: bold;
+}
+@font-face {
+  font-family: "Titillium";
+  src: url(../../assets/Font/TitilliumWeb-Regular.ttf);
+  format: "opentype";
+  font-weight: 400;
+  font-style: normal;
+}
+.add__form {
+  padding: 1.5rem;
+}
+.add__form__main {
+  margin: 1rem 0;
+}
+.add__form__header {
+  display: flex;
+  padding: 1rem;
+  border-bottom: 0.0625rem solid #bdc5d5;
+}
+.add__form__header-img {
+  padding-right: 0.5rem;
+}
+.add__form__header-title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  color: #13182c;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.add__form__warehouse-details-title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  font-weight: 400;
+  margin: 0;
+}
+.add__form__warehouse-detailsFirst, .add__form__warehouse-detailsSecond {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+.add__form__warehouse-detailsSecond {
+  border-top: 0.0625rem solid #bdc5d5;
+}
+.add__form__input-title {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.2rem;
+  display: inline-block;
+}
+.add__form__input {
+  width: 18.4375rem;
+  height: 2.25rem;
+  border: 1px solid #bdc5d5;
+  border-radius: 1.25rem;
+  font-family: Titillium;
+  resize: none;
+  padding-left: 1rem;
+  line-height: 1.25rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+.add__form__input:focus {
+  outline: 0.125rem solid #2e66e5;
+  box-shadow: 0 0 0.75rem #76a7db;
+}
+.add__form__btn-wrapper {
+  display: flex;
+  justify-content: space-around;
+  background: #f7f8f9;
+  border-top: 1px solid #bdc5d5;
+}
+.add__form__btn--cancel {
+  height: 2.25rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 2.5rem;
+  border: 1px solid #bdc5d5;
+  border-radius: 1.25rem;
+  font-family: Titillium;
+  color: #5c667e;
+  background-color: #ffffff;
+}
+.add__form__btn--addItem {
+  height: 2.25rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 2.5rem;
+  border: 1px solid #bdc5d5;
+  border-radius: 1.25rem;
+  font-family: Titillium;
+  color: #ffffff;
+  background-color: #2e66e5;
+}
+
+@media only screen and (min-width: 768px) {
+  .add__form__main {
+    display: flex;
+    justify-content: center;
+  }
+  .add__form__header-title {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+    font-weight: 400;
+  }
+  .add__form__btn-wrapper {
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0;
+    height: 4.375rem;
+    padding: 1rem 0;
+  }
+  .add__form__content-main {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 1rem;
+  }
+  .add__form__warehouse-detailsSecond {
+    border-top: none;
+    border-left: 0.0625rem solid #bdc5d5;
+  }
+  .add__form__btn--cancel, .add__form__btn--addItem {
+    margin: 0.5rem;
+  }
+}/*# sourceMappingURL=addWarehouse.css.map */
