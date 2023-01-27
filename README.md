@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# InStock 🌱
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Instock is an Agile project to deliver a full stack Inventory Management System with a modern React and SCSS front-end communicating with back-end, that was build with Node.js (Express.js). Knex.js was used as an SQL query builder in Node.js., it was used for model schema creation, table migrations, connection pooling and seeding.
 
-## Available Scripts
+The website is fully responsive for mobile, tablet, and desktop viewing and users can add, edit or delete both warehouses and inventory items (full CRUD operations).
 
-In the project directory, you can run:
+## Demo 🌱
 
-### `npm start`
+https://user-images.githubusercontent.com/97055104/214982067-40802963-5775-4c3e-8579-26239a854757.mp4
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+My contribution to the project:
+Lakpa and me were fully responsible for setting beckend part and database.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## The Team
 
-### `npm test`
+This project was built with the collaboration of: <br>
+Su (https://github.com/Su0112) <br>
+Lakpa (https://github.com/ldietz08) <br>
+Caty (https://github.com/Caty115)<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack and Tools
 
-### `npm run build`
+- HTML, SASS, JavaScript, React.js, Node.js, Express.js, API's , MySQL, Knex.js, Axios
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. To install and run the project you will need to clone or dowload the Frontend file - [instock-dunkan](https://github.com/Awatanka/instock-duncan), and the Backend file - [instock-api-dunkan](https://github.com/Awatanka/instock-api-duncan/tree/main);
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Run `nmp i` to install all the required packages for the app;
 
-### `npm run eject`
+## Environment Variables
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+\*\*\* Frontend:
+Add the following variables in .env file:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`REACT_APP_API_URL=https://localhost:8080`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+\*\*\* Backend:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+`PORT = 8080`
+`DB_LOCAL_DBNAME="Warehouse"`<br>
+`DB_LOCAL_USER="YOUR DB USER NAME"`<br>
+`DB_LOCAL_PASSWORD="YOUR DB PASSWORD"`<br>
+\*\*In case of problems check dependencies
+"dependencies": {
+"cors": "^2.8.5",
+"dotenv": "^16.0.3",
+"express": "^4.18.2",
+"knex": "^2.3.0",
+"moment": "^2.29.4",
+"mysql": "^2.18.1",
+"uuid": "^9.0.0"
+},
 
-## Learn More
+3. First run server use command `npm start`. When you will see message 'Server is running on port 8080 🚀', do next step.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. To start the Frontend run the command `npm start`;
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## How to work with Knex.js
 
-### Code Splitting
+Knex is a SQL query builder, mainly used for Node.js applications with built in model schema creation, table migrations, connection pooling and seeding.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Install Knex and Knex Command Line Tool
 
-### Analyzing the Bundle Size
+Install `knex` **globally** on your local computer.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+$ npm install knex -g
+```
 
-### Making a Progressive Web App
+This will allow us to use `knex` as a command line tool that helps you create and manage your knex files.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+In addition, you will need to also install the `knex` module **locally** to use in your project.
 
-### Advanced Configuration
+```bash
+$ npm install knex --save
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Configuring your database
 
-### Deployment
+We're going to be connecting to a MySQL database, we'll need to install the `mysql` module.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+$ npm install mysql --save
+```
 
-### `npm run build` fails to minify
+We can start by creating a `knexfile.js` in the root of your project which will act as our configuration for different environments, (e.g. – local development vs production).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+$ knex init
+```
+
+This will create a `knexfile.js` with the different configurations for the different environments.
